@@ -1,18 +1,61 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, MotionValue } from "framer-motion";
 import Sticker, { ThumbsUpSticker } from "./Sticker";
 
 const words = [
   { text: "We", rotate: -3, y: 0 },
-  { text: "wanna", rotate: 2, y: 10 },
-  { text: "be", rotate: -1, y: -8, big: true },
-  { text: "where", rotate: 3, y: 15 },
-  { text: "the", rotate: -4, y: 0 },
-  { text: "people", rotate: 1, y: 5 },
-  { text: "Are", rotate: 5, y: -12, serif: true },
+  { text: "Make", rotate: 2, y: 10 },
+  { text: "Ads", rotate: -1, y: -8, big: true },
+  { text: "That", rotate: 3, y: 15 },
+  { text: "Actually", rotate: -4, y: 0 },
+  { text: "Convert.", rotate: 1, y: 5, serif: true },
 ];
+
+const ScatteredWord: React.FC<{
+  word: (typeof words)[number];
+  index: number;
+  scrollYProgress: MotionValue<number>;
+  isInView: boolean;
+}> = ({ word, index, scrollYProgress, isInView }) => {
+  const parallaxY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [word.y + 30, word.y - 20]
+  );
+  const parallaxRotate = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [word.rotate - 5, word.rotate, word.rotate + 3]
+  );
+
+  return (
+    <motion.span
+      className={`scattered-word ${word.serif ? "scattered-word-serif" : ""}`}
+      style={{
+        y: parallaxY,
+        rotate: parallaxRotate,
+        fontSize: word.big
+          ? "clamp(3.5rem, 9vw, 8rem)"
+          : undefined,
+      }}
+      initial={{ opacity: 0, y: 60, rotate: word.rotate + 10 }}
+      animate={
+        isInView
+          ? { opacity: 1, y: word.y, rotate: word.rotate }
+          : {}
+      }
+      transition={{
+        duration: 0.7,
+        delay: index * 0.08,
+        ease: "easeOut",
+      }}
+    >
+      {word.text}
+    </motion.span>
+  );
+};
 
 const ScatteredText: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -28,49 +71,19 @@ const ScatteredText: React.FC = () => {
       <div className="scattered-container">
         {/* Thumbs up sticker */}
         <Sticker x="65%" y={-30} delay={0.3}>
-          <ThumbsUpSticker size={65} />
+          <ThumbsUpSticker size={90} />
         </Sticker>
 
         <div className="scattered-text-row">
-          {words.map((word, i) => {
-            const parallaxY = useTransform(
-              scrollYProgress,
-              [0, 1],
-              [word.y + 30, word.y - 20]
-            );
-            const parallaxRotate = useTransform(
-              scrollYProgress,
-              [0, 0.5, 1],
-              [word.rotate - 5, word.rotate, word.rotate + 3]
-            );
-
-            return (
-              <motion.span
-                key={i}
-                className={`scattered-word ${word.serif ? "scattered-word-serif" : ""}`}
-                style={{
-                  y: parallaxY,
-                  rotate: parallaxRotate,
-                  fontSize: word.big
-                    ? "clamp(3.5rem, 9vw, 8rem)"
-                    : undefined,
-                }}
-                initial={{ opacity: 0, y: 60, rotate: word.rotate + 10 }}
-                animate={
-                  isInView
-                    ? { opacity: 1, y: word.y, rotate: word.rotate }
-                    : {}
-                }
-                transition={{
-                  duration: 0.7,
-                  delay: i * 0.08,
-                  ease: "easeOut",
-                }}
-              >
-                {word.text}
-              </motion.span>
-            );
-          })}
+          {words.map((word, i) => (
+            <ScatteredWord
+              key={i}
+              word={word}
+              index={i}
+              scrollYProgress={scrollYProgress}
+              isInView={isInView}
+            />
+          ))}
         </div>
 
         <motion.p
@@ -79,8 +92,8 @@ const ScatteredText: React.FC = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          Audiences are more scattered <em>and</em> more reachable than ever.
-          We help brands become leaders on the channels of the new mainstream.
+          D2C brands need content that stops the scroll, builds trust
+          <em> and</em> drives purchases. We build all three — at AI speed.
         </motion.p>
       </div>
     </section>

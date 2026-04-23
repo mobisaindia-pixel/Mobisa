@@ -6,10 +6,8 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ScatteredText from "./components/ScatteredText";
 import AgencySection from "./components/AgencySection";
-import ProjectsCarousel from "./components/ProjectsCarousel";
-import TeamSection from "./components/TeamSection";
+import ShowcaseSection from "./components/ShowcaseSection";
 import ServicesSection from "./components/ServicesSection";
-import ClientsSection from "./components/ClientsSection";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -21,10 +19,9 @@ export default function Home() {
         <Hero />
         <ScatteredText />
         <AgencySection />
-        <ProjectsCarousel />
-        <TeamSection />
+        <ShowcaseSection />
         <ServicesSection />
-        <ClientsSection />
+
       </main>
       <Footer />
     </>

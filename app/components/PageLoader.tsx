@@ -28,7 +28,7 @@ const PageLoader: React.FC = () => {
             }}
             transition={{ duration: 1.6, ease: "easeInOut" }}
           >
-            truus
+            mobisa
           </motion.span>
         </motion.div>
       )}

@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import LenisProvider from "./components/LenisProvider";
 
 export const metadata: Metadata = {
-  title: "Truus - We make advertising for the new mainstream",
+  title: "Mobisa — AI-Powered Creative Agency",
   description:
-    "To reach the new generation you need to know where they are. We are a true 360° agency, working the whole spectrum from TikTok content to TVC and from influencer collabs to out of home spectaculars.",
+    "We make cinematic ads powered by AI. Social posts, mockups, UGC ads, and AI video ads for D2C brands.",
+  icons: {
+    icon: "/Mobisa-Logo.png",
+    apple: "/Mobisa-Logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +31,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <LenisProvider>{children}</LenisProvider>
+      </body>
     </html>
   );
 }

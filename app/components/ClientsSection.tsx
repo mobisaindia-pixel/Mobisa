@@ -66,7 +66,7 @@ const ClientsSection: React.FC = () => {
               />
             </motion.svg>
             <Sticker x={140} y={120} delay={0.2}>
-              <KoreanHeartSticker size={50} />
+              <KoreanHeartSticker size={80} />
             </Sticker>
           </div>
 

@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
       <div className="hero-content">
         {/* Smiley floating above the text */}
         <Sticker x="42%" y={-60} delay={0.5}>
-          <SmileySticker size={55} color="rgba(180, 180, 240, 0.7)" />
+          <SmileySticker size={85} />
         </Sticker>
 
         <motion.h1
@@ -35,13 +35,13 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.9, delay: 1.9, ease: "easeOut" }}
         >
           <span>we make </span>
-          <span className="hero-title-italic">advertising </span>
-          <span className="hero-title-bold">for</span>
+          <span className="hero-title-italic">cinematic </span>
+          <span className="hero-title-bold">ads,</span>
           <br />
-          <span>the new </span>
+          <span>powered by </span>
           <span className="hero-mainstream">
-            mainstream
-            {/* Hand-drawn oval around "mainstream" */}
+            AI.
+            {/* Hand-drawn oval around "AI." */}
             <motion.svg
               className="mainstream-oval"
               viewBox="0 0 300 80"
@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
             animate={{ rotate: [0, 180, 360], scale: [1, 1.3, 1] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
-            <SparkleSticker size={30} color="#c8b4ff" />
+            <SparkleSticker size={40} color="#c8b4ff" />
           </motion.span>
         </motion.h1>
       </div>
@@ -93,6 +93,11 @@ const Hero: React.FC = () => {
         className="hero-float-img hero-float-3"
         animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
+      <motion.div
+        className="hero-float-img hero-float-4"
+        animate={{ y: [0, 18, 0], rotate: [-2, 3, -2] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
       />
     </motion.section>
   );

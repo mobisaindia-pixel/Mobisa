@@ -1,173 +1,327 @@
 "use client";
 
-import React, { useRef } from "react";
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
-import Sticker, {
-  CameraSticker,
-  PhoneSticker,
-  BigSmileySticker,
-  MonsterSticker,
-  HeartSparkleSticker,
-} from "./Sticker";
+import React, { useRef, useEffect, useCallback } from "react";
+import { motion, useInView } from "framer-motion";
+import gsap from "gsap";
+
+/* ═══════════════════════════════════════════
+   STICKER SVGs — large, white-bordered, hand-drawn style
+   ═══════════════════════════════════════════ */
+
+// Card 1 — Film Clapperboard (light blue fill #BFDFFF)
+const ClapperboardSticker: React.FC<{ size?: number }> = ({ size = 95 }) => (
+  <svg
+    viewBox="0 0 100 95"
+    width={size}
+    height={size * 0.95}
+    style={{ filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.25))" }}
+  >
+    {/* White sticker border */}
+    <rect x="4" y="4" width="92" height="87" rx="14" fill="white" />
+    <g transform="translate(15, 10)">
+      {/* Clapper top */}
+      <polygon
+        points="0,30 12,8 60,8 70,30"
+        fill="#BFDFFF"
+        stroke="#222"
+        strokeWidth="3"
+        strokeLinejoin="round"
+      />
+      {/* Clapper stripes */}
+      <line x1="18" y1="10" x2="26" y2="28" stroke="#222" strokeWidth="2.5" />
+      <line x1="34" y1="10" x2="42" y2="28" stroke="#222" strokeWidth="2.5" />
+      <line x1="50" y1="10" x2="58" y2="28" stroke="#222" strokeWidth="2.5" />
+      {/* Board body */}
+      <rect
+        x="0"
+        y="30"
+        width="70"
+        height="40"
+        rx="4"
+        fill="#BFDFFF"
+        stroke="#222"
+        strokeWidth="3"
+      />
+      {/* Lens circle on board */}
+      <circle cx="35" cy="50" r="8" fill="white" stroke="#222" strokeWidth="2" />
+      <circle cx="35" cy="50" r="3" fill="#222" />
+    </g>
+  </svg>
+);
+
+// Card 2 — Camera (light yellow fill #FFF5B0)
+const CameraSticker: React.FC<{ size?: number }> = ({ size = 95 }) => (
+  <svg
+    viewBox="0 0 100 95"
+    width={size}
+    height={size * 0.95}
+    style={{ filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.25))" }}
+  >
+    {/* White sticker border */}
+    <rect x="4" y="4" width="92" height="87" rx="14" fill="white" />
+    <g transform="translate(14, 14)">
+      {/* Camera body */}
+      <rect
+        x="2"
+        y="18"
+        width="68"
+        height="48"
+        rx="8"
+        fill="#FFF5B0"
+        stroke="#222"
+        strokeWidth="3"
+      />
+      {/* Flash bump */}
+      <rect
+        x="20"
+        y="8"
+        width="22"
+        height="14"
+        rx="4"
+        fill="#FFF5B0"
+        stroke="#222"
+        strokeWidth="2.5"
+      />
+      {/* Lens outer */}
+      <circle cx="36" cy="42" r="16" fill="#FFF5B0" stroke="#222" strokeWidth="3" />
+      {/* Lens inner */}
+      <circle cx="36" cy="42" r="9" fill="white" stroke="#222" strokeWidth="2" />
+      {/* Lens center */}
+      <circle cx="36" cy="42" r="4" fill="#222" />
+      {/* Flash dot */}
+      <circle cx="56" cy="28" r="3" fill="#222" />
+    </g>
+  </svg>
+);
+
+// Card 3 — Phone with Play Button (light purple fill #E8CCFF)
+const PhonePlaySticker: React.FC<{ size?: number }> = ({ size = 95 }) => (
+  <svg
+    viewBox="0 0 100 95"
+    width={size}
+    height={size * 0.95}
+    style={{ filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.25))" }}
+  >
+    {/* White sticker border */}
+    <rect x="4" y="4" width="92" height="87" rx="14" fill="white" />
+    <g transform="translate(22, 8)">
+      {/* Phone body */}
+      <rect
+        x="4"
+        y="4"
+        width="48"
+        height="78"
+        rx="8"
+        fill="#E8CCFF"
+        stroke="#222"
+        strokeWidth="3"
+      />
+      {/* Screen */}
+      <rect
+        x="10"
+        y="16"
+        width="36"
+        height="50"
+        rx="3"
+        fill="white"
+        stroke="#222"
+        strokeWidth="1.5"
+      />
+      {/* Play triangle */}
+      <polygon
+        points="22,30 22,52 40,41"
+        fill="#222"
+        stroke="#222"
+        strokeWidth="1"
+        strokeLinejoin="round"
+      />
+      {/* Speaker notch */}
+      <line x1="22" y1="10" x2="34" y2="10" stroke="#222" strokeWidth="2" strokeLinecap="round" />
+      {/* Home indicator */}
+      <line x1="22" y1="76" x2="34" y2="76" stroke="#222" strokeWidth="2" strokeLinecap="round" />
+    </g>
+  </svg>
+);
+
+// Card 4 — Sparkle/Star Burst (light green fill #CCFFCC)
+const SparkleSticker: React.FC<{ size?: number }> = ({ size = 95 }) => (
+  <svg
+    viewBox="0 0 100 95"
+    width={size}
+    height={size * 0.95}
+    style={{ filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.25))" }}
+  >
+    {/* White sticker border */}
+    <rect x="4" y="4" width="92" height="87" rx="14" fill="white" />
+    <g transform="translate(12, 10)">
+      {/* Main 4-point star */}
+      <path
+        d="M38,4 L44,28 L68,22 L48,38 L72,48 L48,48 L56,72 L38,52 L20,72 L28,48 L4,48 L28,38 L8,22 L32,28 Z"
+        fill="#CCFFCC"
+        stroke="#222"
+        strokeWidth="3"
+        strokeLinejoin="round"
+      />
+      {/* Inner circle */}
+      <circle cx="38" cy="40" r="8" fill="white" stroke="#222" strokeWidth="2" />
+      {/* Tiny sparkle dots */}
+      <circle cx="16" cy="12" r="3" fill="#CCFFCC" stroke="#222" strokeWidth="1.5" />
+      <circle cx="62" cy="8" r="2.5" fill="#CCFFCC" stroke="#222" strokeWidth="1.5" />
+      <circle cx="66" cy="64" r="2" fill="#CCFFCC" stroke="#222" strokeWidth="1.5" />
+    </g>
+  </svg>
+);
+
+/* ═══════════════════════════════════════════
+   DATA
+   ═══════════════════════════════════════════ */
 
 interface ServiceCardData {
   title: string;
   color: string;
-  rotation: number;
   items: string[];
-  StickerIcon: React.FC<{ size?: number }>;
-  stickerSize: number;
 }
 
 const services: ServiceCardData[] = [
   {
-    title: "brand",
-    color: "#2d7a5f",
-    rotation: -10,
+    title: "social posts",
+    color: "#3DAE6F",
     items: [
-      "Brand Strategy",
-      "360° Creative",
-      "Art Direction",
-      "Copywriting",
-      "Editing",
-      "Motion Graphics",
-      "DTP",
+      "Scroll-stopping hooks",
+      "Hook-first copywriting",
+      "Platform-native formats",
+      "Brand-aligned design",
+      "Instagram / LinkedIn / X",
     ],
-    StickerIcon: CameraSticker,
-    stickerSize: 60,
   },
   {
-    title: "social",
-    color: "#5b7bf5",
-    rotation: -5,
+    title: "mockups",
+    color: "#A855F7",
     items: [
-      "Social Media Strategy",
-      "Social Media Creative",
-      "TikTok/Social Shoots",
-      "Influencer Campaigns",
-      "Scheduling Support",
-      "Community Management",
-      "Social Listening",
+      "Scene conceptualization",
+      "AI image generation",
+      "Realistic lighting & shadow",
+      "Multi-format exports",
+      "Revision rounds",
     ],
-    StickerIcon: PhoneSticker,
-    stickerSize: 55,
   },
   {
-    title: "activations",
-    color: "#e84e1b",
-    rotation: 0,
+    title: "ugc ads",
+    color: "#F97316",
     items: [
-      "Activation Strategy",
-      "Event Planning",
-      "Art Direction",
-      "Production",
+      "UGC scripting",
+      "Storyboard direction",
+      "Faceless or talent-led",
+      "Captions + sound design",
+      "Reels / TikTok / Shorts",
     ],
-    StickerIcon: BigSmileySticker,
-    stickerSize: 65,
   },
   {
-    title: "video\nproduction",
-    color: "#8b3a62",
-    rotation: 5,
+    title: "ai ads ★",
+    color: "#4F46E5",
     items: [
-      "Campaign video",
-      "Branded content",
-      "Social content",
-      "Marketing materials",
+      "Full creative brief",
+      "AI storyboard",
+      "Kling / Veo / Seedance",
+      "Voiceover + sound design",
+      "6s · 15s · 30s · 60s cuts",
     ],
-    StickerIcon: MonsterSticker,
-    stickerSize: 60,
-  },
-  {
-    title: "with\npartners",
-    color: "#c9a5e8",
-    rotation: 10,
-    items: ["PR/Journalism", "3D / VFX", "food styling", "Photography"],
-    StickerIcon: HeartSparkleSticker,
-    stickerSize: 55,
   },
 ];
 
-const ServiceCard: React.FC<{
-  service: ServiceCardData;
-  index: number;
-}> = ({ service, index }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const tiltX = useTransform(mouseY, [-0.5, 0.5], [8, -8]);
-  const tiltY = useTransform(mouseX, [-0.5, 0.5], [-8, 8]);
+// Sticker per card — large, with unique rotation
+const stickerComponents = [
+  { Component: ClapperboardSticker, size: 95, rotate: -8 },
+  { Component: CameraSticker, size: 95, rotate: 6 },
+  { Component: PhonePlaySticker, size: 90, rotate: -5 },
+  { Component: SparkleSticker, size: 95, rotate: 10 },
+];
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-  };
+/* ═══════════════════════════════════════════
+   FAN LAYOUT CONSTANTS
+   ═══════════════════════════════════════════ */
+const CARD_W = 340;
+const ROTATIONS = [-18, -7, 6, 15];
+// Full-width spread with overlap: adjacent cards overlap ~70-80px
+const X_OFFSETS = [-390, -130, 130, 390];
+const Y_OFFSETS = [60, 20, -20, 40]; // vertical stagger for wave rhythm
+const Z_INDICES = [1, 3, 4, 2]; // middle cards on top, outer cards behind
+const SPREAD_AMOUNT = 250; // how far non-hovered cards push away on hover
 
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={cardRef}
-      className="service-card"
-      style={{
-        background: service.color,
-        marginLeft: index > 0 ? -25 : 0,
-        rotateX: tiltX,
-        rotateY: tiltY,
-        transformPerspective: 900,
-      }}
-      initial={{ opacity: 0, y: 120, rotate: service.rotation + 20 }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        rotate: service.rotation,
-      }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.1,
-        ease: "easeOut",
-      }}
-      whileHover={{
-        rotate: 0,
-        y: -35,
-        scale: 1.06,
-        zIndex: 25,
-        transition: { duration: 0.35, ease: "easeOut" },
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <Sticker x="auto" y={-35} style={{ right: 18, left: "auto" }} delay={0.5 + index * 0.1}>
-        <service.StickerIcon size={service.stickerSize} />
-      </Sticker>
-
-      <h3 className="card-title" style={{ whiteSpace: "pre-line" }}>
-        {service.title}
-      </h3>
-      <div className="card-divider" />
-      <ul className="card-list">
-        {service.items.map((item, i) => (
-          <li key={i}>✦ {item}</li>
-        ))}
-      </ul>
-    </motion.div>
-  );
-};
-
+/* ═══════════════════════════════════════════
+   COMPONENT
+   ═══════════════════════════════════════════ */
 const ServicesSection: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  // After framer-motion entrance finishes, hand control to GSAP
+  useEffect(() => {
+    if (!isInView) return;
+    const timeout = setTimeout(() => {
+      cardRefs.current.forEach((card, i) => {
+        if (!card) return;
+        gsap.set(card, {
+          x: X_OFFSETS[i],
+          rotation: ROTATIONS[i],
+          y: Y_OFFSETS[i],
+          scale: 1,
+          zIndex: Z_INDICES[i],
+        });
+      });
+    }, 900);
+    return () => clearTimeout(timeout);
+  }, [isInView]);
+
+  // GSAP hover — spread other cards dramatically
+  const handleCardHover = useCallback((hoveredIdx: number) => {
+    cardRefs.current.forEach((card, i) => {
+      if (!card) return;
+      if (i === hoveredIdx) {
+        gsap.to(card, {
+          x: X_OFFSETS[i],
+          y: -40,
+          rotation: 0,
+          scale: 1.05,
+          zIndex: 10,
+          duration: 0.4,
+          ease: "power2.out",
+          overwrite: true,
+        });
+      } else {
+        const direction = i < hoveredIdx ? -1 : 1;
+        gsap.to(card, {
+          x: X_OFFSETS[i] + direction * SPREAD_AMOUNT,
+          y: Y_OFFSETS[i],
+          rotation: ROTATIONS[i] + direction * 4,
+          scale: 0.96,
+          zIndex: Z_INDICES[i],
+          duration: 0.4,
+          ease: "power2.out",
+          overwrite: true,
+        });
+      }
+    });
+  }, []);
+
+  // GSAP hover leave — return to fan
+  const handleCardLeave = useCallback(() => {
+    cardRefs.current.forEach((card, i) => {
+      if (!card) return;
+      gsap.to(card, {
+        x: X_OFFSETS[i],
+        y: Y_OFFSETS[i],
+        rotation: ROTATIONS[i],
+        scale: 1,
+        zIndex: Z_INDICES[i],
+        duration: 0.4,
+        ease: "power2.out",
+        overwrite: true,
+      });
+    });
+  }, []);
 
   return (
     <section className="services-section" id="services" ref={ref}>
@@ -178,7 +332,6 @@ const ServicesSection: React.FC = () => {
         transition={{ duration: 0.8 }}
       >
         call us if you <em>need:</em>
-        {/* Underline swish */}
         <motion.svg
           className="services-underline-svg"
           viewBox="0 0 120 12"
@@ -200,10 +353,62 @@ const ServicesSection: React.FC = () => {
         </motion.svg>
       </motion.h2>
 
-      <div className="services-cards">
-        {services.map((service, i) => (
-          <ServiceCard key={i} service={service} index={i} />
-        ))}
+      <div className="services-fan" ref={cardsRef}>
+        {services.map((service, i) => {
+          const sticker = stickerComponents[i];
+          return (
+            <motion.div
+              key={i}
+              ref={(el) => { cardRefs.current[i] = el; }}
+              className="svc-card"
+              style={{
+                background: service.color,
+                position: "absolute",
+                left: "50%",
+                marginLeft: -(CARD_W / 2),
+                zIndex: Z_INDICES[i],
+              }}
+              initial={{ opacity: 0, y: 150 + Y_OFFSETS[i], rotate: ROTATIONS[i] + 25 }}
+              whileInView={{
+                opacity: 1,
+                y: Y_OFFSETS[i],
+                rotate: ROTATIONS[i],
+                x: X_OFFSETS[i],
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.7,
+                delay: i * 0.1,
+                ease: "easeOut",
+              }}
+              onMouseEnter={() => handleCardHover(i)}
+              onMouseLeave={handleCardLeave}
+            >
+              {/* Large hand-drawn sticker — overlapping card top */}
+              <div
+                className="svc-sticker"
+                style={{
+                  position: "absolute",
+                  top: -45,
+                  right: 10,
+                  transform: `rotate(${sticker.rotate}deg)`,
+                  zIndex: 10,
+                  pointerEvents: "none",
+                }}
+              >
+                <sticker.Component size={sticker.size} />
+              </div>
+
+              <h3 className="svc-card-title">{service.title}</h3>
+              <div className="svc-card-divider" />
+              <ul className="svc-card-list">
+                {service.items.map((item, j) => (
+                  <li key={j}>✦ {item}</li>
+                ))}
+              </ul>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
