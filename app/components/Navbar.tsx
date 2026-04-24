@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import WorkMenu from "./WorkMenu";
+
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
