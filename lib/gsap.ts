@@ -1,9 +1,9 @@
-import gsap from "gsap-trial";
-import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
-import { Draggable } from "gsap-trial/Draggable";
-import { SplitText } from "gsap-trial/SplitText";
-import { InertiaPlugin } from "gsap-trial/InertiaPlugin";
-import { MorphSVGPlugin } from "gsap-trial/MorphSVGPlugin";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Draggable } from "gsap/Draggable";
+import { SplitText } from "gsap/SplitText";
+import { InertiaPlugin } from "gsap/InertiaPlugin";
+import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable, SplitText, InertiaPlugin, MorphSVGPlugin);
