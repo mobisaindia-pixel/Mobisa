@@ -341,42 +341,99 @@ img {
 .hero-video-bg {
   position: absolute;
   inset: 0;
+  z-index: 0;
 }
 
-.hero-animated-bg {
+.hero-bg-video {
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(ellipse at 30% 40%, rgba(45, 122, 95, 0.6) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 30%, rgba(91, 123, 245, 0.5) 0%, transparent 45%),
-    radial-gradient(ellipse at 50% 80%, rgba(232, 78, 27, 0.4) 0%, transparent 40%),
-    radial-gradient(ellipse at 80% 70%, rgba(139, 58, 98, 0.5) 0%, transparent 45%),
-    linear-gradient(135deg, #1a3a2a 0%, #0a1a12 30%, #12101e 60%, #1a0a0a 100%);
-  animation: heroGradientShift 12s ease-in-out infinite alternate;
+  object-fit: cover;
+  display: block;
 }
 
-@keyframes heroGradientShift {
-  0% {
-    background-position: 0% 0%, 100% 0%, 50% 100%, 80% 50%, 0% 0%;
-  }
-
-  50% {
-    background-position: 30% 20%, 70% 50%, 40% 80%, 60% 30%, 0% 0%;
-  }
-
-  100% {
-    background-position: 60% 40%, 40% 80%, 70% 60%, 20% 70%, 0% 0%;
-  }
-}
-
-.hero-gradient-overlay {
+/* Dark overlay on top of video for text readability */
+.hero-video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.05) 0%,
-      rgba(0, 0, 0, 0.15) 50%,
-      rgba(0, 0, 0, 0.5) 100%);
+  background: rgba(0, 0, 0, 0.40);
   z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Starburst Mute / Unmute Button ── */
+.hero-mute-btn {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  animation: muteFloat 3s ease-in-out infinite;
+}
+
+.hero-mute-btn--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.starburst-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+}
+
+.speaker-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes muteFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* ── Pause / Play Button — bottom-left ── */
+.hero-playpause-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-playpause-btn:hover {
+  background: rgba(0, 0, 0, 0.55);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-playpause-btn svg {
+  width: 100%;
+  height: 100%;
 }
 
 /* Floating image elements for collage effect */
