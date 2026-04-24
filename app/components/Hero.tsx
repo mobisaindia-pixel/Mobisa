@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Sticker, { SmileySticker, SparkleSticker } from "./Sticker";
+import gsap from "../../lib/gsap";
 
 const Hero: React.FC = () => {
   const { scrollYProgress } = useScroll();
@@ -11,9 +12,16 @@ const Hero: React.FC = () => {
   const heroY = useTransform(scrollYProgress, [0, 0.12], [0, -40]);
 
   const videoRef = useRef<HTMLVideoElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const stickerRef = useRef<HTMLDivElement>(null);
+  const clickAreaRef = useRef<HTMLButtonElement>(null);
+
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isHovered, setIsHovered] = useState(false);
+
+  // GSAP quickTo refs
+  const xToRef = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
+  const yToRef = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
 
   // Autoplay the video on mount
   useEffect(() => {
@@ -27,11 +35,88 @@ const Hero: React.FC = () => {
     }
   }, []);
 
+  // Setup GSAP quickTo for smooth cursor following + spinning animation
+  useEffect(() => {
+    const sticker = stickerRef.current;
+    const hero = heroRef.current;
+    if (!sticker || !hero) return;
+
+    // Set initial parked position (center, bottom third)
+    const heroRect = hero.getBoundingClientRect();
+    const parkedX = heroRect.width / 2 - 40;
+    const parkedY = heroRect.height * 0.65;
+    gsap.set(sticker, { x: parkedX, y: parkedY });
+
+    // Create quickTo tweens for smooth following
+    xToRef.current = gsap.quickTo(sticker, "x", {
+      duration: 0.4,
+      ease: "power2.out",
+    });
+    yToRef.current = gsap.quickTo(sticker, "y", {
+      duration: 0.4,
+      ease: "power2.out",
+    });
+
+    // Infinite rotation animation on the inner starburst
+    gsap.to(".mute-sticker-inner", {
+      rotation: 360,
+      duration: 8,
+      ease: "none",
+      repeat: -1,
+    });
+
+    return () => {
+      gsap.killTweensOf(sticker);
+      gsap.killTweensOf(".mute-sticker-inner");
+    };
+  }, []);
+
+  // Mouse move handler
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const hero = heroRef.current;
+      if (!hero || !xToRef.current || !yToRef.current) return;
+      const heroRect = hero.getBoundingClientRect();
+      // Position relative to hero, offset by half sticker size (40px)
+      const x = e.clientX - heroRect.left - 40;
+      const y = e.clientY - heroRect.top - 40;
+      xToRef.current(x);
+      yToRef.current(y);
+    },
+    []
+  );
+
+  // Mouse leave — park sticker back to center bottom-third
+  const handleMouseLeave = useCallback(() => {
+    const hero = heroRef.current;
+    if (!hero || !xToRef.current || !yToRef.current) return;
+    const heroRect = hero.getBoundingClientRect();
+    const parkedX = heroRect.width / 2 - 40;
+    const parkedY = heroRect.height * 0.65;
+    xToRef.current(parkedX);
+    yToRef.current(parkedY);
+  }, []);
+
   const toggleMute = () => {
     const video = videoRef.current;
+    const sticker = stickerRef.current;
     if (video) {
       video.muted = !video.muted;
       setIsMuted(video.muted);
+    }
+    // Scale pulse animation
+    if (sticker) {
+      gsap.fromTo(
+        sticker,
+        { scale: 1 },
+        {
+          scale: 1.3,
+          duration: 0.15,
+          ease: "power2.out",
+          yoyo: true,
+          repeat: 1,
+        }
+      );
     }
   };
 
@@ -53,8 +138,9 @@ const Hero: React.FC = () => {
       className="hero"
       id="hero"
       style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      ref={heroRef as React.Ref<HTMLElement>}
+      onMouseMove={handleMouseMove as unknown as React.MouseEventHandler<HTMLElement>}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Fullscreen background video */}
       <div className="hero-video-bg">
@@ -127,83 +213,80 @@ const Hero: React.FC = () => {
         </motion.h1>
       </div>
 
-      {/* Floating images in background for collage effect */}
-      <motion.div
-        className="hero-float-img hero-float-1"
-        animate={{ y: [0, -30, 0], rotate: [-3, 3, -3] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="hero-float-img hero-float-2"
-        animate={{ y: [0, 20, 0], rotate: [2, -4, 2] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
-      <motion.div
-        className="hero-float-img hero-float-3"
-        animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
-      <motion.div
-        className="hero-float-img hero-float-4"
-        animate={{ y: [0, 18, 0], rotate: [-2, 3, -2] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-      />
+      {/* ── Cursor-following Mute Sticker ── */}
+      <div className="mute-sticker-wrapper" ref={stickerRef}>
+        <div className="mute-sticker-inner">
+          {/* Spiky starburst SVG */}
+          <svg
+            className="starburst-svg"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 2 L58 20 L76 8 L70 28 L90 24 L78 40 L98 44 L80 52 L94 66 L74 62 L80 82 L62 72 L58 92 L50 74 L42 92 L38 72 L20 82 L26 62 L6 66 L20 52 L2 44 L22 40 L10 24 L30 28 L24 8 L42 20 Z"
+              fill="#DDFF00"
+            />
+          </svg>
 
-      {/* ── Starburst Mute / Unmute button (appears on hero hover) ── */}
-      <button
-        className={`hero-mute-btn ${isHovered ? "hero-mute-btn--visible" : ""}`}
-        onClick={toggleMute}
-        aria-label={isMuted ? "Unmute video" : "Mute video"}
-      >
-        {/* Spiky starburst SVG background */}
-        <svg
-          className="starburst-svg"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M50 2 L58 20 L76 8 L70 28 L90 24 L78 40 L98 44 L80 52 L94 66 L74 62 L80 82 L62 72 L58 92 L50 74 L42 92 L38 72 L20 82 L26 62 L6 66 L20 52 L2 44 L22 40 L10 24 L30 28 L24 8 L42 20 Z"
-            fill="#CCFF00"
-          />
-        </svg>
+          {/* Speaker icon */}
+          <svg
+            className="speaker-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Speaker body — always visible */}
+            <path d="M11 5L6 9H2v6h4l5 4V5z" fill="#111" />
+            {isMuted ? (
+              /* Muted: X slash */
+              <>
+                <line
+                  x1="18"
+                  y1="9"
+                  x2="22"
+                  y2="15"
+                  stroke="#111"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <line
+                  x1="22"
+                  y1="9"
+                  x2="18"
+                  y2="15"
+                  stroke="#111"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </>
+            ) : (
+              /* Unmuted: sound waves */
+              <>
+                <path
+                  d="M15.54 8.46a5 5 0 010 7.07"
+                  stroke="#111"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M18.07 5.93a9 9 0 010 12.73"
+                  stroke="#111"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
+              </>
+            )}
+          </svg>
+        </div>
 
-        {/* Speaker icon */}
-        <svg
-          className="speaker-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Speaker body — always visible */}
-          <path
-            d="M11 5L6 9H2v6h4l5 4V5z"
-            fill="#111"
-          />
-          {isMuted ? (
-            /* Muted: X slash */
-            <>
-              <line x1="18" y1="9" x2="22" y2="15" stroke="#111" strokeWidth="2" strokeLinecap="round" />
-              <line x1="22" y1="9" x2="18" y2="15" stroke="#111" strokeWidth="2" strokeLinecap="round" />
-            </>
-          ) : (
-            /* Unmuted: sound waves */
-            <>
-              <path
-                d="M15.54 8.46a5 5 0 010 7.07"
-                stroke="#111"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-              <path
-                d="M18.07 5.93a9 9 0 010 12.73"
-                stroke="#111"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </>
-          )}
-        </svg>
-      </button>
+        {/* Transparent click area on top */}
+        <button
+          ref={clickAreaRef}
+          className="mute-sticker-click-area"
+          onClick={toggleMute}
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+        />
+      </div>
 
       {/* ── Pause / Play button — bottom-left, always visible ── */}
       <button

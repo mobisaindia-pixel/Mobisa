@@ -360,35 +360,28 @@ img {
   pointer-events: none;
 }
 
-/* ── Starburst Mute / Unmute Button ── */
-.hero-mute-btn {
+/* ── Cursor-following Mute Sticker ── */
+.mute-sticker-wrapper {
   position: absolute;
-  top: 28%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+  top: 0;
+  left: 0;
   width: 80px;
   height: 80px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding: 0;
-  opacity: 0;
-  transition: opacity 0.35s ease;
+  z-index: 10;
   pointer-events: none;
-  animation: muteFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3));
 }
 
-.hero-mute-btn--visible {
-  opacity: 1;
-  pointer-events: auto;
+.mute-sticker-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .starburst-svg {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
 }
 
 .speaker-icon {
@@ -400,9 +393,18 @@ img {
   transform: translate(-50%, -50%);
 }
 
-@keyframes muteFloat {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%      { transform: translateX(-50%) translateY(-10px); }
+.mute-sticker-click-area {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  border-radius: 0;
+  padding: 0;
+  z-index: 11;
 }
 
 /* ── Pause / Play Button — bottom-left ── */
@@ -434,50 +436,6 @@ img {
 .hero-playpause-btn svg {
   width: 100%;
   height: 100%;
-}
-
-/* Floating image elements for collage effect */
-.hero-float-img {
-  position: absolute;
-  border-radius: 16px;
-  z-index: 1;
-  opacity: 0.3;
-}
-
-.hero-float-1 {
-  width: 260px;
-  height: 180px;
-  top: 10%;
-  left: 5%;
-  background: linear-gradient(135deg, #2d7a5f, #4a8c6b);
-  border-radius: 12px;
-}
-
-.hero-float-2 {
-  width: 200px;
-  height: 260px;
-  top: 15%;
-  right: 8%;
-  background: linear-gradient(135deg, #5b7bf5, #7eb8f0);
-  border-radius: 12px;
-}
-
-.hero-float-3 {
-  width: 240px;
-  height: 160px;
-  top: 45%;
-  left: 35%;
-  background: linear-gradient(135deg, #8b3a62, #c9a5e8);
-  border-radius: 12px;
-}
-
-.hero-float-4 {
-  width: 200px;
-  height: 140px;
-  bottom: 18%;
-  right: 12%;
-  background: linear-gradient(135deg, #F5A623, #f7c36e);
-  border-radius: 12px;
 }
 
 .hero-content {
