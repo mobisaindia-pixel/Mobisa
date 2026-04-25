@@ -981,7 +981,7 @@ img {
   transform: translateX(-50%);
 }
 
-/* ===== SERVICES SECTION — truus.co fan spread ===== */
+/* ===== SERVICES SECTION — premium fan spread ===== */
 .services-section {
   padding: 100px 40px 180px;
   background: var(--cream);
@@ -993,6 +993,7 @@ img {
   text-align: center;
   font-size: clamp(2rem, 4.5vw, 3.5rem);
   font-weight: 900;
+  letter-spacing: -0.02em;
   margin-bottom: 80px;
   text-transform: lowercase;
   position: relative;
@@ -1007,9 +1008,9 @@ img {
 
 .services-underline-svg {
   display: block;
-  width: 100px;
-  height: 10px;
-  margin: 4px auto 0;
+  width: 240px;
+  height: 14px;
+  margin: 8px auto 0;
 }
 
 /* Card container — full viewport width fan */
@@ -1024,51 +1025,105 @@ img {
   overflow: visible;
 }
 
-/* Individual service card — 340 × 460 */
+/* Individual service card — 340 × 460, premium depth */
 .svc-card {
   width: 340px;
   min-height: 460px;
   border-radius: 18px;
-  padding: 55px 24px 28px;
+  padding: 55px 28px 28px;
   cursor: pointer;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.25),
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   transform-origin: bottom center;
   /* NO CSS transition — GSAP handles all transforms */
   will-change: transform;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient sheen overlay — subtle lit-from-above effect */
+.svc-card-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+}
+
+/* All card content sits above the sheen */
+.svc-card-title,
+.svc-card-divider,
+.svc-card-list,
+.svc-sticker {
+  position: relative;
+  z-index: 2;
 }
 
 .svc-card:hover {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.35),
+    0 16px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
+/* GSAP-toggled hover class for dramatic shadow */
+.svc-card-hovered {
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.35),
+    0 16px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Premium typography */
 .svc-card-title {
-  font-size: 32px;
-  font-weight: 800;
+  font-size: 36px;
+  font-weight: 900;
   color: white;
   text-transform: lowercase;
   margin-bottom: 12px;
-  line-height: 1.15;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Premium fading divider */
 .svc-card-divider {
   width: 100%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.6);
-  margin: 12px 0 16px 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  margin: 14px 0 18px 0;
   border-radius: 2px;
 }
 
 .svc-card-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .svc-card-list li {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.92);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 500;
-  line-height: 1.8;
+  line-height: 2.0;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.svc-bullet {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* ===== CLIENT LOGOS ===== */
