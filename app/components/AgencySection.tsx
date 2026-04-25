@@ -5,46 +5,69 @@ import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
 
 // Sticker SVG components — hand-drawn, white-backed
-const SHADOW = "drop-shadow(0 4px 12px rgba(0,0,0,0.2))";
+const SHADOW = "drop-shadow(0 6px 16px rgba(0,0,0,0.25))";
 
-const ClapperboardSticker: React.FC<{ size?: number }> = ({ size = 85 }) => (
-  <svg viewBox="0 0 100 95" width={size} height={size * 0.95} style={{ filter: SHADOW }}>
-    <rect x="4" y="2" width="92" height="90" rx="14" fill="white" />
-    <g stroke="#222" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="14" y="36" width="72" height="44" rx="6" fill="#BFDFFF" />
-      <polygon points="14,36 26,12 86,12 86,36" fill="#BFDFFF" stroke="#222" />
-      <line x1="28" y1="12" x2="36" y2="36" />
-      <line x1="46" y1="12" x2="54" y2="36" />
-      <line x1="64" y1="12" x2="72" y2="36" />
-    </g>
+const ClapperboardSticker: React.FC<{ size?: number }> = ({ size = 110 }) => (
+  <svg viewBox="0 0 100 100" width={size} height={size} xmlns="http://www.w3.org/2000/svg" style={{ filter: SHADOW }}>
+    {/* White border backing */}
+    <rect x="3" y="13" width="94" height="74" rx="8" fill="white" stroke="white" strokeWidth="8" />
+    {/* Main body */}
+    <rect x="8" y="28" width="84" height="60" rx="6" fill="#BFDFFF" stroke="#0D0D0D" strokeWidth="3" />
+    {/* Top clapper */}
+    <rect x="8" y="14" width="84" height="20" rx="4" fill="#1A1A1A" stroke="#0D0D0D" strokeWidth="3" />
+    {/* Clapper stripes white */}
+    <rect x="20" y="14" width="10" height="20" fill="white" />
+    <rect x="42" y="14" width="10" height="20" fill="white" />
+    <rect x="64" y="14" width="10" height="20" fill="white" />
+    {/* Hinge line */}
+    <line x1="8" y1="34" x2="92" y2="34" stroke="#0D0D0D" strokeWidth="2" />
+    {/* Body details - dots */}
+    <circle cx="25" cy="48" r="3" fill="#0D0D0D" />
+    <circle cx="25" cy="60" r="3" fill="#0D0D0D" />
+    <circle cx="25" cy="72" r="3" fill="#0D0D0D" />
+    {/* Text line placeholders */}
+    <rect x="36" y="44" width="44" height="4" rx="2" fill="#0D0D0D" opacity="0.3" />
+    <rect x="36" y="56" width="36" height="4" rx="2" fill="#0D0D0D" opacity="0.3" />
+    <rect x="36" y="68" width="40" height="4" rx="2" fill="#0D0D0D" opacity="0.3" />
   </svg>
 );
 
-const SparkleStarSticker: React.FC<{ size?: number }> = ({ size = 85 }) => (
-  <svg viewBox="0 0 100 100" width={size} height={size} style={{ filter: SHADOW }}>
-    <circle cx="50" cy="50" r="46" fill="white" />
+const SparkleStarSticker: React.FC<{ size?: number }> = ({ size = 110 }) => (
+  <svg viewBox="0 0 100 100" width={size} height={size} xmlns="http://www.w3.org/2000/svg" style={{ filter: SHADOW }}>
+    {/* White border backing star shape */}
     <path
-      d="M50 8 L56 38 L88 50 L56 62 L50 92 L44 62 L12 50 L44 38 Z"
-      fill="#CCFFCC"
-      stroke="#222"
-      strokeWidth="3"
-      strokeLinejoin="round"
+      d="M50 2 L56 44 L98 50 L56 56 L50 98 L44 56 L2 50 L44 44 Z"
+      fill="white" stroke="white" strokeWidth="8" strokeLinejoin="round"
+    />
+    {/* Main sparkle star */}
+    <path
+      d="M50 8 L55 45 L92 50 L55 55 L50 92 L45 55 L8 50 L45 45 Z"
+      fill="#CCFFCC" stroke="#0D0D0D" strokeWidth="3" strokeLinejoin="round"
+    />
+    {/* Small dot sparkles around */}
+    <circle cx="82" cy="20" r="4" fill="#0D0D0D" />
+    <circle cx="20" cy="80" r="3" fill="#0D0D0D" />
+    <circle cx="78" cy="78" r="5" fill="#F5A623" stroke="#0D0D0D" strokeWidth="2" />
+    {/* Small secondary star */}
+    <path
+      d="M18 22 L20 16 L22 22 L28 20 L22 24 L20 30 L18 24 L12 20 Z"
+      fill="white" stroke="#0D0D0D" strokeWidth="1.5"
     />
   </svg>
 );
 
-// Card data — scattered positions
+// Card data — scattered positions (desktop: tightly clustered with overlap)
 const photos = [
-  { left: "8%", top: "15%", w: 280, h: 340, rotate: -8, z: 2, bg: "linear-gradient(135deg, #0D3B2E, #1A6B4A)", parallax: 0.04, img: "/scr/mockup_mons.png", alt: "Mockup showcase" },
-  { left: "28%", top: "5%", w: 300, h: 370, rotate: -3, z: 4, bg: "linear-gradient(135deg, #8B3A00, #D4621A)", parallax: 0.06, img: "/scr/ugc ads.png", alt: "UGC ad showcase" },
-  { left: "50%", top: "8%", w: 290, h: 360, rotate: 5, z: 3, bg: "linear-gradient(135deg, #0A1628, #1A3A6B)", parallax: 0.05, img: "/scr/c post.png", alt: "Creative post showcase" },
-  { left: "72%", top: "12%", w: 270, h: 330, rotate: 10, z: 2, bg: "linear-gradient(135deg, #2D0A4E, #6B2D9E)", parallax: 0.03, img: "/scr/Ai ads.png", alt: "AI ad showcase" },
+  { left: "15%", top: "15%", w: 280, h: 340, rotate: -8, z: 2, bg: "linear-gradient(135deg, #0D3B2E, #1A6B4A)", parallax: 0.04, img: "/scr/mockup_mons.png", alt: "Mockup showcase" },
+  { left: "30%", top: "5%", w: 300, h: 370, rotate: -3, z: 4, bg: "linear-gradient(135deg, #8B3A00, #D4621A)", parallax: 0.06, img: "/scr/ugc ads.png", alt: "UGC ad showcase" },
+  { left: "46%", top: "8%", w: 290, h: 360, rotate: 5, z: 3, bg: "linear-gradient(135deg, #0A1628, #1A3A6B)", parallax: 0.05, img: "/scr/c post.png", alt: "Creative post showcase" },
+  { left: "60%", top: "12%", w: 270, h: 330, rotate: 10, z: 2, bg: "linear-gradient(135deg, #2D0A4E, #6B2D9E)", parallax: 0.03, img: "/scr/Ai ads.png", alt: "AI ad showcase" },
 ];
 
 // Floating pill labels
 const pills = [
   { text: "hooks that convert", bg: "#F5A623", color: "white", left: "35%", top: "55%", rotate: -4, parallax: 0.09 },
-  { text: "ai-generated. real results.", bg: "#E8350A", color: "white", left: "52%", top: "72%", rotate: 2, parallax: 0.11 },
+  { text: "ai-generated. real results.", bg: "#E8350A", color: "white", left: "52%", top: "58%", rotate: 2, parallax: 0.11 },
   { text: "cinematic quality", bg: "#0D0D0D", color: "white", left: "78%", top: "48%", rotate: -6, parallax: 0.08 },
 ];
 
@@ -62,7 +85,7 @@ const AgencySection: React.FC = () => {
   }, []);
 
   // GSAP mouse parallax refs
-  const blobRef = useRef<SVGSVGElement>(null);
+  // blobRef removed — blob replaced with ambient glows
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const pillRefs = useRef<(HTMLDivElement | null)[]>([]);
   const stickerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -79,8 +102,7 @@ const AgencySection: React.FC = () => {
     // Gather all parallax-able elements with their multipliers
     const elements: { el: Element; mult: number }[] = [];
 
-    // Blob (0.02)
-    if (blobRef.current) elements.push({ el: blobRef.current, mult: 0.02 });
+    // (blob removed — ambient glows are static, no parallax needed)
 
     // Cards
     cardRefs.current.forEach((el, i) => {
@@ -180,69 +202,65 @@ const AgencySection: React.FC = () => {
 
         {/* Scattered photo collage with mouse parallax */}
         <div className="agency-collage" ref={collageRef}>
-          {/* Organic blob — LEFT side, behind everything */}
-          <motion.svg
-            ref={blobRef}
-            className="collage-blob"
-            viewBox="0 0 500 600"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 1 }}
-          >
-            <motion.path
-              d="M200,60 C260,10 340,30 370,100 C400,170 420,160 430,220 C440,280 450,350 400,400 C350,450 370,500 320,540 C270,580 220,560 180,520 C140,480 100,500 70,450 C40,400 20,340 50,280 C80,220 30,190 60,140 C90,90 140,110 170,70 C185,50 195,45 200,60Z"
-              fill="#4A0E8F"
-              opacity={0.6}
-              animate={{
-                d: [
-                  "M200,60 C260,10 340,30 370,100 C400,170 420,160 430,220 C440,280 450,350 400,400 C350,450 370,500 320,540 C270,580 220,560 180,520 C140,480 100,500 70,450 C40,400 20,340 50,280 C80,220 30,190 60,140 C90,90 140,110 170,70 C185,50 195,45 200,60Z",
-                  "M205,55 C265,5 345,25 375,95 C405,165 425,155 435,215 C445,275 455,345 405,395 C355,445 375,495 325,535 C275,575 225,555 185,515 C145,475 105,495 75,445 C45,395 25,335 55,275 C85,215 35,185 65,135 C95,85 145,105 175,65 C190,45 200,40 205,55Z",
-                  "M200,60 C260,10 340,30 370,100 C400,170 420,160 430,220 C440,280 450,350 400,400 C350,450 370,500 320,540 C270,580 220,560 180,520 C140,480 100,500 70,450 C40,400 20,340 50,280 C80,220 30,190 60,140 C90,90 140,110 170,70 C185,50 195,45 200,60Z",
-                ],
-              }}
-              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </motion.svg>
+          {/* Ambient glow — left side, warm cinematic */}
+          <div
+            style={{
+              position: "absolute",
+              left: "-5%",
+              top: "10%",
+              width: 500,
+              height: 500,
+              background: "radial-gradient(ellipse at center, rgba(245,166,35,0.12) 0%, rgba(74,14,143,0.08) 50%, transparent 75%)",
+              filter: "blur(60px)",
+              borderRadius: "50%",
+              zIndex: 0,
+              pointerEvents: "none" as const,
+            }}
+          />
 
-          {/* Hand-drawn scribble decoration */}
-          <motion.svg
-            className="collage-scribble"
-            viewBox="0 0 60 30"
-            width={50}
-            height={25}
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 0.6 } : {}}
-            transition={{ delay: 1.2 }}
-          >
-            <path d="M5 15 Q15 5, 25 15 Q35 25, 45 15 Q55 5, 55 15" fill="none" stroke="#333" strokeWidth="2" strokeLinecap="round" />
-            <path d="M8 20 Q18 10, 28 20 Q38 28, 48 18" fill="none" stroke="#333" strokeWidth="1.5" strokeLinecap="round" />
-          </motion.svg>
+          {/* Ambient glow — right side, cool accent */}
+          <div
+            style={{
+              position: "absolute",
+              right: "0%",
+              top: "20%",
+              width: 300,
+              height: 300,
+              background: "radial-gradient(ellipse at center, rgba(20,184,166,0.10) 0%, transparent 70%)",
+              filter: "blur(50px)",
+              borderRadius: "50%",
+              zIndex: 0,
+              pointerEvents: "none" as const,
+            }}
+          />
 
           {/* Sticker — top-left, clapperboard */}
           <div
             ref={setStickerRef(0)}
-            className="collage-sticker collage-sticker-1"
+            className="collage-sticker"
+            style={{ position: "absolute", left: "4%", top: 80, zIndex: 10 }}
           >
             <motion.div
               initial={{ scale: 0, rotate: -20 }}
-              animate={isInView ? { scale: 1, rotate: -10 } : {}}
+              animate={isInView ? { scale: 1, rotate: -14 } : {}}
               transition={{ duration: 0.5, delay: 0.5, ease: "backOut" }}
             >
-              <ClapperboardSticker size={85} />
+              <ClapperboardSticker size={110} />
             </motion.div>
           </div>
 
           {/* Sticker — top-right, sparkle */}
           <div
             ref={setStickerRef(1)}
-            className="collage-sticker collage-sticker-2"
+            className="collage-sticker"
+            style={{ position: "absolute", right: "4%", top: 60, zIndex: 10 }}
           >
             <motion.div
               initial={{ scale: 0, rotate: 20 }}
               animate={isInView ? { scale: 1, rotate: 12 } : {}}
               transition={{ duration: 0.5, delay: 0.7, ease: "backOut" }}
             >
-              <SparkleStarSticker size={85} />
+              <SparkleStarSticker size={110} />
             </motion.div>
           </div>
 

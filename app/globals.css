@@ -545,35 +545,46 @@ img {
 
 /* ===== AGENCY SECTION ===== */
 .agency-section {
-  padding: 80px 40px 100px;
+  padding: clamp(48px, 8vw, 120px) clamp(16px, 4vw, 64px);
   background: var(--cream);
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .agency-container {
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .agency-title {
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-size: clamp(22px, 6vw, 52px);
   font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 50px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(24px, 5vw, 50px);
   text-transform: lowercase;
   position: relative;
+  padding: 0 clamp(0px, 2vw, 16px);
+  box-sizing: border-box;
 }
 
 .agency-title em {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
+  font-size: clamp(24px, 6.5vw, 56px);
 }
 
 .agency-underline-svg {
   display: block;
-  width: 200px;
-  height: 12px;
+  width: clamp(80px, 30vw, 200px);
+  height: auto;
+  max-width: 100%;
   margin: 8px auto 0;
 }
 
@@ -582,8 +593,9 @@ img {
   position: relative;
   width: 100%;
   min-height: 680px;
-  margin-bottom: 60px;
+  margin-bottom: clamp(30px, 5vw, 60px);
   cursor: default;
+  box-sizing: border-box;
 }
 
 /* Organic blob — left side, behind everything */
@@ -611,6 +623,8 @@ img {
   cursor: pointer;
   overflow: hidden;
   will-change: transform;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Floating pill labels */
@@ -648,16 +662,20 @@ img {
 .agency-description {
   max-width: 600px;
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: clamp(13px, 3.5vw, 18px);
   line-height: 1.7;
   color: #555;
+  padding: 0 clamp(0px, 2vw, 16px);
+  box-sizing: border-box;
 }
 
 /* ===== SHOWCASE SECTION — video work samples ===== */
 .showcase-section {
   padding: 80px 40px 100px;
-  background: var(--cream);
+  background: #0D0D0D;
+  position: relative;
 }
+
 
 .showcase-container {
   max-width: 1200px;
@@ -671,6 +689,7 @@ img {
   line-height: 1.2;
   margin-bottom: 60px;
   text-transform: lowercase;
+  color: #ffffff;
 }
 
 .showcase-title em {
@@ -745,7 +764,7 @@ img {
   font-weight: 400;
   font-style: italic;
   text-transform: lowercase;
-  color: #222;
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: 1px;
 }
 
@@ -1393,7 +1412,6 @@ img {
 
   /* Sections padding */
   .scattered-section,
-  .agency-section,
   .showcase-section,
   .services-section,
   .clients-section,
@@ -1570,17 +1588,23 @@ img {
 
   /* ── Agency / Collage ── */
   .agency-section {
-    padding: 60px 20px;
+    padding: clamp(40px, 8vw, 60px) clamp(12px, 4vw, 20px);
   }
 
   .agency-title {
     font-size: clamp(22px, 6vw, 32px);
-    margin-bottom: 30px;
+    margin-bottom: clamp(20px, 4vw, 30px);
+    padding: 0 clamp(4px, 2vw, 12px);
+  }
+
+  .agency-title em {
+    font-size: clamp(24px, 6.5vw, 34px);
   }
 
   .agency-underline-svg {
     width: 100%;
-    max-width: 160px;
+    max-width: clamp(100px, 40vw, 160px);
+    height: auto;
   }
 
   /* Collage — scattered layout on mobile, all 4 cards visible */
@@ -1588,7 +1612,7 @@ img {
     min-height: auto;
     display: block;
     position: relative;
-    height: 460px;
+    height: clamp(380px, 85vw, 460px);
     width: 100%;
     overflow: visible;
     padding: 0;
@@ -1596,7 +1620,7 @@ img {
 
   /* Base card styles — all .collage-photo elements */
   .collage-photo {
-    border-radius: 14px !important;
+    border-radius: clamp(10px, 3vw, 14px) !important;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18) !important;
     width: 48% !important;
     height: auto !important;
@@ -1604,15 +1628,15 @@ img {
   }
 
   .collage-photo img {
-    border-radius: 14px !important;
+    border-radius: clamp(10px, 3vw, 14px) !important;
   }
 
   /*
-   * DOM order inside .agency-collage:
-   *   child 1: svg.collage-blob
-   *   child 2: svg.collage-scribble
-   *   child 3: div.collage-sticker-1
-   *   child 4: div.collage-sticker-2
+   * DOM order inside .agency-collage (updated):
+   *   child 1: div (ambient glow left)
+   *   child 2: div (ambient glow right)
+   *   child 3: div.collage-sticker (clapperboard)
+   *   child 4: div.collage-sticker (sparkle)
    *   child 5: div.collage-photo (Card 1)
    *   child 6: div.collage-photo (Card 2)
    *   child 7: div.collage-photo (Card 3)
@@ -1624,7 +1648,7 @@ img {
   .agency-collage > :nth-child(5).collage-photo {
     position: absolute !important;
     left: 2% !important;
-    top: 0px !important;
+    top: 0 !important;
     transform: rotate(-5deg) !important;
     z-index: 2 !important;
   }
@@ -1634,7 +1658,7 @@ img {
     position: absolute !important;
     right: 2% !important;
     left: auto !important;
-    top: 20px !important;
+    top: clamp(12px, 4vw, 20px) !important;
     transform: rotate(4deg) !important;
     z-index: 3 !important;
   }
@@ -1643,7 +1667,7 @@ img {
   .agency-collage > :nth-child(7).collage-photo {
     position: absolute !important;
     left: 2% !important;
-    top: 230px !important;
+    top: clamp(180px, 42vw, 230px) !important;
     transform: rotate(5deg) !important;
     z-index: 2 !important;
   }
@@ -1653,15 +1677,15 @@ img {
     position: absolute !important;
     right: 2% !important;
     left: auto !important;
-    top: 215px !important;
+    top: clamp(170px, 40vw, 215px) !important;
     transform: rotate(-4deg) !important;
     z-index: 2 !important;
   }
 
   /* Pill text bubbles — always on top of cards */
   .collage-pill {
-    font-size: 11px !important;
-    padding: 5px 12px !important;
+    font-size: clamp(9px, 2.8vw, 12px) !important;
+    padding: clamp(3px, 1vw, 5px) clamp(8px, 2.5vw, 12px) !important;
     z-index: 10 !important;
   }
 
@@ -1669,7 +1693,7 @@ img {
   .agency-collage > :nth-child(9).collage-pill {
     position: absolute !important;
     left: 30% !important;
-    top: 180px !important;
+    top: clamp(140px, 33vw, 180px) !important;
     transform: rotate(-4deg) !important;
     margin: 0 !important;
   }
@@ -1678,7 +1702,7 @@ img {
   .agency-collage > :nth-child(10).collage-pill {
     position: absolute !important;
     left: 18% !important;
-    top: 410px !important;
+    top: clamp(340px, 78vw, 410px) !important;
     transform: rotate(3deg) !important;
     margin: 0 !important;
   }
@@ -1688,13 +1712,14 @@ img {
     position: absolute !important;
     right: 6% !important;
     left: auto !important;
-    top: 195px !important;
+    top: clamp(155px, 36vw, 195px) !important;
     transform: rotate(-5deg) !important;
     margin: 0 !important;
   }
 
-  /* Hide purple blob completely */
-  .collage-blob {
+  /* Hide ambient glows on mobile — too heavy */
+  .agency-collage > :nth-child(1),
+  .agency-collage > :nth-child(2) {
     display: none !important;
   }
 
@@ -1707,8 +1732,10 @@ img {
   }
 
   .agency-description {
-    font-size: 15px;
+    font-size: clamp(13px, 3.5vw, 16px);
     line-height: 1.7;
+    max-width: 100%;
+    padding: 0 clamp(4px, 2vw, 16px);
   }
 
   /* ── Showcase ── */
@@ -1988,6 +2015,102 @@ img {
   .footer-sticker {
     pointer-events: none;
     z-index: 2;
+  }
+}
+
+/* ── Tiny mobile: Samsung Z Fold folded state ── */
+@media (max-width: 344px) {
+  .agency-section {
+    padding: 32px 12px;
+  }
+
+  .agency-title {
+    font-size: clamp(18px, 5.5vw, 22px);
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-bottom: 16px;
+  }
+
+  .agency-title em {
+    font-size: clamp(19px, 5.8vw, 23px);
+  }
+
+  .agency-underline-svg {
+    max-width: 80px;
+    transform: scale(0.7);
+    transform-origin: center;
+  }
+
+  .agency-collage {
+    height: clamp(300px, 90vw, 380px);
+  }
+
+  .collage-photo {
+    width: 47% !important;
+  }
+
+  .agency-collage > :nth-child(7).collage-photo {
+    top: clamp(150px, 46vw, 180px) !important;
+  }
+
+  .agency-collage > :nth-child(8).collage-photo {
+    top: clamp(140px, 44vw, 170px) !important;
+  }
+
+  .agency-collage > :nth-child(10).collage-pill {
+    top: clamp(280px, 86vw, 340px) !important;
+  }
+
+  .collage-pill {
+    font-size: 8px !important;
+    padding: 3px 6px !important;
+  }
+
+  .agency-description {
+    font-size: 12px;
+    padding: 0 4px;
+  }
+}
+
+/* ── Z Fold unfolded / unusual wide mobile-tablet ── */
+@media (min-width: 768px) and (max-width: 882px) {
+  .agency-section {
+    padding: 80px 48px;
+  }
+
+  .agency-title {
+    font-size: clamp(28px, 4vw, 40px);
+  }
+
+  .agency-title em {
+    font-size: clamp(30px, 4.5vw, 42px);
+  }
+
+  .agency-collage {
+    min-height: 500px;
+  }
+
+  .agency-description {
+    font-size: 16px;
+  }
+}
+
+/* ── Small laptops and large tablets ── */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .agency-section {
+    padding: 100px 64px;
+  }
+
+  .agency-title {
+    font-size: clamp(36px, 4vw, 52px);
+  }
+
+  .agency-title em {
+    font-size: clamp(38px, 4.5vw, 56px);
+  }
+
+  .agency-description {
+    font-size: 17px;
   }
 }
 
