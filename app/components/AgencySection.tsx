@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
 
@@ -52,6 +52,14 @@ const AgencySection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const collageRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   // GSAP mouse parallax refs
   const blobRef = useRef<SVGSVGElement>(null);
@@ -64,6 +72,9 @@ const AgencySection: React.FC = () => {
 
   useEffect(() => {
     if (!collageRef.current) return;
+
+    // Skip mouse parallax on touch devices
+    if (window.matchMedia("(pointer: coarse)").matches) return;
 
     // Gather all parallax-able elements with their multipliers
     const elements: { el: Element; mult: number }[] = [];
@@ -241,21 +252,28 @@ const AgencySection: React.FC = () => {
               key={i}
               ref={setCardRef(i)}
               className="collage-photo"
-              style={{
-                position: "absolute",
-                left: photo.left,
-                top: photo.top,
-                width: photo.w,
-                height: photo.h,
-                background: photo.bg,
-                zIndex: photo.z,
-                borderRadius: 12,
-                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-              }}
-              initial={{ opacity: 0, y: 80, rotate: photo.rotate + 20 }}
-              animate={isInView ? { opacity: 1, y: 0, rotate: photo.rotate } : {}}
+              style={
+                isMobile
+                  ? {
+                      background: photo.bg,
+                      borderRadius: 14,
+                    }
+                  : {
+                      position: "absolute",
+                      left: photo.left,
+                      top: photo.top,
+                      width: photo.w,
+                      height: photo.h,
+                      background: photo.bg,
+                      zIndex: photo.z,
+                      borderRadius: 12,
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                    }
+              }
+              initial={isMobile ? { opacity: 0, y: 30 } : { opacity: 0, y: 80, rotate: photo.rotate + 20 }}
+              animate={isInView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, rotate: photo.rotate }) : {}}
               transition={{ duration: 0.7, delay: 0.3 + i * 0.1, ease: "easeOut" }}
-              whileHover={{ scale: 1.06, rotate: 0, zIndex: 10, transition: { duration: 0.3 } }}
+              whileHover={isMobile ? undefined : { scale: 1.06, rotate: 0, zIndex: 10, transition: { duration: 0.3 } }}
             >
               <img
                 src={photo.img}
@@ -277,13 +295,20 @@ const AgencySection: React.FC = () => {
               key={i}
               ref={setPillRef(i)}
               className="collage-pill"
-              style={{
-                left: pill.left,
-                top: pill.top,
-                background: pill.bg,
-                color: pill.color,
-                transform: `rotate(${pill.rotate}deg)`,
-              }}
+              style={
+                isMobile
+                  ? {
+                      background: pill.bg,
+                      color: pill.color,
+                    }
+                  : {
+                      left: pill.left,
+                      top: pill.top,
+                      background: pill.bg,
+                      color: pill.color,
+                      transform: `rotate(${pill.rotate}deg)`,
+                    }
+              }
               initial={{ opacity: 0, scale: 0.7, y: 20 }}
               animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.9 + i * 0.15 }}

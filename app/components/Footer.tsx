@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Sticker, {
   BamSticker,
@@ -14,11 +14,54 @@ import Sticker, {
 const Footer: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   return (
     <footer className="footer" id="contact" ref={ref}>
+      {/* Stickers — scattered across footer, repositioned on mobile */}
+      {isMobile ? (
+        <>
+          {/* BAM — top-left */}
+          <Sticker x={16} y={12} delay={0.5} rotate={-12} className="footer-sticker footer-sticker-bam">
+            <BamSticker size={52} />
+          </Sticker>
+          {/* 100 — top-right */}
+          <Sticker x="auto" y={16} delay={1.1} rotate={8} className="footer-sticker footer-sticker-hundred" style={{ right: 20, left: "auto" }}>
+            <HundredSticker size={48} />
+          </Sticker>
+          {/* Smiley — right side of contact column */}
+          <Sticker x="auto" y={180} delay={0.7} rotate={-6} className="footer-sticker footer-sticker-smiley" style={{ right: 20, left: "auto" }}>
+            <SmileySticker size={44} />
+          </Sticker>
+          {/* Camera — bottom-right above watermark */}
+          <Sticker x="auto" y="auto" delay={0.8} rotate={10} className="footer-sticker footer-sticker-camera" style={{ right: 16, left: "auto", bottom: 120, top: "auto" }}>
+            <CameraSticker size={48} />
+          </Sticker>
+          {/* Heart — left side between columns */}
+          <Sticker x={16} y={320} delay={0.9} rotate={-8} className="footer-sticker footer-sticker-heart">
+            <HeartSticker size={40} />
+          </Sticker>
+          {/* Hands heart — right side of brand column */}
+          <Sticker x="auto" y={380} delay={1.3} rotate={5} className="footer-sticker footer-sticker-hands" style={{ right: 20, left: "auto" }}>
+            <HandsHeartSticker size={40} />
+          </Sticker>
+        </>
+      ) : (
+        <>
+          {/* Desktop: stickers inside footer-logo area */}
+        </>
+      )}
+
       <div className="footer-content">
         <motion.div
+          className="footer-col footer-col-brand"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -30,6 +73,7 @@ const Footer: React.FC = () => {
         </motion.div>
 
         <motion.div
+          className="footer-col footer-col-location"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -45,6 +89,7 @@ const Footer: React.FC = () => {
         </motion.div>
 
         <motion.div
+          className="footer-col footer-col-contact"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -117,24 +162,29 @@ const Footer: React.FC = () => {
           mobisa
         </motion.span>
 
-        <Sticker x={-10} y="auto" style={{ bottom: 20 }} delay={0.5}>
-          <BamSticker size={95} />
-        </Sticker>
-        <Sticker x="20%" y={-20} delay={0.7}>
-          <SmileySticker size={80} />
-        </Sticker>
-        <Sticker x="40%" y={30} delay={0.9}>
-          <HeartSticker size={70} />
-        </Sticker>
-        <Sticker x="55%" y="auto" style={{ bottom: 10 }} delay={1.3}>
-          <HandsHeartSticker size={75} />
-        </Sticker>
-        <Sticker x="68%" y={-10} delay={1.1}>
-          <HundredSticker size={85} />
-        </Sticker>
-        <Sticker x="84%" y={10} delay={0.8}>
-          <CameraSticker size={85} />
-        </Sticker>
+        {/* Desktop stickers — inside footer-logo area */}
+        {!isMobile && (
+          <>
+            <Sticker x={-10} y="auto" style={{ bottom: 20 }} delay={0.5}>
+              <BamSticker size={95} />
+            </Sticker>
+            <Sticker x="20%" y={-20} delay={0.7}>
+              <SmileySticker size={80} />
+            </Sticker>
+            <Sticker x="40%" y={30} delay={0.9}>
+              <HeartSticker size={70} />
+            </Sticker>
+            <Sticker x="55%" y="auto" style={{ bottom: 10 }} delay={1.3}>
+              <HandsHeartSticker size={75} />
+            </Sticker>
+            <Sticker x="68%" y={-10} delay={1.1}>
+              <HundredSticker size={85} />
+            </Sticker>
+            <Sticker x="84%" y={10} delay={0.8}>
+              <CameraSticker size={85} />
+            </Sticker>
+          </>
+        )}
       </div>
 
 

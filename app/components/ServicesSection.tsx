@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
 
@@ -256,16 +256,31 @@ const ServicesSection: React.FC = () => {
   const cardsRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+
+  // Detect mobile/tablet
+  useEffect(() => {
+    const checkBreakpoint = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
+    };
+    checkBreakpoint();
+    window.addEventListener("resize", checkBreakpoint);
+    return () => window.removeEventListener("resize", checkBreakpoint);
+  }, []);
 
   // After framer-motion entrance finishes, hand control to GSAP
+  // Skip on mobile — CSS handles horizontal scroll layout
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || isMobile) return;
     const timeout = setTimeout(() => {
       cardRefs.current.forEach((card, i) => {
         if (!card) return;
+        const rotScale = isTablet ? 0.7 : 1;
         gsap.set(card, {
           x: X_OFFSETS[i],
-          rotation: ROTATIONS[i],
+          rotation: ROTATIONS[i] * rotScale,
           y: Y_OFFSETS[i],
           scale: 1,
           zIndex: Z_INDICES[i],
@@ -273,10 +288,11 @@ const ServicesSection: React.FC = () => {
       });
     }, 900);
     return () => clearTimeout(timeout);
-  }, [isInView]);
+  }, [isInView, isMobile, isTablet]);
 
-  // GSAP hover — spread other cards dramatically
+  // GSAP hover — spread other cards dramatically (disabled on mobile)
   const handleCardHover = useCallback((hoveredIdx: number) => {
+    if (isMobile) return;
     cardRefs.current.forEach((card, i) => {
       if (!card) return;
       if (i === hoveredIdx) {
@@ -304,10 +320,11 @@ const ServicesSection: React.FC = () => {
         });
       }
     });
-  }, []);
+  }, [isMobile]);
 
-  // GSAP hover leave — return to fan
+  // GSAP hover leave — return to fan (disabled on mobile)
   const handleCardLeave = useCallback(() => {
+    if (isMobile) return;
     cardRefs.current.forEach((card, i) => {
       if (!card) return;
       gsap.to(card, {
@@ -321,7 +338,7 @@ const ServicesSection: React.FC = () => {
         overwrite: true,
       });
     });
-  }, []);
+  }, [isMobile]);
 
   return (
     <section className="services-section" id="services" ref={ref}>
@@ -353,7 +370,7 @@ const ServicesSection: React.FC = () => {
         </motion.svg>
       </motion.h2>
 
-      <div className="services-fan" ref={cardsRef}>
+      <div className={`services-fan ${isMobile ? "services-fan-mobile" : ""}`} ref={cardsRef}>
         {services.map((service, i) => {
           const sticker = stickerComponents[i];
           return (
@@ -363,13 +380,17 @@ const ServicesSection: React.FC = () => {
               className="svc-card"
               style={{
                 background: service.color,
-                position: "absolute",
-                left: "50%",
-                marginLeft: -(CARD_W / 2),
-                zIndex: Z_INDICES[i],
+                ...(isMobile
+                  ? {}
+                  : {
+                      position: "absolute" as const,
+                      left: "50%",
+                      marginLeft: -(CARD_W / 2),
+                      zIndex: Z_INDICES[i],
+                    }),
               }}
-              initial={{ opacity: 0, y: 150 + Y_OFFSETS[i], rotate: ROTATIONS[i] + 25 }}
-              whileInView={{
+              initial={isMobile ? { opacity: 0, y: 40 } : { opacity: 0, y: 150 + Y_OFFSETS[i], rotate: ROTATIONS[i] + 25 }}
+              whileInView={isMobile ? { opacity: 1, y: 0 } : {
                 opacity: 1,
                 y: Y_OFFSETS[i],
                 rotate: ROTATIONS[i],
@@ -381,8 +402,8 @@ const ServicesSection: React.FC = () => {
                 delay: i * 0.1,
                 ease: "easeOut",
               }}
-              onMouseEnter={() => handleCardHover(i)}
-              onMouseLeave={handleCardLeave}
+              onMouseEnter={isMobile ? undefined : () => handleCardHover(i)}
+              onMouseLeave={isMobile ? undefined : handleCardLeave}
             >
               {/* Large hand-drawn sticker — overlapping card top */}
               <div

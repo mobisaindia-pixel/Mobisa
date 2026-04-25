@@ -18,10 +18,16 @@ const Hero: React.FC = () => {
 
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   // GSAP quickTo refs
   const xToRef = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
   const yToRef = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
+
+  // Detect touch device
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
 
   // Autoplay the video on mount
   useEffect(() => {
@@ -35,27 +41,72 @@ const Hero: React.FC = () => {
     }
   }, []);
 
+  // Video file size check — warn if over 10MB
+  useEffect(() => {
+    fetch("/scr/LANDING_VIDEO.mp4", { method: "HEAD" })
+      .then((res) => {
+        const size = res.headers.get("content-length");
+        if (size && parseInt(size, 10) > 10 * 1024 * 1024) {
+          console.warn(
+            `[Mobisa] Hero video is ${(parseInt(size, 10) / (1024 * 1024)).toFixed(1)}MB — consider compressing to under 10MB for better performance.`
+          );
+        }
+      })
+      .catch(() => {
+        // HEAD request failed — skip size check
+      });
+  }, []);
+
+  // IntersectionObserver — pause video when hero is off-screen
+  useEffect(() => {
+    const video = videoRef.current;
+    const hero = heroRef.current;
+    if (!video || !hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+          setIsPlaying(true);
+        } else {
+          video.pause();
+          setIsPlaying(false);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
+
   // Setup GSAP quickTo for smooth cursor following + spinning animation
+  // Skip on touch devices
   useEffect(() => {
     const sticker = stickerRef.current;
     const hero = heroRef.current;
     if (!sticker || !hero) return;
 
-    // Set initial parked position (center, bottom third)
-    const heroRect = hero.getBoundingClientRect();
-    const parkedX = heroRect.width / 2 - 40;
-    const parkedY = heroRect.height * 0.65;
-    gsap.set(sticker, { x: parkedX, y: parkedY });
+    if (isTouchDevice) {
+      // On mobile: no cursor following, sticker is positioned via CSS
+      gsap.set(sticker, { clearProps: "x,y" });
+    } else {
+      // Set initial parked position (center, bottom third)
+      const heroRect = hero.getBoundingClientRect();
+      const parkedX = heroRect.width / 2 - 40;
+      const parkedY = heroRect.height * 0.65;
+      gsap.set(sticker, { x: parkedX, y: parkedY });
 
-    // Create quickTo tweens for smooth following
-    xToRef.current = gsap.quickTo(sticker, "x", {
-      duration: 0.4,
-      ease: "power2.out",
-    });
-    yToRef.current = gsap.quickTo(sticker, "y", {
-      duration: 0.4,
-      ease: "power2.out",
-    });
+      // Create quickTo tweens for smooth following
+      xToRef.current = gsap.quickTo(sticker, "x", {
+        duration: 0.4,
+        ease: "power2.out",
+      });
+      yToRef.current = gsap.quickTo(sticker, "y", {
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    }
 
     // Infinite rotation animation on the inner starburst
     gsap.to(".mute-sticker-inner", {
@@ -69,11 +120,12 @@ const Hero: React.FC = () => {
       gsap.killTweensOf(sticker);
       gsap.killTweensOf(".mute-sticker-inner");
     };
-  }, []);
+  }, [isTouchDevice]);
 
-  // Mouse move handler
+  // Mouse move handler — skip on touch devices
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
+      if (isTouchDevice) return;
       const hero = heroRef.current;
       if (!hero || !xToRef.current || !yToRef.current) return;
       const heroRect = hero.getBoundingClientRect();
@@ -83,11 +135,12 @@ const Hero: React.FC = () => {
       xToRef.current(x);
       yToRef.current(y);
     },
-    []
+    [isTouchDevice]
   );
 
   // Mouse leave — park sticker back to center bottom-third
   const handleMouseLeave = useCallback(() => {
+    if (isTouchDevice) return;
     const hero = heroRef.current;
     if (!hero || !xToRef.current || !yToRef.current) return;
     const heroRect = hero.getBoundingClientRect();
@@ -95,7 +148,7 @@ const Hero: React.FC = () => {
     const parkedY = heroRect.height * 0.65;
     xToRef.current(parkedX);
     yToRef.current(parkedY);
-  }, []);
+  }, [isTouchDevice]);
 
   const toggleMute = () => {
     const video = videoRef.current;
@@ -147,19 +200,29 @@ const Hero: React.FC = () => {
         <video
           ref={videoRef}
           className="hero-bg-video"
-          src="/scr/LANDING_VIDEO.mp4"
+          autoPlay
           muted
           loop
           playsInline
           preload="auto"
-        />
+          poster="/scr/LANDING_VIDEO_poster.jpg"
+          // @ts-expect-error fetchpriority is a valid HTML attribute
+          fetchpriority="high"
+        >
+          <source
+            media="(max-width: 768px)"
+            src="/scr/LANDING_VIDEO_mobile.mp4"
+            type="video/mp4"
+          />
+          <source src="/scr/LANDING_VIDEO.mp4" type="video/mp4" />
+        </video>
         {/* Dark overlay for readability */}
         <div className="hero-video-overlay" />
       </div>
 
       <div className="hero-content">
         {/* Smiley floating above the text */}
-        <Sticker x="42%" y={-60} delay={0.5}>
+        <Sticker x="42%" y={-60} delay={0.5} className="hero-smiley-sticker">
           <SmileySticker size={85} />
         </Sticker>
 
@@ -214,7 +277,10 @@ const Hero: React.FC = () => {
       </div>
 
       {/* ── Cursor-following Mute Sticker ── */}
-      <div className="mute-sticker-wrapper" ref={stickerRef}>
+      <div
+        className={`mute-sticker-wrapper ${isTouchDevice ? "mute-sticker-mobile" : ""}`}
+        ref={stickerRef}
+      >
         <div className="mute-sticker-inner">
           {/* Spiky starburst SVG */}
           <svg

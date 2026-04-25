@@ -342,6 +342,7 @@ img {
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-color: #0D0D0D;
 }
 
 .hero-bg-video {
@@ -985,6 +986,7 @@ img {
   padding: 100px 40px 180px;
   background: var(--cream);
   overflow: visible;
+  position: relative;
 }
 
 .services-title {
@@ -1312,18 +1314,52 @@ img {
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* ── Tablet: 769px – 1024px ── */
 @media (max-width: 1024px) {
-  .services-cards {
-    flex-wrap: wrap;
-    height: auto;
-    gap: 20px;
+  /* Global */
+  html,
+  body {
+    overflow-x: hidden;
   }
 
-  .service-card {
-    margin-left: 0 !important;
-    width: 280px;
+  /* Navbar */
+  .nav {
+    height: 64px;
   }
 
+  .nav-logo {
+    font-size: 1.25rem;
+  }
+
+  .nav-brand-logo {
+    height: 56px;
+  }
+
+  /* Sections padding */
+  .scattered-section,
+  .agency-section,
+  .showcase-section,
+  .services-section,
+  .clients-section,
+  .team-section,
+  .projects-section-dark {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  /* Services cards */
+  .svc-card {
+    width: 240px;
+    min-height: 320px;
+    padding: 40px 20px 24px;
+  }
+
+  .services-fan {
+    height: 520px;
+  }
+
+  /* Clients */
   .clients-header {
     flex-direction: column;
     text-align: center;
@@ -1333,74 +1369,570 @@ img {
     height: 400px;
   }
 
-  .footer-content {
-    grid-template-columns: 1fr;
+  /* Drag carousel */
+  .deck-card {
+    width: 260px;
+    height: 325px;
+    left: -130px;
+  }
+
+  .deck-container {
+    height: 325px;
+  }
+
+  /* Showcase */
+  .showcase-grid {
+    gap: 48px;
+  }
+
+  .showcase-video-wrap {
+    height: 360px;
+  }
+
+  /* Footer */
+  .footer-text {
+    font-size: 1.35rem;
+  }
+
+  .footer-label {
+    font-size: 0.72rem;
+  }
+
+  .footer-logo-text {
+    font-size: clamp(6rem, 18vw, 14rem);
   }
 }
 
+/* ── Mobile: max-width 768px ── */
 @media (max-width: 768px) {
-  .nav {
-    padding: 14px 20px;
+  /* ── Global ── */
+  html,
+  body {
+    overflow-x: hidden;
   }
 
+  /* ── Navbar ── */
+  .nav {
+    padding: 0 16px;
+    height: 56px;
+  }
+
+  .nav-brand-logo {
+    height: 32px;
+  }
+
+  /* Hide center wordmark + starburst on mobile */
+  .nav-center-wordmark {
+    display: none !important;
+  }
+
+  .nav-book-call {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+
+  .nav-book-call svg {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+  }
+
+  /* ── Hero ── */
   .hero-content {
     padding: 0 20px 50px;
   }
 
   .hero-title {
-    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-size: clamp(28px, 8vw, 48px);
+    line-height: 1.15;
   }
 
+  .hero-video-bg {
+    background-color: #0D0D0D;
+  }
+
+  .hero-bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Hide floating anti-gravity cards on mobile */
+  .hero .sticker-float {
+    display: none;
+  }
+
+  /* Mute sticker — fixed bottom-right on mobile */
+  .mute-sticker-mobile {
+    position: absolute !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    top: auto !important;
+    left: auto !important;
+    width: 56px !important;
+    height: 56px !important;
+    transform: none !important;
+  }
+
+  /* Smiley + sparkle stickers on hero */
+  .hero-smiley-sticker {
+    transform: scale(0.52) !important;
+  }
+
+  .hero-sparkle svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Play/pause button */
+  .hero-playpause-btn {
+    bottom: 24px;
+    left: 16px;
+  }
+
+  /* ── Manifesto / Scattered Text ── */
   .scattered-section {
-    padding: 80px 20px 60px;
+    padding: 60px 24px;
+    min-height: auto;
   }
 
   .scattered-word {
-    font-size: clamp(2.2rem, 10vw, 4rem);
+    font-size: clamp(26px, 7vw, 42px);
   }
 
+  .scattered-description {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* FIX: Move ThumbsUp sticker away from headline text */
+  .scattered-thumbsup-sticker {
+    left: auto !important;
+    right: 16px !important;
+    top: 16px !important;
+    transform: scale(0.49) rotate(12deg) !important;
+  }
+
+  /* ── Agency / Collage ── */
   .agency-section {
     padding: 60px 20px;
   }
 
-  .agency-values {
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
+  .agency-title {
+    font-size: clamp(22px, 6vw, 32px);
+    margin-bottom: 30px;
   }
 
-  .project-card {
-    width: 300px;
-  }
-
-  .team-section {
-    padding: 80px 20px 100px;
-  }
-
-  .services-section {
-    padding: 60px 20px 100px;
-  }
-
-  .service-card {
+  .agency-underline-svg {
     width: 100%;
-    max-width: 300px;
+    max-width: 160px;
   }
 
+  /* Collage — scattered layout on mobile, all 4 cards visible */
+  .agency-collage {
+    min-height: auto;
+    display: block;
+    position: relative;
+    height: 460px;
+    width: 100%;
+    overflow: visible;
+    padding: 0;
+  }
+
+  /* Base card styles — all .collage-photo elements */
+  .collage-photo {
+    border-radius: 14px !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18) !important;
+    width: 48% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+  }
+
+  .collage-photo img {
+    border-radius: 14px !important;
+  }
+
+  /*
+   * DOM order inside .agency-collage:
+   *   child 1: svg.collage-blob
+   *   child 2: svg.collage-scribble
+   *   child 3: div.collage-sticker-1
+   *   child 4: div.collage-sticker-2
+   *   child 5: div.collage-photo (Card 1)
+   *   child 6: div.collage-photo (Card 2)
+   *   child 7: div.collage-photo (Card 3)
+   *   child 8: div.collage-photo (Card 4)
+   *   child 9-11: div.collage-pill ×3
+   */
+
+  /* Card 1 — top-left (5th child) */
+  .agency-collage > :nth-child(5).collage-photo {
+    position: absolute !important;
+    left: 2% !important;
+    top: 0px !important;
+    transform: rotate(-5deg) !important;
+    z-index: 2 !important;
+  }
+
+  /* Card 2 — top-right (6th child) */
+  .agency-collage > :nth-child(6).collage-photo {
+    position: absolute !important;
+    right: 2% !important;
+    left: auto !important;
+    top: 20px !important;
+    transform: rotate(4deg) !important;
+    z-index: 3 !important;
+  }
+
+  /* Card 3 — bottom-left (7th child) */
+  .agency-collage > :nth-child(7).collage-photo {
+    position: absolute !important;
+    left: 2% !important;
+    top: 230px !important;
+    transform: rotate(5deg) !important;
+    z-index: 2 !important;
+  }
+
+  /* Card 4 — bottom-right (8th child) */
+  .agency-collage > :nth-child(8).collage-photo {
+    position: absolute !important;
+    right: 2% !important;
+    left: auto !important;
+    top: 215px !important;
+    transform: rotate(-4deg) !important;
+    z-index: 2 !important;
+  }
+
+  /* Pill text bubbles — always on top of cards */
+  .collage-pill {
+    font-size: 11px !important;
+    padding: 5px 12px !important;
+    z-index: 10 !important;
+  }
+
+  /* Pill 1 (9th child) */
+  .agency-collage > :nth-child(9).collage-pill {
+    position: absolute !important;
+    left: 30% !important;
+    top: 180px !important;
+    transform: rotate(-4deg) !important;
+    margin: 0 !important;
+  }
+
+  /* Pill 2 (10th child) */
+  .agency-collage > :nth-child(10).collage-pill {
+    position: absolute !important;
+    left: 18% !important;
+    top: 410px !important;
+    transform: rotate(3deg) !important;
+    margin: 0 !important;
+  }
+
+  /* Pill 3 (11th child) */
+  .agency-collage > :nth-child(11).collage-pill {
+    position: absolute !important;
+    right: 6% !important;
+    left: auto !important;
+    top: 195px !important;
+    transform: rotate(-5deg) !important;
+    margin: 0 !important;
+  }
+
+  /* Hide purple blob completely */
+  .collage-blob {
+    display: none !important;
+  }
+
+  .collage-scribble {
+    display: none;
+  }
+
+  .collage-sticker {
+    display: none;
+  }
+
+  .agency-description {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── Showcase ── */
+  .showcase-section {
+    padding: 60px 24px;
+  }
+
+  .showcase-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .showcase-card-vertical .showcase-video-wrap {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    margin: 0 auto;
+  }
+
+  .showcase-card-horizontal .showcase-video-wrap {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .showcase-label {
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  /* ── Services — horizontal scroll ── */
+  .services-section {
+    padding: 60px 0 80px;
+    overflow: hidden;
+  }
+
+  .services-title {
+    padding: 0 24px;
+    font-size: clamp(26px, 7vw, 40px);
+    margin-bottom: 40px;
+  }
+
+  .services-fan-mobile {
+    position: relative;
+    width: 100%;
+    height: auto !important;
+    padding-top: 0 !important;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 20px 24px 30px !important;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .services-fan-mobile::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services-fan-mobile .svc-card {
+    position: static !important;
+    flex-shrink: 0;
+    width: 240px;
+    min-height: 320px;
+    margin-left: 0 !important;
+    scroll-snap-align: center;
+    transform: none !important;
+  }
+
+  .services-fan-mobile .svc-sticker {
+    transform: none !important;
+  }
+
+  .services-fan-mobile .svc-sticker svg {
+    width: 56px;
+    height: auto;
+  }
+
+  /* Fade edges for scroll hint */
+  .services-section::after,
+  .services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .services-section::before {
+    left: 0;
+    background: linear-gradient(to right, var(--cream), transparent);
+  }
+
+  .services-section::after {
+    right: 0;
+    background: linear-gradient(to left, var(--cream), transparent);
+  }
+
+  .svc-card-title {
+    font-size: 24px;
+  }
+
+  .svc-card-list li {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── Projects Carousel ── */
+  .projects-section-dark {
+    padding: 40px 0 60px;
+    min-height: auto;
+  }
+
+  .deck-card {
+    width: 200px;
+    height: 250px;
+    left: -100px;
+    border-radius: 18px;
+  }
+
+  .deck-container {
+    height: 250px;
+  }
+
+  .deck-card-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .deck-card-strip {
+    padding: 10px 12px;
+  }
+
+  .deck-card-strip-pill {
+    font-size: 0.55rem;
+    padding: 2px 8px;
+  }
+
+  .deck-card-strip-title {
+    font-size: 0.8rem;
+  }
+
+  .deck-card-strip-status {
+    font-size: 0.62rem;
+  }
+
+  .projects-drag-labels {
+    font-size: 11px;
+    gap: 8px;
+  }
+
+  .active-project-title {
+    font-size: 1.1rem;
+  }
+
+  .active-brand-tag {
+    font-size: 0.62rem;
+    padding: 3px 10px;
+  }
+
+  .active-project-status {
+    font-size: 0.75rem;
+  }
+
+  /* Hide stickers that overlap in carousel */
+  .projects-section-dark > .sticker-wrapper {
+    display: none;
+  }
+
+  /* ── Clients ── */
+  .clients-section {
+    padding: 60px 20px;
+  }
+
+  .clients-title {
+    font-size: clamp(22px, 6vw, 34px);
+  }
+
+  .clients-ticker-wrap {
+    max-width: 100%;
+    height: 360px;
+  }
+
+  .client-card {
+    padding: 12px 8px;
+    min-height: 80px;
+    border-radius: 12px;
+  }
+
+  .client-name {
+    font-size: 0.85rem;
+  }
+
+  .marquee-item {
+    font-size: 1.2rem;
+    padding: 0 20px;
+  }
+
+  /* ── Team ── */
+  .team-section {
+    padding: 60px 20px 80px;
+  }
+
+  .team-title {
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
+  }
+
+  /* ── Footer ── */
   .footer {
     margin: 0 8px;
-    padding: 60px 20px 0;
+    padding: 60px 24px 40px;
   }
 
-  .footer-logo-text {
-    font-size: clamp(4rem, 15vw, 8rem);
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Column reorder on mobile: contact → based in → working on */
+  .footer-col-contact {
+    order: 1;
+  }
+
+  .footer-col-location {
+    order: 2;
+  }
+
+  .footer-col-brand {
+    order: 3;
+  }
+
+  .footer-col {
+    padding: 28px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-col:last-child {
+    border-bottom: none;
   }
 
   .footer-text {
     font-size: 1.2rem;
   }
 
-  .work-menu-item {
-    font-size: 2rem;
+  .footer-socials {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .social-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .social-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer-logo-text {
+    font-size: clamp(56px, 16vw, 100px);
+  }
+
+  /* Footer stickers — positioned via component props on mobile */
+  .footer-sticker {
+    pointer-events: none;
+    z-index: 2;
   }
 }
 

@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
       </a>
 
       {/* CENTER — "mobisa" wordmark */}
-      <a href="#" className="nav-logo">
+      <a href="#" className="nav-logo nav-center-wordmark">
         mobisa
       </a>
 

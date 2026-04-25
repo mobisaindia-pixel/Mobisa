@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView, MotionValue } from "framer-motion";
 import Sticker, { ThumbsUpSticker } from "./Sticker";
 
@@ -60,6 +60,14 @@ const ScatteredWord: React.FC<{
 const ScatteredText: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -69,9 +77,16 @@ const ScatteredText: React.FC = () => {
   return (
     <section className="scattered-section" id="scattered" ref={sectionRef}>
       <div className="scattered-container">
-        {/* Thumbs up sticker */}
-        <Sticker x="65%" y={-30} delay={0.3}>
-          <ThumbsUpSticker size={90} />
+        {/* Thumbs up sticker — repositioned on mobile to top-right */}
+        <Sticker
+          x={isMobile ? "auto" : "65%"}
+          y={isMobile ? 0 : -30}
+          delay={0.3}
+          className="scattered-thumbsup-sticker"
+          style={isMobile ? { right: 8, left: "auto" } : undefined}
+          rotate={isMobile ? 12 : 0}
+        >
+          <ThumbsUpSticker size={isMobile ? 44 : 90} />
         </Sticker>
 
         <div className="scattered-text-row">

@@ -5,6 +5,18 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import gsap, { Draggable } from "@/lib/gsap";
 import Sticker from "./Sticker";
 
+/* helper: detect mobile breakpoint */
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= breakpoint);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 /* ═══════════════════════════════════════════
    CARD DATA
    ═══════════════════════════════════════════ */
@@ -114,6 +126,13 @@ const SLOTS: Record<number, SlotConfig> = {
   2: { x: 440, y: 60, scale: 0.7, rotateY: -25, zIndex: 6, opacity: 0.6 },
 };
 
+/* Mobile slots — only 3 visible (±1), ±2 hidden */
+const MOBILE_SLOTS: Record<number, SlotConfig> = {
+  [-1]: { x: -140, y: 15, scale: 0.82, rotateY: 12, zIndex: 8, opacity: 0.85 },
+  0: { x: 0, y: 0, scale: 1.0, rotateY: 0, zIndex: 10, opacity: 1 },
+  1: { x: 140, y: 15, scale: 0.82, rotateY: -12, zIndex: 8, opacity: 0.85 },
+};
+
 /* Offscreen position (invisible, scale 0) */
 const HIDDEN: SlotConfig = { x: 0, y: 100, scale: 0, rotateY: 0, zIndex: 1, opacity: 0 };
 
@@ -196,6 +215,7 @@ const ProjectsCarousel: React.FC = () => {
   const deckRef = useRef<HTMLDivElement>(null);
   const cardElsRef = useRef<(HTMLDivElement | null)[]>([]);
   const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
+  const isMobile = useIsMobile();
 
   const [activeIndex, setActiveIndex] = useState(0);
   const activeIdxRef = useRef(0);
@@ -207,12 +227,13 @@ const ProjectsCarousel: React.FC = () => {
   /* ── Position ALL cards to their correct slots (no exit animation) ── */
   const positionAllCards = useCallback(
     (frontIdx: number, animate: boolean) => {
+      const slotsMap = isMobile ? MOBILE_SLOTS : SLOTS;
       for (let i = 0; i < TOTAL; i++) {
         const el = cardElsRef.current[i];
         if (!el) continue;
 
         const offset = getSlotOffset(i, frontIdx);
-        const slot = SLOTS[offset] || HIDDEN;
+        const slot = slotsMap[offset] || HIDDEN;
 
         if (animate) {
           gsap.to(el, {
@@ -237,7 +258,7 @@ const ProjectsCarousel: React.FC = () => {
         }
       }
     },
-    []
+    [isMobile]
   );
 
   /* ── Advance by direction ── */
@@ -252,6 +273,7 @@ const ProjectsCarousel: React.FC = () => {
       setActiveIndex(newFront);
 
       const exitCardEl = cardElsRef.current[oldFront];
+      const slotsMap = isMobile ? MOBILE_SLOTS : SLOTS;
 
       // Step 1: Animate the old front card off-screen
       if (exitCardEl) {
@@ -266,7 +288,7 @@ const ProjectsCarousel: React.FC = () => {
             // If we advanced forward (direction=1), the old card goes to the back-right (+2 side)
             // If we advanced backward (direction=-1), the old card goes to the back-left (-2 side)
             const newOffset = getSlotOffset(oldFront, newFront);
-            const teleportSlot = SLOTS[newOffset] || HIDDEN;
+            const teleportSlot = slotsMap[newOffset] || HIDDEN;
             gsap.set(exitCardEl, {
               x: teleportSlot.x,
               y: teleportSlot.y,
@@ -287,7 +309,7 @@ const ProjectsCarousel: React.FC = () => {
         if (!el) continue;
 
         const offset = getSlotOffset(i, newFront);
-        const slot = SLOTS[offset] || HIDDEN;
+        const slot = slotsMap[offset] || HIDDEN;
 
         if (offset >= -2 && offset <= 2) {
           // Visible slot — animate to position
@@ -376,7 +398,7 @@ const ProjectsCarousel: React.FC = () => {
         onDragEnd: function () {
           const dx = this.endX - dragStartX.current;
 
-          if (Math.abs(dx) > 80) {
+          if (Math.abs(dx) > (isMobile ? 50 : 80)) {
             if (dx < 0) {
               advance(1); // drag left → next card
             } else {
