@@ -7,10 +7,9 @@ import gsap from "gsap";
 // Sticker SVG components — hand-drawn, white-backed
 const SHADOW = "drop-shadow(0 6px 16px rgba(0,0,0,0.25))";
 
-const ClapperboardSticker: React.FC<{ size?: number }> = ({ size = 110 }) => (
+const ClapperboardSticker: React.FC<{ size?: number }> = ({ size = 149 }) => (
   <svg viewBox="0 0 100 100" width={size} height={size} xmlns="http://www.w3.org/2000/svg" style={{ filter: SHADOW }}>
-    {/* White border backing */}
-    <rect x="3" y="13" width="94" height="74" rx="8" fill="white" stroke="white" strokeWidth="8" />
+    {/* No white backing — graphic sits directly on background */}
     {/* Main body */}
     <rect x="8" y="28" width="84" height="60" rx="6" fill="#BFDFFF" stroke="#0D0D0D" strokeWidth="3" />
     {/* Top clapper */}
@@ -32,13 +31,9 @@ const ClapperboardSticker: React.FC<{ size?: number }> = ({ size = 110 }) => (
   </svg>
 );
 
-const SparkleStarSticker: React.FC<{ size?: number }> = ({ size = 110 }) => (
+const SparkleStarSticker: React.FC<{ size?: number }> = ({ size = 149 }) => (
   <svg viewBox="0 0 100 100" width={size} height={size} xmlns="http://www.w3.org/2000/svg" style={{ filter: SHADOW }}>
-    {/* White border backing star shape */}
-    <path
-      d="M50 2 L56 44 L98 50 L56 56 L50 98 L44 56 L2 50 L44 44 Z"
-      fill="white" stroke="white" strokeWidth="8" strokeLinejoin="round"
-    />
+    {/* No white backing — graphic sits directly on background */}
     {/* Main sparkle star */}
     <path
       d="M50 8 L55 45 L92 50 L55 55 L50 92 L45 55 L8 50 L45 45 Z"
@@ -245,7 +240,7 @@ const AgencySection: React.FC = () => {
               animate={isInView ? { scale: 1, rotate: -14 } : {}}
               transition={{ duration: 0.5, delay: 0.5, ease: "backOut" }}
             >
-              <ClapperboardSticker size={110} />
+              <ClapperboardSticker size={149} />
             </motion.div>
           </div>
 
@@ -260,7 +255,7 @@ const AgencySection: React.FC = () => {
               animate={isInView ? { scale: 1, rotate: 12 } : {}}
               transition={{ duration: 0.5, delay: 0.7, ease: "backOut" }}
             >
-              <SparkleStarSticker size={110} />
+              <SparkleStarSticker size={149} />
             </motion.div>
           </div>
 

@@ -44,7 +44,8 @@ const Sticker: React.FC<{
   );
 };
 
-// ===== SITEWIDE STICKER SVGs — hand-drawn, white-backed, thick outlines =====
+// ===== SITEWIDE STICKER SVGs — hand-drawn, NO background container, thick outlines =====
+// Reference: BAM starburst — graphic sits directly on background, no white box/circle
 
 const SHADOW = "drop-shadow(0 4px 12px rgba(0,0,0,0.2))";
 
@@ -53,11 +54,9 @@ export const SmileySticker: React.FC<{ size?: number; color?: string }> = ({
   color,
 }) => (
   <svg viewBox="0 0 100 100" width={size} height={size} style={{ filter: SHADOW }}>
-    {/* White sticker backing */}
-    <circle cx="50" cy="50" r="46" fill="white" />
-    {/* Blue filled circle */}
+    {/* Blue filled circle — no white backing */}
     <circle cx="50" cy="50" r="40" fill={color || "#BFDFFF"} />
-    <circle cx="50" cy="50" r="40" fill="none" stroke="#222" strokeWidth="3" />
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#222" strokeWidth="3.5" />
     {/* Eyes */}
     <circle cx="38" cy="42" r="5" fill="white" />
     <circle cx="62" cy="42" r="5" fill="white" />
@@ -70,11 +69,10 @@ export const SmileySticker: React.FC<{ size?: number; color?: string }> = ({
 
 export const ThumbsUpSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 100 100" width={size} height={size} style={{ filter: SHADOW }}>
-    {/* White sticker backing */}
-    <circle cx="50" cy="50" r="46" fill="white" />
+    {/* No white backing — floats directly on background */}
     {/* Yellow-green circle */}
     <circle cx="50" cy="50" r="40" fill="#D4F57A" />
-    <circle cx="50" cy="50" r="40" fill="none" stroke="#222" strokeWidth="3" />
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#222" strokeWidth="3.5" />
     {/* Hand-drawn thumb */}
     <g stroke="#222" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round">
       {/* Thumb up part */}
@@ -85,12 +83,10 @@ export const ThumbsUpSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   </svg>
 );
 
-// Hand-drawn camera sticker (white-backed)
+// Hand-drawn camera sticker — no background
 export const CameraSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 110 100" width={size} height={size * 0.91} style={{ filter: SHADOW }}>
-    {/* White sticker base */}
-    <rect x="6" y="10" width="98" height="82" rx="16" fill="white" />
-    {/* Camera body */}
+    {/* Camera body — no white sticker base */}
     <g transform="translate(16, 22)">
       <rect x="4" y="20" width="72" height="46" rx="8" fill="#FFF5B0" stroke="#222" strokeWidth="3.5" />
       {/* Flash bump */}
@@ -113,12 +109,10 @@ export const CameraSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   </svg>
 );
 
-// Hand-drawn phone sticker (white-backed)
+// Hand-drawn phone sticker — no white backing
 export const PhoneSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 100 100" width={size} height={size} style={{ filter: SHADOW }}>
-    {/* White sticker backing */}
-    <rect x="8" y="4" width="84" height="92" rx="16" fill="white" />
-    {/* Phone body */}
+    {/* Phone body — no white backing */}
     <rect x="26" y="14" width="48" height="72" rx="8" fill="#E8CCFF" stroke="#222" strokeWidth="3.5" />
     {/* Screen */}
     <rect x="32" y="24" width="36" height="48" rx="4" fill="white" stroke="#222" strokeWidth="2.5" />
@@ -131,14 +125,12 @@ export const PhoneSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   </svg>
 );
 
-// Big smiley sticker (white-backed)
+// Big smiley sticker — no white backing
 export const BigSmileySticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 100 100" width={size} height={size} style={{ filter: SHADOW }}>
-    {/* White sticker backing */}
-    <circle cx="50" cy="50" r="46" fill="white" />
-    {/* Blue circle */}
+    {/* Blue circle — no white backing */}
     <circle cx="50" cy="50" r="40" fill="#BFDFFF" />
-    <circle cx="50" cy="50" r="40" fill="none" stroke="#222" strokeWidth="3" />
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#222" strokeWidth="3.5" />
     {/* Eyes — winking style */}
     <circle cx="36" cy="40" r="4" fill="#222" />
     <path d="M56 36 Q62 42 56 46" fill="none" stroke="#222" strokeWidth="3" strokeLinecap="round" />
@@ -147,13 +139,11 @@ export const BigSmileySticker: React.FC<{ size?: number }> = ({ size = 90 }) => 
   </svg>
 );
 
-// Frog/monster face sticker (white-backed)
+// Frog/monster face sticker — no white backing
 export const MonsterSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 100 90" width={size} height={size * 0.9} style={{ filter: SHADOW }}>
-    {/* White sticker backing */}
-    <ellipse cx="50" cy="50" rx="46" ry="42" fill="white" />
-    {/* Green body */}
-    <ellipse cx="50" cy="52" rx="38" ry="34" fill="#CCFFCC" stroke="#222" strokeWidth="3" />
+    {/* Green body — no white backing */}
+    <ellipse cx="50" cy="52" rx="38" ry="34" fill="#CCFFCC" stroke="#222" strokeWidth="3.5" />
     {/* Protruding eyes */}
     <circle cx="34" cy="32" r="12" fill="#CCFFCC" stroke="#222" strokeWidth="3" />
     <circle cx="66" cy="32" r="12" fill="#CCFFCC" stroke="#222" strokeWidth="3" />
@@ -168,17 +158,15 @@ export const MonsterSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   </svg>
 );
 
-// Heart with sparkle sticker (white-backed)
+// Heart with sparkle sticker — no white backing
 export const HeartSparkleSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 100 100" width={size} height={size} style={{ filter: SHADOW }}>
-    {/* White sticker backing */}
-    <circle cx="50" cy="52" r="46" fill="white" />
-    {/* Heart */}
+    {/* Heart — no white backing */}
     <path
       d="M50 82 L20 52 Q6 34 24 26 Q42 18 50 40 Q58 18 76 26 Q94 34 80 52 Z"
       fill="#FF9EAE"
       stroke="#222"
-      strokeWidth="3"
+      strokeWidth="3.5"
     />
     {/* Heart shine */}
     <path d="M32 38 Q26 32 32 28" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" opacity="0.7" />
@@ -192,17 +180,15 @@ export const HeartSparkleSticker: React.FC<{ size?: number }> = ({ size = 90 }) 
   </svg>
 );
 
-// Heart sticker — dark burgundy (already good, keep)
+// Heart sticker — dark burgundy, no white backing (already clean)
 export const HeartSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 80 80" width={size} height={size} style={{ filter: SHADOW }}>
-    {/* White backing */}
-    <circle cx="40" cy="42" r="38" fill="white" />
-    {/* Dark burgundy heart */}
+    {/* Dark burgundy heart — floats on background */}
     <path
       d="M40 66 L18 42 Q6 26 22 20 Q38 14 40 34 Q42 14 58 20 Q74 26 62 42 Z"
       fill="#6B1D3A"
       stroke="#4A0E28"
-      strokeWidth="2.5"
+      strokeWidth="3"
     />
     {/* Heart shine */}
     <path d="M26 30 Q22 26 26 23" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
@@ -212,7 +198,7 @@ export const HeartSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   </svg>
 );
 
-// BAM sticker (already good, keep)
+// BAM sticker — reference sticker, already correct (keep exactly as is)
 export const BamSticker: React.FC<{ size?: number }> = ({ size = 95 }) => (
   <svg viewBox="0 0 110 90" width={size} height={size * 0.82} style={{ filter: SHADOW }}>
     {/* Outer burst */}
@@ -231,26 +217,23 @@ export const BamSticker: React.FC<{ size?: number }> = ({ size = 95 }) => (
   </svg>
 );
 
-// 100 sticker (already good, keep)
+// 100 sticker — pink pill directly on background (no extra white wrapper)
 export const HundredSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 100 65" width={size} height={size * 0.65} style={{ filter: SHADOW }}>
-    {/* White backing */}
-    <rect x="2" y="2" width="96" height="61" rx="30" fill="white" />
-    {/* Pink pill */}
-    <rect x="6" y="6" width="88" height="53" rx="26" fill="#FF9EAE" />
+    {/* Pink pill — directly on background */}
+    <rect x="6" y="6" width="88" height="53" rx="26" fill="#FF9EAE" stroke="#222" strokeWidth="3" />
     {/* Bold 100 text */}
     <text x="50" y="42" textAnchor="middle" fontSize="30" fill="#C41E3A" fontWeight="900" fontFamily="Inter, sans-serif" fontStyle="italic">100</text>
     <line x1="22" y1="50" x2="78" y2="50" stroke="#C41E3A" strokeWidth="3" strokeLinecap="round" />
   </svg>
 );
 
-// Hands heart sticker (already good, keep)
+// Hands heart sticker — no white backing
 export const HandsHeartSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 80 80" width={size} height={size} style={{ filter: SHADOW }}>
-    {/* White backing */}
-    <circle cx="40" cy="40" r="39" fill="white" />
-    {/* Dark green circle */}
+    {/* Dark green circle — no white backing */}
     <circle cx="40" cy="40" r="36" fill="#1B5E3B" />
+    <circle cx="40" cy="40" r="36" fill="none" stroke="#222" strokeWidth="2.5" />
     {/* Left hand */}
     <path d="M22 52 C22 52 18 42 20 36 C22 30 26 28 30 32 C34 36 36 40 36 40" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     {/* Right hand */}
@@ -265,26 +248,22 @@ export const HandsHeartSticker: React.FC<{ size?: number }> = ({ size = 90 }) =>
   </svg>
 );
 
-// 4-point sparkle sticker — upgraded with white backing
+// 4-point sparkle sticker — no white backing star
 export const SparkleSticker: React.FC<{ size?: number; color?: string }> = ({
   size = 45,
   color = "#c8b4ff",
 }) => (
   <svg viewBox="0 0 40 40" width={size} height={size} style={{ filter: SHADOW }}>
-    {/* White backing star */}
-    <path d="M20 0L23 15L40 20L23 25L20 40L17 25L0 20L17 15Z" fill="white" />
-    {/* Colored star */}
-    <path d="M20 3L22.5 15.5L37 20L22.5 24.5L20 37L17.5 24.5L3 20L17.5 15.5Z" fill={color} />
+    {/* Colored star only — no white backing */}
+    <path d="M20 2L23 16L38 20L23 24L20 38L17 24L2 20L17 16Z" fill={color} stroke="#222" strokeWidth="1.5" strokeLinejoin="round" />
   </svg>
 );
 
-// Korean finger heart sticker — hand-drawn (replaces emoji)
+// Korean finger heart sticker — no white backing
 export const KoreanHeartSticker: React.FC<{ size?: number }> = ({ size = 80 }) => (
   <svg viewBox="0 0 100 100" width={size} height={size} style={{ filter: SHADOW }}>
-    {/* White backing */}
-    <circle cx="50" cy="50" r="46" fill="white" />
-    {/* Pink circle */}
-    <circle cx="50" cy="50" r="40" fill="#FFD1DC" stroke="#222" strokeWidth="3" />
+    {/* Pink circle — no white backing */}
+    <circle cx="50" cy="50" r="40" fill="#FFD1DC" stroke="#222" strokeWidth="3.5" />
     {/* Finger heart — thumb and index crossing */}
     <g stroke="#222" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round">
       {/* Index finger */}
@@ -297,12 +276,10 @@ export const KoreanHeartSticker: React.FC<{ size?: number }> = ({ size = 80 }) =
   </svg>
 );
 
-// Video/film sticker — upgraded with white backing
+// Video/film sticker — no white backing
 export const VideoSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 100 90" width={size} height={size * 0.9} style={{ filter: SHADOW }}>
-    {/* White backing */}
-    <rect x="4" y="4" width="92" height="82" rx="16" fill="white" />
-    {/* Camera body */}
+    {/* Camera body — no white backing */}
     <rect x="14" y="24" width="48" height="42" rx="6" fill="#BFDFFF" stroke="#222" strokeWidth="3.5" />
     {/* Lens/viewfinder triangle */}
     <polygon points="66,32 86,44 66,56" fill="#BFDFFF" stroke="#222" strokeWidth="3" strokeLinejoin="round" />
@@ -313,17 +290,15 @@ export const VideoSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   </svg>
 );
 
-// Star heart sticker — upgraded with white backing
+// Star heart sticker — no white backing
 export const StarHeartSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 100 100" width={size} height={size} style={{ filter: SHADOW }}>
-    {/* White backing */}
-    <circle cx="50" cy="50" r="46" fill="white" />
-    {/* Star shape */}
+    {/* Star shape — no white backing */}
     <path
       d="M50 12 L58 38 L86 40 L64 56 L72 82 L50 66 L28 82 L36 56 L14 40 L42 38Z"
       fill="#E8CCFF"
       stroke="#222"
-      strokeWidth="3"
+      strokeWidth="3.5"
       strokeLinejoin="round"
     />
     {/* Heart inside star */}
@@ -331,12 +306,10 @@ export const StarHeartSticker: React.FC<{ size?: number }> = ({ size = 90 }) => 
   </svg>
 );
 
-// Film camera sticker — upgraded with white backing
+// Film camera sticker — no white backing
 export const FilmCameraSticker: React.FC<{ size?: number }> = ({ size = 90 }) => (
   <svg viewBox="0 0 100 90" width={size} height={size * 0.9} style={{ filter: SHADOW }}>
-    {/* White backing */}
-    <rect x="4" y="4" width="92" height="82" rx="16" fill="white" />
-    {/* Camera body */}
+    {/* Camera body — no white backing */}
     <rect x="14" y="26" width="52" height="38" rx="6" fill="#FFF5B0" stroke="#222" strokeWidth="3.5" />
     {/* Lens */}
     <circle cx="40" cy="45" r="12" fill="white" stroke="#222" strokeWidth="3" />

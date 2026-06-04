@@ -222,8 +222,8 @@ const Hero: React.FC = () => {
 
       <div className="hero-content">
         {/* Smiley floating above the text */}
-        <Sticker x="42%" y={-60} delay={0.5} className="hero-smiley-sticker">
-          <SmileySticker size={85} />
+        <Sticker x="42%" y={-60} delay={0.5} rotate={7} className="hero-smiley-sticker">
+          <SmileySticker size={115} />
         </Sticker>
 
         <motion.h1
@@ -271,7 +271,7 @@ const Hero: React.FC = () => {
             animate={{ rotate: [0, 180, 360], scale: [1, 1.3, 1] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
-            <SparkleSticker size={40} color="#c8b4ff" />
+            <SparkleSticker size={54} color="#c8b4ff" />
           </motion.span>
         </motion.h1>
       </div>
