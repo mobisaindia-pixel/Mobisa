@@ -94,10 +94,8 @@ img {
 }
 
 .nav.nav-scrolled {
-  background: rgba(247, 243, 238, 0.95);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: transparent;
+  border-bottom: none;
 }
 
 .nav>* {
