@@ -6,6 +6,7 @@ import gsap, { ScrollTrigger } from "@/lib/gsap";
 
 export default function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     // Initialize Lenis with default smooth scroll settings
     const lenis = new Lenis();
 

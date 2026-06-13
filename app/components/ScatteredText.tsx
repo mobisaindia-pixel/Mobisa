@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import gsap from "../../lib/gsap";
+import gsap, { ScrollTrigger } from "../../lib/gsap";
 
 // ── Die-cut Sticker: Korean Finger Heart ─────────────────────────────────────
 const KoreanHeartSticker: React.FC<{ size?: number }> = ({ size = 110 }) => (
@@ -105,6 +105,8 @@ export default function ScatteredText() {
   const descRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
+    ScrollTrigger.normalizeScroll(false);
+
     const raf = requestAnimationFrame(() => {
       const ctx = gsap.context(() => {
         wordsRef.current.forEach((el, i) => {
@@ -202,9 +204,13 @@ export default function ScatteredText() {
         // ── 7. Hold briefly at end before unpin ─────────────────────────────
         tl.to({}, { duration: 1.5 }, 7.5);
 
+        ScrollTrigger.refresh();
       }, sectionRef);
 
-      return () => ctx.revert();
+      return () => {
+        ScrollTrigger.getAll().forEach(t => t.kill());
+        ctx.revert();
+      };
     });
 
     return () => cancelAnimationFrame(raf);
