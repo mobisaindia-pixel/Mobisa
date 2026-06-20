@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Sticker, { SmileySticker, SparkleSticker } from "./Sticker";
+import { SparkleSticker } from "./Sticker";
 import gsap from "../../lib/gsap";
 
 const Hero: React.FC = () => {
@@ -221,10 +221,6 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="hero-content">
-        {/* Smiley floating above the text */}
-        <Sticker x="42%" y={-60} delay={0.5} rotate={7} className="hero-smiley-sticker">
-          <SmileySticker size={115} />
-        </Sticker>
 
         <motion.h1
           className="hero-title"

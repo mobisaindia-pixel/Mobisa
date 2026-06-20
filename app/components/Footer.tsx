@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             <CameraSticker size={91} />
           </Sticker>
           {/* Heart — left side between columns */}
-          <Sticker x={16} y={320} delay={0.9} rotate={-8} className="footer-sticker footer-sticker-heart">
+          <Sticker x={16} y={385} delay={0.9} rotate={-8} className="footer-sticker footer-sticker-heart">
             <HeartSticker size={76} />
           </Sticker>
         </>

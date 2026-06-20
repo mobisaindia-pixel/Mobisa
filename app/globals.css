@@ -137,9 +137,11 @@ img {
 
 /* Book Call button — right side */
 .nav-book-call {
-  color: #0D0D0D;
-  background: white;
-  border: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 10px 24px;
   border-radius: 999px;
   font-family: 'Inter', sans-serif;
@@ -150,19 +152,22 @@ img {
   letter-spacing: 0.3px;
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 16px rgba(255, 255, 255, 0.3);
-  transition: transform 0.25s ease, box-shadow 0.35s ease, background 0.35s ease, color 0.35s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.35s ease, background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
 }
 
 .nav-book-call:hover {
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 6px 24px rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
 }
 
 .nav-scrolled .nav-book-call {
-  color: white;
-  background: #0D0D0D;
+  color: #0D0D0D;
+  background: rgba(255, 255, 255, 0.85);
+  border-color: transparent;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
 }
 
 .nav-scrolled .nav-book-call:hover {
@@ -414,22 +419,22 @@ img {
   z-index: 10;
   width: 34px;
   height: 34px;
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
-  border-radius: 6px;
+  border: none;
+  border-radius: 50%;
   background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 5px;
-  transition: background 0.25s ease, border-color 0.25s ease;
+  transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .hero-playpause-btn:hover {
   background: rgba(0, 0, 0, 0.55);
-  border-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
 }
 
 .hero-playpause-btn svg {
@@ -449,7 +454,7 @@ img {
   font-size: clamp(2.8rem, 7vw, 5.5rem);
   font-weight: 900;
   color: #f5f0e8;
-  line-height: 1.05;
+  line-height: 1.15;
   letter-spacing: -1px;
   text-transform: lowercase;
 }
@@ -1549,85 +1554,28 @@ img {
     border-radius: 14px !important;
   }
 
-  /* .agency-collage mobile layout — flex wrap of 5 cards */
+  /* .agency-collage mobile layout — scattered absolute */
   .agency-collage {
     width: 100% !important;
     max-width: 100% !important;
-    min-height: auto !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 10px !important;
+    display: block !important;
+    height: 155vw !important;
+    max-height: 750px !important;
     position: relative !important;
-    height: auto !important;
-    padding-bottom: 60px !important;
+    padding-bottom: 0 !important;
   }
 
-  /*
-   * DOM order inside .agency-collage (mobile):
-   *   child 1-2: ambient glow divs
-   *   child 3–7: div.collage-photo ×5
-   *   child 8–11: div.collage-pill ×4
-   */
-
-  /* Cards 1–5 — flex items, natural aspect ratio, 46% width */
-  .agency-collage > :nth-child(3).collage-photo {
-    position: relative !important;
-    left: auto !important; top: auto !important;
-    transform: rotate(-5deg) !important;
-    z-index: 2 !important;
+  /* Cards */
+  .collage-photo {
+    display: block !important;
   }
 
-  .agency-collage > :nth-child(4).collage-photo {
-    position: relative !important;
-    left: auto !important; top: auto !important;
-    transform: rotate(3deg) !important;
-    z-index: 2 !important;
-  }
-
-  .agency-collage > :nth-child(5).collage-photo {
-    position: relative !important;
-    left: auto !important; top: auto !important;
-    transform: rotate(-2deg) !important;
-    z-index: 3 !important;
-  }
-
-  .agency-collage > :nth-child(6).collage-photo {
-    position: relative !important;
-    left: auto !important; top: auto !important;
-    transform: rotate(5deg) !important;
-    z-index: 2 !important;
-  }
-
-  .agency-collage > :nth-child(7).collage-photo {
-    position: relative !important;
-    left: auto !important; top: auto !important;
-    transform: rotate(-4deg) !important;
-    z-index: 2 !important;
-  }
-
-  /* Pill text bubbles — always on top of cards */
+  /* Pill text bubbles — absolute on mobile too */
   .collage-pill {
     font-size: 11px !important;
     padding: 5px 12px !important;
     z-index: 10 !important;
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    margin: 4px !important;
-  }
-
-  /* Pills row — center them at the bottom */
-  .agency-collage > :nth-child(8).collage-pill,
-  .agency-collage > :nth-child(9).collage-pill,
-  .agency-collage > :nth-child(10).collage-pill,
-  .agency-collage > :nth-child(11).collage-pill {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    margin: 4px !important;
+    position: absolute !important;
   }
 
   /* Hide purple blob completely */

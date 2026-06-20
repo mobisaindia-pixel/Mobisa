@@ -55,27 +55,27 @@ const SparkleStarSticker: React.FC<{ size?: number }> = ({ size = 149 }) => (
 // Each card starts where the previous ends (edge overlap only, not deep hide)
 const photos = [
   // 1. Go. — portrait, far LEFT, top, tilted left
-  { left: "0%",  top: "4%",  aspectRatio: "3/4", baseW: 230, rotate: -10, z: 2, parallax: 0.04, img: "/scr/Go.png",                      alt: "Go. — American Tourister" },
+  { left: "0%",  top: "4%",  mobileLeft: "2%", mobileTop: "0%", mobileWidth: "46%", aspectRatio: "3/4", baseW: 230, rotate: -10, z: 2, parallax: 0.04, img: "/scr/Go.png",                      alt: "Go. — American Tourister" },
   // 2. Pack Memories — landscape, lower-left, starts at card 1's right edge
-  { left: "17%", top: "30%", aspectRatio: "4/3", baseW: 285, rotate:  -3, z: 3, parallax: 0.06, img: "/scr/Pack Memories.png",            alt: "Pack Memories — American Tourister" },
+  { left: "17%", top: "30%", mobileLeft: "42%", mobileTop: "12%", mobileWidth: "54%", aspectRatio: "4/3", baseW: 285, rotate:  -3, z: 3, parallax: 0.06, img: "/scr/Pack Memories.png",            alt: "Pack Memories — American Tourister" },
   // 3. Glow — portrait, CENTER, tallest, highest z-index
-  { left: "39%", top: "0%",  aspectRatio: "3/4", baseW: 250, rotate:   2, z: 5, parallax: 0.05, img: "/scr/Glow Is Not a Filter.jpeg",    alt: "Glow Is Not a Filter — Pond's" },
+  { left: "39%", top: "0%",  mobileLeft: "4%", mobileTop: "34%", mobileWidth: "48%", aspectRatio: "3/4", baseW: 250, rotate:   2, z: 5, parallax: 0.05, img: "/scr/Glow Is Not a Filter.jpeg",    alt: "Glow Is Not a Filter — Pond's" },
   // 4. Crowded Place — landscape, starts at card 3's right edge, z:4 (visible)
-  { left: "59%", top: "12%", aspectRatio: "4/3", baseW: 280, rotate:   5, z: 4, parallax: 0.07, img: "/scr/Crowded Place, Calm Mom.jpeg", alt: "Crowded Place Calm Mom — NoLongerLost" },
+  { left: "59%", top: "12%", mobileLeft: "46%", mobileTop: "42%", mobileWidth: "50%", aspectRatio: "4/3", baseW: 280, rotate:   5, z: 4, parallax: 0.07, img: "/scr/Crowded Place, Calm Mom.jpeg", alt: "Crowded Place Calm Mom — NoLongerLost" },
   // 5. Pack the Crew — portrait, far RIGHT, lower, overlapping card 4's right edge
-  { left: "79%", top: "30%", aspectRatio: "3/4", baseW: 220, rotate:  10, z: 2, parallax: 0.04, img: "/scr/Pack the Crew.png",            alt: "Pack the Crew — American Tourister" },
+  { left: "79%", top: "30%", mobileLeft: "24%", mobileTop: "62%", mobileWidth: "52%", aspectRatio: "3/4", baseW: 220, rotate:  10, z: 2, parallax: 0.04, img: "/scr/Pack the Crew.png",            alt: "Pack the Crew — American Tourister" },
 ];
 
 // Trust badges — A/B/C/D per sketch
 const pills = [
   // A — between card 1 and card 2 (left cluster)
-  { text: "hooks that convert",          bg: "#F5A623", color: "white", left: "8%",  top: "47%", rotate: -4, parallax: 0.09 },
+  { text: "hooks that convert",          bg: "#F5A623", color: "white", left: "8%",  top: "47%", rotate: -4, parallax: 0.09, mobileLeft: "8%", mobileTop: "25%" },
   // B — below card 3 center, lower area
-  { text: "built for D2C speed",         bg: "white",   color: "#111",  left: "33%", top: "57%", rotate:  3, parallax: 0.10 },
+  { text: "built for D2C speed",         bg: "white",   color: "#111",  left: "33%", top: "57%", rotate:  3, parallax: 0.10, mobileLeft: "28%", mobileTop: "48%" },
   // C — above card 4, top-right gap
-  { text: "ai-generated. real results.", bg: "#E8350A", color: "white", left: "57%", top: "4%",  rotate: -5, parallax: 0.11 },
+  { text: "ai-generated. real results.", bg: "#E8350A", color: "white", left: "57%", top: "4%",  rotate: -5, parallax: 0.11, mobileLeft: "42%", mobileTop: "4%" },
   // D — below card 5, far bottom-right
-  { text: "cinematic quality",           bg: "#0D0D0D", color: "white", left: "74%", top: "70%", rotate:  5, parallax: 0.08 },
+  { text: "cinematic quality",           bg: "#0D0D0D", color: "white", left: "74%", top: "70%", rotate:  5, parallax: 0.08, mobileLeft: "40%", mobileTop: "88%" },
 ];
 
 const AgencySection: React.FC = () => {
@@ -251,12 +251,15 @@ const AgencySection: React.FC = () => {
               style={
                 isMobile
                   ? {
-                      // Mobile: natural aspect ratio, no forced height
-                      width: "46%",
+                      position: "absolute",
+                      left: photo.mobileLeft,
+                      top: photo.mobileTop,
+                      width: photo.mobileWidth,
                       aspectRatio: photo.aspectRatio,
                       borderRadius: 14,
+                      zIndex: photo.z,
                       overflow: "hidden",
-                      flexShrink: 0,
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
                     }
                   : {
                       position: "absolute",
@@ -270,8 +273,8 @@ const AgencySection: React.FC = () => {
                       boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
                     }
               }
-              initial={isMobile ? { opacity: 0, y: 30 } : { opacity: 0, y: 60, rotate: photo.rotate + 18 }}
-              animate={isInView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, rotate: photo.rotate }) : {}}
+              initial={{ opacity: 0, y: isMobile ? 30 : 60, rotate: photo.rotate + (isMobile ? 5 : 18) }}
+              animate={isInView ? { opacity: 1, y: 0, rotate: photo.rotate } : {}}
               transition={{ duration: 0.7, delay: 0.3 + i * 0.12, ease: "easeOut" }}
               whileHover={isMobile ? undefined : { scale: 1.05, rotate: 0, zIndex: 25, transition: { duration: 0.28 } }}
             >
@@ -297,8 +300,11 @@ const AgencySection: React.FC = () => {
               style={
                 isMobile
                   ? {
+                      left: pill.mobileLeft,
+                      top: pill.mobileTop,
                       background: pill.bg,
                       color: pill.color,
+                      transform: `rotate(${pill.rotate}deg)`,
                     }
                   : {
                       left: pill.left,

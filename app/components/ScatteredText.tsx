@@ -8,10 +8,9 @@ import Image from "next/image";
 const wordsData = [
   { text: "We", rotate: -4, big: false, serif: false },
   { text: "Make", rotate: 5, big: false, serif: false },
-  { text: "Visuals", rotate: -6, big: true, serif: false },
-  { text: "That", rotate: 3, big: false, serif: false },
-  { text: "Actually", rotate: -5, big: false, serif: false },
-  { text: "Convert.", rotate: 2, big: false, serif: true },
+  { text: "Eye-Catchy", rotate: -2, big: true, serif: false },
+  { text: "Creative", rotate: 4, big: false, serif: true },
+  { text: "Visuals.", rotate: -3, big: true, serif: false },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -72,7 +71,7 @@ export default function ScatteredText() {
           },
         });
 
-        const wordTimings = [0, 1, 2, 3, 4, 5];
+        const wordTimings = [0, 1, 2, 3, 4];
 
         wordsRef.current.forEach((el, i) => {
           if (!el) return;
@@ -100,32 +99,32 @@ export default function ScatteredText() {
           ease: "back.out(1.7)",
         }, 0.2);
 
-        // Thumbs Up — appears with "Visuals"
+        // Thumbs Up — appears with "Eye-Catchy"
         tl.to(sticker2Ref.current, {
           scale: 1,
           opacity: 1,
           rotation: 15,
           duration: 0.8,
           ease: "back.out(1.7)",
-        }, 2.2);
+        }, 1.5);
 
-        // Phone Notif — appears with "That"
+        // Phone Notif/Camera — appears with "Creative"
         tl.to(sticker3Ref.current, {
           scale: 1,
           opacity: 1,
           rotation: -8,
           duration: 0.8,
           ease: "back.out(1.7)",
-        }, 3.2);
+        }, 2.5);
 
-        // Smiley — appears with "Convert"
+        // Smiley — appears with "Visuals."
         tl.to(sticker4Ref.current, {
           scale: 1,
           opacity: 1,
           rotation: 12,
           duration: 0.8,
           ease: "back.out(1.7)",
-        }, 5.5);
+        }, 3.5);
 
         // ── 6. Description paragraph ────────────────────────────────────────
         tl.to(descRef.current, {
@@ -133,10 +132,10 @@ export default function ScatteredText() {
           opacity: 1,
           duration: 1,
           ease: "power2.out",
-        }, 6.2);
+        }, 4.2);
 
         // ── 7. Hold briefly at end before unpin ─────────────────────────────
-        tl.to({}, { duration: 1.5 }, 7.5);
+        tl.to({}, { duration: 1.5 }, 5.5);
 
         ScrollTrigger.refresh();
       }, sectionRef);
@@ -239,15 +238,15 @@ export default function ScatteredText() {
           position: "absolute",
           zIndex: 20,
           pointerEvents: "none",
-          top: isMobile ? "2%" : "10%",
-          left: isMobile ? "2%" : "3%",
+          top: isMobile ? "5%" : "12%",
+          left: isMobile ? "2%" : "5%",
         }}
       >
         <Image
           src="/scr/stickers/korean-heart.png"
           alt="korean heart"
-          width={isMobile ? 70 : 180}
-          height={isMobile ? 70 : 180}
+          width={isMobile ? 120 : 190}
+          height={isMobile ? 120 : 190}
           unoptimized
           style={{ objectFit: "contain" }}
         />
@@ -260,15 +259,15 @@ export default function ScatteredText() {
           position: "absolute",
           zIndex: 20,
           pointerEvents: "none",
-          top: isMobile ? "2%" : "10%",
+          top: isMobile ? "16%" : "22%",
           right: isMobile ? "2%" : "3%",
         }}
       >
         <Image
           src="/scr/stickers/thumbs-up.png"
           alt="thumbs up"
-          width={isMobile ? 70 : 180}
-          height={isMobile ? 70 : 180}
+          width={isMobile ? 115 : 180}
+          height={isMobile ? 115 : 180}
           unoptimized
           style={{ objectFit: "contain" }}
         />
@@ -281,15 +280,15 @@ export default function ScatteredText() {
           position: "absolute",
           zIndex: 20,
           pointerEvents: "none",
-          bottom: isMobile ? "5%" : "15%",
-          left: isMobile ? "2%" : "3%",
+          bottom: isMobile ? "6%" : "18%",
+          left: isMobile ? "2%" : "4%",
         }}
       >
         <Image
           src="/scr/stickers/camera.png"
           alt="camera"
-          width={isMobile ? 70 : 180}
-          height={isMobile ? 70 : 180}
+          width={isMobile ? 130 : 200}
+          height={isMobile ? 130 : 200}
           unoptimized
           style={{ objectFit: "contain" }}
         />
@@ -302,15 +301,15 @@ export default function ScatteredText() {
           position: "absolute",
           zIndex: 20,
           pointerEvents: "none",
-          bottom: isMobile ? "5%" : "15%",
-          right: isMobile ? "2%" : "3%",
+          bottom: isMobile ? "6%" : "28%",
+          right: isMobile ? "2%" : "8%",
         }}
       >
         <Image
           src="/scr/stickers/smiley.png"
           alt="smiley"
-          width={isMobile ? 70 : 180}
-          height={isMobile ? 70 : 180}
+          width={isMobile ? 110 : 160}
+          height={isMobile ? 110 : 160}
           unoptimized
           style={{ objectFit: "contain" }}
         />
