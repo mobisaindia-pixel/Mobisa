@@ -3,9 +3,9 @@ import "./globals.css";
 import LenisProvider from "./components/LenisProvider";
 
 export const metadata: Metadata = {
-  title: "Mobisa — AI-Powered Creative Agency",
+  title: "Mobisa — Creative Visuals Agency",
   description:
-    "We make cinematic ads powered by AI. Social posts, mockups, UGC ads, and AI video ads for D2C brands.",
+    "We make cinematic visuals powered by AI. Social posts, mockups, UGC visuals, and AI video for D2C brands.",
   icons: {
     icon: "/Mobisa-Logo.png",
     apple: "/Mobisa-Logo.png",

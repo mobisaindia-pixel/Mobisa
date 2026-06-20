@@ -29,7 +29,7 @@ const services = [
     ),
   },
   {
-    title: "UGC Ads",
+    title: "UGC Visuals",
     desc: "Conversion-structured creator content that builds trust.",
     icon: (
       <svg viewBox="0 0 40 40" width={36} height={36}>
@@ -39,8 +39,8 @@ const services = [
     ),
   },
   {
-    title: "AI Ads",
-    desc: "Cinematic, narrative-driven ads produced at AI speed.",
+    title: "AI Visuals",
+    desc: "Cinematic, narrative-driven visuals produced at AI speed.",
     icon: (
       <svg viewBox="0 0 40 40" width={36} height={36}>
         <path d="M20 4 L24 16 L36 20 L24 24 L20 36 L16 24 L4 20 L16 16 Z" fill="#CCFFCC" stroke="#222" strokeWidth="2.5" strokeLinejoin="round" />
@@ -86,7 +86,7 @@ const BookingPage: React.FC = () => {
           </motion.h1>
 
           <motion.p className="book-subhead" custom={2} variants={fadeUp}>
-            High-conversion ads engineered for algorithmic reach.
+            High-conversion visuals engineered for algorithmic reach.
             <br />
             Book a free strategy call — no commitment.
           </motion.p>

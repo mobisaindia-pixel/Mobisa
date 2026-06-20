@@ -51,19 +51,31 @@ const SparkleStarSticker: React.FC<{ size?: number }> = ({ size = 149 }) => (
   </svg>
 );
 
-// Card data — scattered positions (desktop: tightly clustered with overlap)
+// Card data — diagonal cascade, all cards clearly visible
+// Each card starts where the previous ends (edge overlap only, not deep hide)
 const photos = [
-  { left: "15%", top: "15%", w: 280, h: 340, rotate: -8, z: 2, bg: "linear-gradient(135deg, #0D3B2E, #1A6B4A)", parallax: 0.04, img: "/scr/mockup_mons.png", alt: "Mockup showcase" },
-  { left: "30%", top: "5%", w: 300, h: 370, rotate: -3, z: 4, bg: "linear-gradient(135deg, #8B3A00, #D4621A)", parallax: 0.06, img: "/scr/ugc ads.png", alt: "UGC ad showcase" },
-  { left: "46%", top: "8%", w: 290, h: 360, rotate: 5, z: 3, bg: "linear-gradient(135deg, #0A1628, #1A3A6B)", parallax: 0.05, img: "/scr/c post.png", alt: "Creative post showcase" },
-  { left: "60%", top: "12%", w: 270, h: 330, rotate: 10, z: 2, bg: "linear-gradient(135deg, #2D0A4E, #6B2D9E)", parallax: 0.03, img: "/scr/Ai ads.png", alt: "AI ad showcase" },
+  // 1. Go. — portrait, far LEFT, top, tilted left
+  { left: "0%",  top: "4%",  aspectRatio: "3/4", baseW: 230, rotate: -10, z: 2, parallax: 0.04, img: "/scr/Go.png",                      alt: "Go. — American Tourister" },
+  // 2. Pack Memories — landscape, lower-left, starts at card 1's right edge
+  { left: "17%", top: "30%", aspectRatio: "4/3", baseW: 285, rotate:  -3, z: 3, parallax: 0.06, img: "/scr/Pack Memories.png",            alt: "Pack Memories — American Tourister" },
+  // 3. Glow — portrait, CENTER, tallest, highest z-index
+  { left: "39%", top: "0%",  aspectRatio: "3/4", baseW: 250, rotate:   2, z: 5, parallax: 0.05, img: "/scr/Glow Is Not a Filter.jpeg",    alt: "Glow Is Not a Filter — Pond's" },
+  // 4. Crowded Place — landscape, starts at card 3's right edge, z:4 (visible)
+  { left: "59%", top: "12%", aspectRatio: "4/3", baseW: 280, rotate:   5, z: 4, parallax: 0.07, img: "/scr/Crowded Place, Calm Mom.jpeg", alt: "Crowded Place Calm Mom — NoLongerLost" },
+  // 5. Pack the Crew — portrait, far RIGHT, lower, overlapping card 4's right edge
+  { left: "79%", top: "30%", aspectRatio: "3/4", baseW: 220, rotate:  10, z: 2, parallax: 0.04, img: "/scr/Pack the Crew.png",            alt: "Pack the Crew — American Tourister" },
 ];
 
-// Floating pill labels
+// Trust badges — A/B/C/D per sketch
 const pills = [
-  { text: "hooks that convert", bg: "#F5A623", color: "white", left: "35%", top: "55%", rotate: -4, parallax: 0.09 },
-  { text: "ai-generated. real results.", bg: "#E8350A", color: "white", left: "52%", top: "58%", rotate: 2, parallax: 0.11 },
-  { text: "cinematic quality", bg: "#0D0D0D", color: "white", left: "78%", top: "48%", rotate: -6, parallax: 0.08 },
+  // A — between card 1 and card 2 (left cluster)
+  { text: "hooks that convert",          bg: "#F5A623", color: "white", left: "8%",  top: "47%", rotate: -4, parallax: 0.09 },
+  // B — below card 3 center, lower area
+  { text: "built for D2C speed",         bg: "white",   color: "#111",  left: "33%", top: "57%", rotate:  3, parallax: 0.10 },
+  // C — above card 4, top-right gap
+  { text: "ai-generated. real results.", bg: "#E8350A", color: "white", left: "57%", top: "4%",  rotate: -5, parallax: 0.11 },
+  // D — below card 5, far bottom-right
+  { text: "cinematic quality",           bg: "#0D0D0D", color: "white", left: "74%", top: "70%", rotate:  5, parallax: 0.08 },
 ];
 
 const AgencySection: React.FC = () => {
@@ -171,7 +183,7 @@ const AgencySection: React.FC = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          an AI-powered creative agency.
+          a creative visuals agency.
           <br />
           <em>built for D2C brands.</em>
           <motion.svg
@@ -229,37 +241,8 @@ const AgencySection: React.FC = () => {
             }}
           />
 
-          {/* Sticker — top-left, clapperboard */}
-          <div
-            ref={setStickerRef(0)}
-            className="collage-sticker"
-            style={{ position: "absolute", left: "4%", top: 80, zIndex: 10 }}
-          >
-            <motion.div
-              initial={{ scale: 0, rotate: -20 }}
-              animate={isInView ? { scale: 1, rotate: -14 } : {}}
-              transition={{ duration: 0.5, delay: 0.5, ease: "backOut" }}
-            >
-              <ClapperboardSticker size={149} />
-            </motion.div>
-          </div>
 
-          {/* Sticker — top-right, sparkle */}
-          <div
-            ref={setStickerRef(1)}
-            className="collage-sticker"
-            style={{ position: "absolute", right: "4%", top: 60, zIndex: 10 }}
-          >
-            <motion.div
-              initial={{ scale: 0, rotate: 20 }}
-              animate={isInView ? { scale: 1, rotate: 12 } : {}}
-              transition={{ duration: 0.5, delay: 0.7, ease: "backOut" }}
-            >
-              <SparkleStarSticker size={149} />
-            </motion.div>
-          </div>
-
-          {/* Scattered photo cards — absolutely positioned */}
+          {/* Scattered photo cards — absolutely positioned, true aspect ratios */}
           {photos.map((photo, i) => (
             <motion.div
               key={i}
@@ -268,25 +251,29 @@ const AgencySection: React.FC = () => {
               style={
                 isMobile
                   ? {
-                      background: photo.bg,
+                      // Mobile: natural aspect ratio, no forced height
+                      width: "46%",
+                      aspectRatio: photo.aspectRatio,
                       borderRadius: 14,
+                      overflow: "hidden",
+                      flexShrink: 0,
                     }
                   : {
                       position: "absolute",
                       left: photo.left,
                       top: photo.top,
-                      width: photo.w,
-                      height: photo.h,
-                      background: photo.bg,
+                      width: photo.baseW,
+                      aspectRatio: photo.aspectRatio,
                       zIndex: photo.z,
                       borderRadius: 12,
-                      boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                      overflow: "hidden",
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
                     }
               }
-              initial={isMobile ? { opacity: 0, y: 30 } : { opacity: 0, y: 80, rotate: photo.rotate + 20 }}
+              initial={isMobile ? { opacity: 0, y: 30 } : { opacity: 0, y: 60, rotate: photo.rotate + 18 }}
               animate={isInView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, rotate: photo.rotate }) : {}}
-              transition={{ duration: 0.7, delay: 0.3 + i * 0.1, ease: "easeOut" }}
-              whileHover={isMobile ? undefined : { scale: 1.06, rotate: 0, zIndex: 10, transition: { duration: 0.3 } }}
+              transition={{ duration: 0.7, delay: 0.3 + i * 0.12, ease: "easeOut" }}
+              whileHover={isMobile ? undefined : { scale: 1.05, rotate: 0, zIndex: 25, transition: { duration: 0.28 } }}
             >
               <img
                 src={photo.img}
@@ -295,7 +282,6 @@ const AgencySection: React.FC = () => {
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
-                  borderRadius: 12,
                   display: "block",
                 }}
               />

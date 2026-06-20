@@ -234,7 +234,7 @@ const Hero: React.FC = () => {
         >
           <span>we make </span>
           <span className="hero-title-italic">cinematic </span>
-          <span className="hero-title-bold">ads,</span>
+          <span className="hero-title-bold">visuals,</span>
           <br />
           <span>powered by </span>
           <span className="hero-mainstream">

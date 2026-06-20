@@ -38,9 +38,9 @@ const cards: CardData[] = [
     gradientTo: "#1A6B4A",
   },
   {
-    label: "ai ads",
+    label: "ai visuals",
     labelColor: "#8B5CF6",
-    title: "cinematic AI ads",
+    title: "cinematic AI visuals",
     gradientFrom: "#1A0533",
     gradientTo: "#4A0E8F",
   },
@@ -52,7 +52,7 @@ const cards: CardData[] = [
     gradientTo: "#0D6B5E",
   },
   {
-    label: "ugc ads",
+    label: "ugc visuals",
     labelColor: "#F97316",
     title: "creator-style. converts.",
     gradientFrom: "#3D1A00",
@@ -66,9 +66,9 @@ const cards: CardData[] = [
     gradientTo: "#1A1A6B",
   },
   {
-    label: "ai ads",
+    label: "ai visuals",
     labelColor: "#8B5CF6",
-    title: "6s ads that stop thumbs",
+    title: "6s visuals that stop thumbs",
     gradientFrom: "#1A0533",
     gradientTo: "#4A0E8F",
   },
@@ -80,7 +80,7 @@ const cards: CardData[] = [
     gradientTo: "#1A6B4A",
   },
   {
-    label: "ugc ads",
+    label: "ugc visuals",
     labelColor: "#F97316",
     title: "faceless. still converts.",
     gradientFrom: "#3D1A00",
@@ -94,7 +94,7 @@ const cards: CardData[] = [
     gradientTo: "#0D6B5E",
   },
   {
-    label: "ai ads",
+    label: "ai visuals",
     labelColor: "#8B5CF6",
     title: "AI. cinematic. fast.",
     gradientFrom: "#0A0A2E",

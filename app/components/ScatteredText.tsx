@@ -8,7 +8,7 @@ import Image from "next/image";
 const wordsData = [
   { text: "We", rotate: -4, big: false, serif: false },
   { text: "Make", rotate: 5, big: false, serif: false },
-  { text: "Ads", rotate: -6, big: true, serif: false },
+  { text: "Visuals", rotate: -6, big: true, serif: false },
   { text: "That", rotate: 3, big: false, serif: false },
   { text: "Actually", rotate: -5, big: false, serif: false },
   { text: "Convert.", rotate: 2, big: false, serif: true },
@@ -100,7 +100,7 @@ export default function ScatteredText() {
           ease: "back.out(1.7)",
         }, 0.2);
 
-        // Thumbs Up — appears with "Ads"
+        // Thumbs Up — appears with "Visuals"
         tl.to(sticker2Ref.current, {
           scale: 1,
           opacity: 1,
@@ -229,7 +229,7 @@ export default function ScatteredText() {
         >
           and
         </em>{" "}
-        drives purchases. We build all three — at AI speed.
+        drives purchases. We build both static and video at AI speed.
       </p>
 
       {/* ── Sticker 1: Korean Heart (top-left) ── */}

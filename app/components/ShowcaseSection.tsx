@@ -57,7 +57,7 @@ const ShowcaseSection: React.FC = () => {
             >
               <video
                 ref={ugcRef}
-                src="/scr/colgate_ugc.mp4"
+                src="/scr/ugc_elaria.mp4"
                 autoPlay
                 muted
                 loop

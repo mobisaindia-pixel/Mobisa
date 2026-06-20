@@ -575,13 +575,15 @@ img {
   margin: 8px auto 0;
 }
 
-/* Photo collage — scattered freely, mouse parallax */
+/* Photo collage — diagonal cascade, all cards clearly visible */
 .agency-collage {
   position: relative;
   width: 100%;
-  min-height: 680px;
-  margin-bottom: 60px;
+  max-width: 1100px;
+  min-height: 520px;
+  margin: 0 auto 60px;
   cursor: default;
+  overflow: visible;
 }
 
 /* Organic blob — left side, behind everything */
@@ -614,7 +616,7 @@ img {
 /* Floating pill labels */
 .collage-pill {
   position: absolute;
-  z-index: 8;
+  z-index: 20;
   padding: 8px 18px;
   border-radius: 999px;
   font-size: 0.85rem;
@@ -1541,62 +1543,65 @@ img {
   .collage-photo {
     border-radius: 14px !important;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18) !important;
-    width: 48% !important;
-    height: auto !important;
-    aspect-ratio: 4 / 5 !important;
   }
 
   .collage-photo img {
     border-radius: 14px !important;
   }
 
+  /* .agency-collage mobile layout — flex wrap of 5 cards */
+  .agency-collage {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    position: relative !important;
+    height: auto !important;
+    padding-bottom: 60px !important;
+  }
+
   /*
-   * DOM order inside .agency-collage:
-   *   child 1: svg.collage-blob
-   *   child 2: svg.collage-scribble
-   *   child 3: div.collage-sticker-1
-   *   child 4: div.collage-sticker-2
-   *   child 5: div.collage-photo (Card 1)
-   *   child 6: div.collage-photo (Card 2)
-   *   child 7: div.collage-photo (Card 3)
-   *   child 8: div.collage-photo (Card 4)
-   *   child 9-11: div.collage-pill ×3
+   * DOM order inside .agency-collage (mobile):
+   *   child 1-2: ambient glow divs
+   *   child 3–7: div.collage-photo ×5
+   *   child 8–11: div.collage-pill ×4
    */
 
-  /* Card 1 — top-left (5th child) */
-  .agency-collage > :nth-child(5).collage-photo {
-    position: absolute !important;
-    left: 2% !important;
-    top: 0px !important;
+  /* Cards 1–5 — flex items, natural aspect ratio, 46% width */
+  .agency-collage > :nth-child(3).collage-photo {
+    position: relative !important;
+    left: auto !important; top: auto !important;
     transform: rotate(-5deg) !important;
     z-index: 2 !important;
   }
 
-  /* Card 2 — top-right (6th child) */
-  .agency-collage > :nth-child(6).collage-photo {
-    position: absolute !important;
-    right: 2% !important;
-    left: auto !important;
-    top: 20px !important;
-    transform: rotate(4deg) !important;
+  .agency-collage > :nth-child(4).collage-photo {
+    position: relative !important;
+    left: auto !important; top: auto !important;
+    transform: rotate(3deg) !important;
+    z-index: 2 !important;
+  }
+
+  .agency-collage > :nth-child(5).collage-photo {
+    position: relative !important;
+    left: auto !important; top: auto !important;
+    transform: rotate(-2deg) !important;
     z-index: 3 !important;
   }
 
-  /* Card 3 — bottom-left (7th child) */
-  .agency-collage > :nth-child(7).collage-photo {
-    position: absolute !important;
-    left: 2% !important;
-    top: 230px !important;
+  .agency-collage > :nth-child(6).collage-photo {
+    position: relative !important;
+    left: auto !important; top: auto !important;
     transform: rotate(5deg) !important;
     z-index: 2 !important;
   }
 
-  /* Card 4 — bottom-right (8th child) */
-  .agency-collage > :nth-child(8).collage-photo {
-    position: absolute !important;
-    right: 2% !important;
-    left: auto !important;
-    top: 215px !important;
+  .agency-collage > :nth-child(7).collage-photo {
+    position: relative !important;
+    left: auto !important; top: auto !important;
     transform: rotate(-4deg) !important;
     z-index: 2 !important;
   }
@@ -1606,34 +1611,23 @@ img {
     font-size: 11px !important;
     padding: 5px 12px !important;
     z-index: 10 !important;
-  }
-
-  /* Pill 1 (9th child) */
-  .agency-collage > :nth-child(9).collage-pill {
-    position: absolute !important;
-    left: 30% !important;
-    top: 180px !important;
-    transform: rotate(-4deg) !important;
-    margin: 0 !important;
-  }
-
-  /* Pill 2 (10th child) */
-  .agency-collage > :nth-child(10).collage-pill {
-    position: absolute !important;
-    left: 18% !important;
-    top: 410px !important;
-    transform: rotate(3deg) !important;
-    margin: 0 !important;
-  }
-
-  /* Pill 3 (11th child) */
-  .agency-collage > :nth-child(11).collage-pill {
-    position: absolute !important;
-    right: 6% !important;
+    position: relative !important;
     left: auto !important;
-    top: 195px !important;
-    transform: rotate(-5deg) !important;
-    margin: 0 !important;
+    top: auto !important;
+    transform: none !important;
+    margin: 4px !important;
+  }
+
+  /* Pills row — center them at the bottom */
+  .agency-collage > :nth-child(8).collage-pill,
+  .agency-collage > :nth-child(9).collage-pill,
+  .agency-collage > :nth-child(10).collage-pill,
+  .agency-collage > :nth-child(11).collage-pill {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin: 4px !important;
   }
 
   /* Hide purple blob completely */
