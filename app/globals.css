@@ -754,6 +754,44 @@ img {
   letter-spacing: 1px;
 }
 
+.property-showcase {
+  margin-top: 100px;
+  scroll-margin-top: 100px;
+}
+
+.property-showcase .showcase-card {
+  max-width: 100%;
+}
+
+.property-showcase .showcase-video-wrap {
+  cursor: default;
+}
+
+.property-showcase .property-video-control {
+  pointer-events: auto;
+  cursor: pointer;
+  border: 0;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.property-showcase .property-video-control:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+
+.property-showcase .property-play-control {
+  left: 12px;
+  right: auto;
+}
+
+@media (max-width: 768px) {
+  .property-showcase {
+    margin-top: 80px;
+    scroll-margin-top: 80px;
+  }
+}
+
 /* ===== PROJECTS SECTION (DARK) — draggable 3D card deck ===== */
 .projects-section-dark {
   padding: 60px 0 80px;

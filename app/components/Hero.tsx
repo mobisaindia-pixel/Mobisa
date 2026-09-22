@@ -206,8 +206,6 @@ const Hero: React.FC = () => {
           playsInline
           preload="auto"
           poster="/scr/LANDING_VIDEO_poster.jpg"
-          // @ts-expect-error fetchpriority is a valid HTML attribute
-          fetchpriority="high"
         >
           <source
             media="(max-width: 768px)"
