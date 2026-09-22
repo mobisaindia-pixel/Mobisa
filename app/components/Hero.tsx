@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { SparkleSticker } from "./Sticker";
 import gsap from "../../lib/gsap";
+import { compactViewport } from "../../lib/responsive";
 
 const Hero: React.FC = () => {
   const { scrollYProgress } = useScroll();
@@ -18,16 +19,11 @@ const Hero: React.FC = () => {
 
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const manuallyPaused = useRef(false);
 
   // GSAP quickTo refs
   const xToRef = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
   const yToRef = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
-
-  // Detect touch device
-  useEffect(() => {
-    setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches);
-  }, []);
 
   // Autoplay the video on mount
   useEffect(() => {
@@ -65,12 +61,10 @@ const Hero: React.FC = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !manuallyPaused.current) {
           video.play().catch(() => {});
-          setIsPlaying(true);
         } else {
           video.pause();
-          setIsPlaying(false);
         }
       },
       { threshold: 0.1 }
@@ -87,10 +81,9 @@ const Hero: React.FC = () => {
     const hero = heroRef.current;
     if (!sticker || !hero) return;
 
-    if (isTouchDevice) {
-      // On mobile: no cursor following, sticker is positioned via CSS
-      gsap.set(sticker, { clearProps: "x,y" });
-    } else {
+    const media = gsap.matchMedia();
+    media.add({ compact: compactViewport, finePointer: "(pointer: fine)" }, (context) => {
+      if (context.conditions?.compact || !context.conditions?.finePointer) return;
       // Set initial parked position (center, bottom third)
       const heroRect = hero.getBoundingClientRect();
       const parkedX = heroRect.width / 2 - 40;
@@ -106,26 +99,25 @@ const Hero: React.FC = () => {
         duration: 0.4,
         ease: "power2.out",
       });
-    }
+      // Keep the animated cursor sticker on desktop only.
+      gsap.to(sticker.querySelector(".mute-sticker-inner"), {
+        rotation: 360,
+        duration: 8,
+        ease: "none",
+        repeat: -1,
+      });
+      return () => {
+        xToRef.current = null;
+        yToRef.current = null;
+      };
+    }, hero);
 
-    // Infinite rotation animation on the inner starburst
-    gsap.to(".mute-sticker-inner", {
-      rotation: 360,
-      duration: 8,
-      ease: "none",
-      repeat: -1,
-    });
-
-    return () => {
-      gsap.killTweensOf(sticker);
-      gsap.killTweensOf(".mute-sticker-inner");
-    };
-  }, [isTouchDevice]);
+    return () => media.revert();
+  }, []);
 
   // Mouse move handler — skip on touch devices
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      if (isTouchDevice) return;
       const hero = heroRef.current;
       if (!hero || !xToRef.current || !yToRef.current) return;
       const heroRect = hero.getBoundingClientRect();
@@ -135,12 +127,11 @@ const Hero: React.FC = () => {
       xToRef.current(x);
       yToRef.current(y);
     },
-    [isTouchDevice]
+    []
   );
 
   // Mouse leave — park sticker back to center bottom-third
   const handleMouseLeave = useCallback(() => {
-    if (isTouchDevice) return;
     const hero = heroRef.current;
     if (!hero || !xToRef.current || !yToRef.current) return;
     const heroRect = hero.getBoundingClientRect();
@@ -148,7 +139,7 @@ const Hero: React.FC = () => {
     const parkedY = heroRect.height * 0.65;
     xToRef.current(parkedX);
     yToRef.current(parkedY);
-  }, [isTouchDevice]);
+  }, []);
 
   const toggleMute = () => {
     const video = videoRef.current;
@@ -158,7 +149,7 @@ const Hero: React.FC = () => {
       setIsMuted(video.muted);
     }
     // Scale pulse animation
-    if (sticker) {
+    if (sticker && xToRef.current) {
       gsap.fromTo(
         sticker,
         { scale: 1 },
@@ -177,11 +168,11 @@ const Hero: React.FC = () => {
     const video = videoRef.current;
     if (video) {
       if (video.paused) {
-        video.play();
-        setIsPlaying(true);
+        manuallyPaused.current = false;
+        void video.play().catch(() => {});
       } else {
+        manuallyPaused.current = true;
         video.pause();
-        setIsPlaying(false);
       }
     }
   };
@@ -205,13 +196,9 @@ const Hero: React.FC = () => {
           loop
           playsInline
           preload="auto"
-          poster="/scr/LANDING_VIDEO_poster.jpg"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
         >
-          <source
-            media="(max-width: 768px)"
-            src="/scr/LANDING_VIDEO_mobile.mp4"
-            type="video/mp4"
-          />
           <source src="/scr/LANDING_VIDEO.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for readability */}
@@ -222,14 +209,28 @@ const Hero: React.FC = () => {
 
         <motion.h1
           className="hero-title"
+          aria-label="we make cinematic visuals, powered by AI."
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.9, ease: "easeOut" }}
         >
-          <span>we make </span>
-          <span className="hero-title-italic">cinematic </span>
-          <span className="hero-title-bold">visuals,</span>
-          <br />
+          <span className="hero-title-line">we make </span>
+          <span className="hero-title-line">
+            <span className="hero-title-italic">
+              {Array.from("cinematic").map((letter, index) => (
+                <span
+                  key={index}
+                  className="hero-cinematic-letter"
+                  style={{ "--letter-index": index } as React.CSSProperties}
+                >
+                  {letter}
+                </span>
+              ))}
+            </span>{" "}
+            <span className="hero-title-bold">visuals,</span>
+          </span>
+          <br className="hero-desktop-break" />
+          <span className="hero-title-line">
           <span>powered by </span>
           <span className="hero-mainstream">
             AI.
@@ -267,12 +268,13 @@ const Hero: React.FC = () => {
           >
             <SparkleSticker size={54} color="#c8b4ff" />
           </motion.span>
+          </span>
         </motion.h1>
       </div>
 
       {/* ── Cursor-following Mute Sticker ── */}
       <div
-        className={`mute-sticker-wrapper ${isTouchDevice ? "mute-sticker-mobile" : ""}`}
+        className="mute-sticker-wrapper"
         ref={stickerRef}
       >
         <div className="mute-sticker-inner">

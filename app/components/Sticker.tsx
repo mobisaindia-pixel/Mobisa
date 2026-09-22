@@ -32,7 +32,8 @@ const Sticker: React.FC<{
         scale: { duration: 0.5, delay, ease: "backOut" },
         rotate: { duration: 0.5, delay },
         y: {
-          duration: 3 + Math.random() * 2,
+          // Vary the rhythm without changing it on every render or hydration.
+          duration: 3 + ((Math.abs(rotate) * 0.17 + delay) % 2),
           repeat: Infinity,
           ease: "easeInOut",
           delay,

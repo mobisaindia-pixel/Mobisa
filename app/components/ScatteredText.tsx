@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import gsap, { ScrollTrigger } from "../../lib/gsap";
+import { compactViewport } from "../../lib/responsive";
 import Image from "next/image";
 
 // ── Word data ─────────────────────────────────────────────────────────────────
@@ -24,24 +25,10 @@ export default function ScatteredText() {
 
   const descRef = useRef<HTMLParagraphElement>(null);
 
-  const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
-  useEffect(() => {
-    ScrollTrigger.normalizeScroll(false);
-
-    let ctx: gsap.Context | null = null;
-
-    const raf = requestAnimationFrame(() => {
-      const mobile = window.innerWidth <= 768;
-
-      ctx = gsap.context(() => {
+    const media = gsap.matchMedia();
+    media.add({ compact: compactViewport, desktop: "(min-width: 769px)" }, (context) => {
+      if (context.conditions?.compact) return;
         wordsRef.current.forEach((el, i) => {
           if (!el) return;
           gsap.set(el, {
@@ -64,7 +51,7 @@ export default function ScatteredText() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top top",
-            end: mobile ? "+=200%" : "+=400%",
+            end: "+=400%",
             pin: true,
             scrub: 1,
             anticipatePin: 1,
@@ -138,14 +125,9 @@ export default function ScatteredText() {
         tl.to({}, { duration: 1.5 }, 5.5);
 
         ScrollTrigger.refresh();
-      }, sectionRef);
-    });
+    }, sectionRef);
 
-    return () => {
-      cancelAnimationFrame(raf);
-      ScrollTrigger.getAll().forEach(t => t.kill());
-      if (ctx) ctx.revert();
-    };
+    return () => media.revert();
   }, []);
 
   // ── Render ─────────────────────────────────────────────────────────────────
@@ -171,8 +153,8 @@ export default function ScatteredText() {
           flexWrap: "wrap",
           justifyContent: "center",
           alignItems: "center",
-          gap: isMobile ? "10px 14px" : "20px 28px",
-          padding: isMobile ? "0 20px" : "0 60px",
+          gap: "20px 28px",
+          padding: "0 60px",
           width: "100%",
           maxWidth: "1100px",
           position: "relative",
@@ -238,15 +220,15 @@ export default function ScatteredText() {
           position: "absolute",
           zIndex: 20,
           pointerEvents: "none",
-          top: isMobile ? "5%" : "12%",
-          left: isMobile ? "2%" : "5%",
+          top: "12%",
+          left: "5%",
         }}
       >
         <Image
           src="/scr/stickers/korean-heart.png"
           alt="korean heart"
-          width={isMobile ? 120 : 190}
-          height={isMobile ? 120 : 190}
+          width={190}
+          height={190}
           unoptimized
           style={{ objectFit: "contain" }}
         />
@@ -259,15 +241,15 @@ export default function ScatteredText() {
           position: "absolute",
           zIndex: 20,
           pointerEvents: "none",
-          top: isMobile ? "16%" : "22%",
-          right: isMobile ? "2%" : "3%",
+          top: "22%",
+          right: "3%",
         }}
       >
         <Image
           src="/scr/stickers/thumbs-up.png"
           alt="thumbs up"
-          width={isMobile ? 115 : 180}
-          height={isMobile ? 115 : 180}
+          width={180}
+          height={180}
           unoptimized
           style={{ objectFit: "contain" }}
         />
@@ -280,15 +262,15 @@ export default function ScatteredText() {
           position: "absolute",
           zIndex: 20,
           pointerEvents: "none",
-          bottom: isMobile ? "6%" : "18%",
-          left: isMobile ? "2%" : "4%",
+          bottom: "18%",
+          left: "4%",
         }}
       >
         <Image
           src="/scr/stickers/camera.png"
           alt="camera"
-          width={isMobile ? 130 : 200}
-          height={isMobile ? 130 : 200}
+          width={200}
+          height={200}
           unoptimized
           style={{ objectFit: "contain" }}
         />
@@ -301,15 +283,15 @@ export default function ScatteredText() {
           position: "absolute",
           zIndex: 20,
           pointerEvents: "none",
-          bottom: isMobile ? "6%" : "28%",
-          right: isMobile ? "2%" : "8%",
+          bottom: "28%",
+          right: "8%",
         }}
       >
         <Image
           src="/scr/stickers/smiley.png"
           alt="smiley"
-          width={isMobile ? 110 : 160}
-          height={isMobile ? 110 : 160}
+          width={160}
+          height={160}
           unoptimized
           style={{ objectFit: "contain" }}
         />

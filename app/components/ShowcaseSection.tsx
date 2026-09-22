@@ -1,7 +1,17 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import React, { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { motion, useInView } from "framer-motion";
+
+const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
+const subscribeToReducedMotion = (onChange: () => void) => {
+  const query = window.matchMedia(reducedMotionQuery);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+};
+const getReducedMotion = () => window.matchMedia(reducedMotionQuery).matches;
+// Keep server and first client render identical; wait for the preference before autoplay.
+const getServerReducedMotion = () => null;
 
 type ShowcaseVideo = "ugc" | "ai" | "property" | "dome";
 
@@ -20,14 +30,18 @@ const ShowcaseSection: React.FC = () => {
   const propertyVideoRefs = useRef<Partial<Record<ShowcaseVideo, HTMLVideoElement>>>({});
   const loadPropertyVideos = useInView(propertyRef, { once: true, margin: "200px" });
   const propertyVisible = useInView(propertyRef, { amount: 0.1 });
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotion,
+    getServerReducedMotion,
+  );
   const [propertyPlaying, setPropertyPlaying] = useState<Partial<Record<ShowcaseVideo, boolean>>>({});
   const manuallyPaused = useRef<Partial<Record<ShowcaseVideo, boolean>>>({});
 
   useEffect(() => {
     Object.values(propertyVideoRefs.current).forEach((video) => {
       const id = video.dataset.showcaseId as ShowcaseVideo;
-      if (propertyVisible && loadPropertyVideos && !reducedMotion && !manuallyPaused.current[id]) {
+      if (propertyVisible && loadPropertyVideos && reducedMotion === false && !manuallyPaused.current[id]) {
         void video.play().catch(() => {});
       } else {
         video.pause();
