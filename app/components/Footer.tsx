@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 import Sticker, {
   BamSticker,
   SmileySticker,
@@ -143,6 +144,22 @@ const Footer: React.FC = () => {
               </svg>
             </motion.a>
           </div>
+        </motion.div>
+
+        <motion.div
+          className="footer-col footer-col-explore"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <span className="footer-label">explore</span>
+          <p className="footer-text">
+            <strong>
+              <Link href="/blog" className="footer-blog-link">
+                blog →
+              </Link>
+            </strong>
+          </p>
         </motion.div>
       </div>
 

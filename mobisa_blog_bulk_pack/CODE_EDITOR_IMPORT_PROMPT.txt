@@ -1,0 +1,16 @@
+Implement this Mobisa bulk-blog content package in the existing website.
+
+1. Inspect the current stack before changing anything.
+2. Use the existing `/blog` and `/blog/[slug]` architecture if present; otherwise create it.
+3. Load article frontmatter/content from `content/blog/*.mdx`.
+4. Never create one route file per article.
+5. Exclude `draft:true` posts from production listing pages, category pages, sitemap, RSS and structured collections.
+6. When `draft:false`, automatically expose the post at `/blog/<slug>`.
+7. Generate per-post SEO metadata, canonical URL, OpenGraph and Article/BlogPosting JSON-LD.
+8. Support category archives and related posts from `relatedSlugs`.
+9. Blog images must be optional: never render broken placeholders when `coverImage` is empty.
+10. Add a scalable image path convention `/public/blog/<slug>/`.
+11. Extend the existing XML sitemap dynamically from published posts.
+12. Preserve Mobisa’s existing visual system and footer.
+13. Do not rewrite article text unless needed for MDX compatibility.
+14. Run lint/typecheck/build and report any issues.

@@ -1,0 +1,2160 @@
+{
+  "totalArticles": 62,
+  "mapped": 60,
+  "ambiguous": 0,
+  "missing": 2,
+  "imagesDetected": 275,
+  "brokenReferences": 0,
+  "mappings": {
+    "ad-creative-iteration-framework": {
+      "slug": "ad-creative-iteration-framework",
+      "originalFolder": "ad-creative-iteration-framework",
+      "finalFolder": "/blogs/ad-creative-iteration-framework",
+      "cover": {
+        "src": "/blogs/ad-creative-iteration-framework/cover.webp",
+        "alt": "How to Turn One Winning Ad Into Ten Useful Variants - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ad-creative-iteration-framework/before-after.webp",
+          "alt": "before after for How to Turn One Winning Ad Into Ten Useful Variants",
+          "role": "Transformation feature",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ad-creative-iteration-framework/process-in-motion.webp",
+          "alt": "process in motion for How to Turn One Winning Ad Into Ten Useful Variants",
+          "role": "Process editorial",
+          "afterHeading": "Keep the core reason it won"
+        },
+        {
+          "src": "/blogs/ad-creative-iteration-framework/result.webp",
+          "alt": "result for How to Turn One Winning Ad Into Ten Useful Variants",
+          "role": "Finished result",
+          "afterHeading": "Change one layer at a time"
+        },
+        {
+          "src": "/blogs/ad-creative-iteration-framework/starting-point.webp",
+          "alt": "starting point for How to Turn One Winning Ad Into Ten Useful Variants",
+          "role": "Starting point",
+          "afterHeading": "Create platform variants"
+        }
+      ],
+      "imageCount": 5,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "ai-lifestyle-product-images": {
+      "slug": "ai-lifestyle-product-images",
+      "originalFolder": "ai-lifestyle-product-images",
+      "finalFolder": "/blogs/ai-lifestyle-product-images",
+      "cover": {
+        "src": "/blogs/ai-lifestyle-product-images/cover.webp",
+        "alt": "How to Create Lifestyle Product Images With AI - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-lifestyle-product-images/before-after.webp",
+          "alt": "before after for How to Create Lifestyle Product Images With AI",
+          "role": "Transformation feature",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-lifestyle-product-images/process-in-motion.webp",
+          "alt": "process in motion for How to Create Lifestyle Product Images With AI",
+          "role": "Process editorial",
+          "afterHeading": "Define the scene before generating"
+        },
+        {
+          "src": "/blogs/ai-lifestyle-product-images/result.webp",
+          "alt": "result for How to Create Lifestyle Product Images With AI",
+          "role": "Finished result",
+          "afterHeading": "Preserve product details"
+        },
+        {
+          "src": "/blogs/ai-lifestyle-product-images/starting-point.webp",
+          "alt": "starting point for How to Create Lifestyle Product Images With AI",
+          "role": "Starting point",
+          "afterHeading": "Match lighting and perspective"
+        }
+      ],
+      "imageCount": 5,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-product-photography-ecommerce-guide": {
+      "slug": "ai-product-photography-ecommerce-guide",
+      "originalFolder": "ai-product-photography-ecommerce-guide",
+      "finalFolder": "/blogs/ai-product-photography-ecommerce-guide",
+      "cover": {
+        "src": "/blogs/ai-product-photography-ecommerce-guide/cover.webp",
+        "alt": "AI Product Photography for Ecommerce A Practical Guide - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-product-photography-ecommerce-guide/core-concept.webp",
+          "alt": "core concept for AI Product Photography for Ecommerce A Practical Guide",
+          "role": "Core concept editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-product-photography-ecommerce-guide/practical-example.webp",
+          "alt": "practical example for AI Product Photography for Ecommerce A Practical Guide",
+          "role": "Practical example",
+          "afterHeading": "Start with accurate source images"
+        },
+        {
+          "src": "/blogs/ai-product-photography-ecommerce-guide/takeaway.webp",
+          "alt": "takeaway for AI Product Photography for Ecommerce A Practical Guide",
+          "role": "Takeaway visual",
+          "afterHeading": "Separate packshots from campaign visuals"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-product-photography-jewellery": {
+      "slug": "ai-product-photography-jewellery",
+      "originalFolder": "ai-product-photography-jewellery",
+      "finalFolder": "/blogs/ai-product-photography-jewellery",
+      "cover": {
+        "src": "/blogs/ai-product-photography-jewellery/cover.webp",
+        "alt": "AI Product Photography for Jewellery Brands - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-product-photography-jewellery/context-use.webp",
+          "alt": "context use for AI Product Photography for Jewellery Brands",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-product-photography-jewellery/hero-detail.webp",
+          "alt": "hero detail for AI Product Photography for Jewellery Brands",
+          "role": "Detail editorial",
+          "afterHeading": "Macro detail"
+        },
+        {
+          "src": "/blogs/ai-product-photography-jewellery/playbook-gallery.webp",
+          "alt": "playbook gallery for AI Product Photography for Jewellery Brands",
+          "role": "Playbook gallery",
+          "afterHeading": "Metal accuracy"
+        },
+        {
+          "src": "/blogs/ai-product-photography-jewellery/proof.webp",
+          "alt": "proof for AI Product Photography for Jewellery Brands",
+          "role": "Proof visual",
+          "afterHeading": "Stone realism"
+        },
+        {
+          "src": "/blogs/ai-product-photography-jewellery/story-moment.webp",
+          "alt": "story moment for AI Product Photography for Jewellery Brands",
+          "role": "Story feature",
+          "afterHeading": "Luxury without visual noise"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-product-photography-skincare": {
+      "slug": "ai-product-photography-skincare",
+      "originalFolder": "ai-product-photography-skincare",
+      "finalFolder": "/blogs/ai-product-photography-skincare",
+      "cover": {
+        "src": "/blogs/ai-product-photography-skincare/cover.webp",
+        "alt": "AI Product Photography for Skincare Brands - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-product-photography-skincare/context-use.webp",
+          "alt": "context use for AI Product Photography for Skincare Brands",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-product-photography-skincare/hero-detail.webp",
+          "alt": "hero detail for AI Product Photography for Skincare Brands",
+          "role": "Detail editorial",
+          "afterHeading": "Protect labels"
+        },
+        {
+          "src": "/blogs/ai-product-photography-skincare/playbook-gallery.webp",
+          "alt": "playbook gallery for AI Product Photography for Skincare Brands",
+          "role": "Playbook gallery",
+          "afterHeading": "Use texture carefully"
+        },
+        {
+          "src": "/blogs/ai-product-photography-skincare/proof.webp",
+          "alt": "proof for AI Product Photography for Skincare Brands",
+          "role": "Proof visual",
+          "afterHeading": "Control reflections"
+        },
+        {
+          "src": "/blogs/ai-product-photography-skincare/story-moment.webp",
+          "alt": "story moment for AI Product Photography for Skincare Brands",
+          "role": "Story feature",
+          "afterHeading": "Create ingredient context"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-product-visuals-fashion": {
+      "slug": "ai-product-visuals-fashion",
+      "originalFolder": "ai-product-visuals-fashion",
+      "finalFolder": "/blogs/ai-product-visuals-fashion",
+      "cover": {
+        "src": "/blogs/ai-product-visuals-fashion/cover.webp",
+        "alt": "AI Product Visuals for Fashion Brands - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-product-visuals-fashion/context-use.webp",
+          "alt": "context use for AI Product Visuals for Fashion Brands",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-product-visuals-fashion/hero-detail.webp",
+          "alt": "hero detail for AI Product Visuals for Fashion Brands",
+          "role": "Detail editorial",
+          "afterHeading": "Protect silhouette and construction"
+        },
+        {
+          "src": "/blogs/ai-product-visuals-fashion/playbook-gallery.webp",
+          "alt": "playbook gallery for AI Product Visuals for Fashion Brands",
+          "role": "Playbook gallery",
+          "afterHeading": "Represent fabric honestly"
+        },
+        {
+          "src": "/blogs/ai-product-visuals-fashion/proof.webp",
+          "alt": "proof for AI Product Visuals for Fashion Brands",
+          "role": "Proof visual",
+          "afterHeading": "Use styling with purpose"
+        },
+        {
+          "src": "/blogs/ai-product-visuals-fashion/story-moment.webp",
+          "alt": "story moment for AI Product Visuals for Fashion Brands",
+          "role": "Story feature",
+          "afterHeading": "Keep collections coherent"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-product-visuals-food-beverage": {
+      "slug": "ai-product-visuals-food-beverage",
+      "originalFolder": "ai-product-visuals-food-beverage",
+      "finalFolder": "/blogs/ai-product-visuals-food-beverage",
+      "cover": {
+        "src": "/blogs/ai-product-visuals-food-beverage/cover.webp",
+        "alt": "AI Product Visuals for Food and Beverage Brands - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-product-visuals-food-beverage/context-use.webp",
+          "alt": "context use for AI Product Visuals for Food and Beverage Brands",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-product-visuals-food-beverage/hero-detail.webp",
+          "alt": "hero detail for AI Product Visuals for Food and Beverage Brands",
+          "role": "Detail editorial",
+          "afterHeading": "Keep packaging exact"
+        },
+        {
+          "src": "/blogs/ai-product-visuals-food-beverage/playbook-gallery.webp",
+          "alt": "playbook gallery for AI Product Visuals for Food and Beverage Brands",
+          "role": "Playbook gallery",
+          "afterHeading": "Make food cues believable"
+        },
+        {
+          "src": "/blogs/ai-product-visuals-food-beverage/proof.webp",
+          "alt": "proof for AI Product Visuals for Food and Beverage Brands",
+          "role": "Proof visual",
+          "afterHeading": "Use serving context"
+        },
+        {
+          "src": "/blogs/ai-product-visuals-food-beverage/story-moment.webp",
+          "alt": "story moment for AI Product Visuals for Food and Beverage Brands",
+          "role": "Story feature",
+          "afterHeading": "Avoid fake-looking excess"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-ugc-ads-guide-d2c-brands": {
+      "slug": "ai-ugc-ads-guide-d2c-brands",
+      "originalFolder": "ai-ugc-ads-guide-d2c-brands",
+      "finalFolder": "/blogs/ai-ugc-ads-guide-d2c-brands",
+      "cover": {
+        "src": "/blogs/ai-ugc-ads-guide-d2c-brands/cover.webp",
+        "alt": "AI UGC Ads A Practical Guide for D2C Brands - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-ugc-ads-guide-d2c-brands/creative-mix.webp",
+          "alt": "creative mix for AI UGC Ads A Practical Guide for D2C Brands",
+          "role": "Major feature",
+          "afterHeading": "The Short Version"
+        },
+        {
+          "src": "/blogs/ai-ugc-ads-guide-d2c-brands/production-workflow.webp",
+          "alt": "Workflow and process for AI UGC Ads A Practical Guide for D2C Brands",
+          "role": "Workflow feature",
+          "afterHeading": "FAQ"
+        },
+        {
+          "src": "/blogs/ai-ugc-ads-guide-d2c-brands/what-ai-ugc-means.webp",
+          "alt": "what ai ugc means for AI UGC Ads A Practical Guide for D2C Brands",
+          "role": "Editorial explainer",
+          "afterHeading": "Is ai ugc ads only useful for large brands?"
+        },
+        {
+          "src": "/blogs/ai-ugc-ads-guide-d2c-brands/when-not-to-use-ai-ugc.webp",
+          "alt": "when not to use ai ugc for AI UGC Ads A Practical Guide for D2C Brands",
+          "role": "Comparison feature",
+          "afterHeading": "Should every variation be completely different?"
+        }
+      ],
+      "imageCount": 5,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-ugc-vs-traditional-ugc": {
+      "slug": "ai-ugc-vs-traditional-ugc",
+      "originalFolder": "ai-ugc-vs-traditional-ugc",
+      "finalFolder": "/blogs/ai-ugc-vs-traditional-ugc",
+      "cover": {
+        "src": "/blogs/ai-ugc-vs-traditional-ugc/cover.webp",
+        "alt": "AI UGC vs Traditional UGC Which Should Your Brand Use - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-ugc-vs-traditional-ugc/comparison-overview.webp",
+          "alt": "Comparison relating to AI UGC vs Traditional UGC Which Should Your Brand Use",
+          "role": "Comparison editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-ugc-vs-traditional-ugc/hybrid-approach.webp",
+          "alt": "hybrid approach for AI UGC vs Traditional UGC Which Should Your Brand Use",
+          "role": "Closing feature",
+          "afterHeading": "Speed and iteration"
+        },
+        {
+          "src": "/blogs/ai-ugc-vs-traditional-ugc/when-to-use-ai-ugc.webp",
+          "alt": "when to use ai ugc for AI UGC vs Traditional UGC Which Should Your Brand Use",
+          "role": "Support editorial",
+          "afterHeading": "Authenticity and trust"
+        },
+        {
+          "src": "/blogs/ai-ugc-vs-traditional-ugc/when-to-use-traditional-ugc.webp",
+          "alt": "when to use traditional ugc for AI UGC vs Traditional UGC Which Should Your Brand Use",
+          "role": "Support lifestyle",
+          "afterHeading": "Creative control"
+        }
+      ],
+      "imageCount": 5,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-video-ads-for-ecommerce": {
+      "slug": "ai-video-ads-for-ecommerce",
+      "originalFolder": "ai-video-ads-for-ecommerce",
+      "finalFolder": "/blogs/ai-video-ads-for-ecommerce",
+      "cover": {
+        "src": "/blogs/ai-video-ads-for-ecommerce/cover.webp",
+        "alt": "AI Video Ads for Ecommerce Where They Work Best - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-video-ads-for-ecommerce/core-concept.webp",
+          "alt": "core concept for AI Video Ads for Ecommerce Where They Work Best",
+          "role": "Core concept editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-video-ads-for-ecommerce/practical-example.webp",
+          "alt": "practical example for AI Video Ads for Ecommerce Where They Work Best",
+          "role": "Practical example",
+          "afterHeading": "Product-first motion"
+        },
+        {
+          "src": "/blogs/ai-video-ads-for-ecommerce/takeaway.webp",
+          "alt": "takeaway for AI Video Ads for Ecommerce Where They Work Best",
+          "role": "Takeaway visual",
+          "afterHeading": "Concept visualization"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-video-ads-for-product-launches": {
+      "slug": "ai-video-ads-for-product-launches",
+      "originalFolder": "ai-video-ads-for-product-launches",
+      "finalFolder": "/blogs/ai-video-ads-for-product-launches",
+      "cover": {
+        "src": "/blogs/ai-video-ads-for-product-launches/cover.webp",
+        "alt": "AI Video Ads for Product Launches - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-video-ads-for-product-launches/execution-example.webp",
+          "alt": "execution example for AI Video Ads for Product Launches",
+          "role": "Execution example",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-video-ads-for-product-launches/strategy-context.webp",
+          "alt": "strategy context for AI Video Ads for Product Launches",
+          "role": "Strategy context",
+          "afterHeading": "Build a launch narrative"
+        },
+        {
+          "src": "/blogs/ai-video-ads-for-product-launches/system-visual.webp",
+          "alt": "system visual for AI Video Ads for Product Launches",
+          "role": "System feature",
+          "afterHeading": "Create teaser assets"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-video-vs-traditional-production": {
+      "slug": "ai-video-vs-traditional-production",
+      "originalFolder": "ai-video-vs-traditional-production",
+      "finalFolder": "/blogs/ai-video-vs-traditional-production",
+      "cover": {
+        "src": "/blogs/ai-video-vs-traditional-production/cover.webp",
+        "alt": "AI Video vs Traditional Production for Product Advertising - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-video-vs-traditional-production/decision-visual.webp",
+          "alt": "decision visual for AI Video vs Traditional Production for Product Advertising",
+          "role": "Decision feature",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-video-vs-traditional-production/side-a.webp",
+          "alt": "side a for AI Video vs Traditional Production for Product Advertising",
+          "role": "Comparison side A",
+          "afterHeading": "Production logistics"
+        },
+        {
+          "src": "/blogs/ai-video-vs-traditional-production/side-b.webp",
+          "alt": "side b for AI Video vs Traditional Production for Product Advertising",
+          "role": "Comparison side B",
+          "afterHeading": "Visual control"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ai-vs-traditional-product-photography": {
+      "slug": "ai-vs-traditional-product-photography",
+      "originalFolder": "ai-vs-traditional-product-photography",
+      "finalFolder": "/blogs/ai-vs-traditional-product-photography",
+      "cover": {
+        "src": "/blogs/ai-vs-traditional-product-photography/cover.webp",
+        "alt": "AI Product Photography vs Traditional Product Photography - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ai-vs-traditional-product-photography/decision-visual.webp",
+          "alt": "decision visual for AI Product Photography vs Traditional Product Photography",
+          "role": "Decision feature",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ai-vs-traditional-product-photography/side-a.webp",
+          "alt": "side a for AI Product Photography vs Traditional Product Photography",
+          "role": "Comparison side A",
+          "afterHeading": "Speed and logistics"
+        },
+        {
+          "src": "/blogs/ai-vs-traditional-product-photography/side-b.webp",
+          "alt": "side b for AI Product Photography vs Traditional Product Photography",
+          "role": "Comparison side B",
+          "afterHeading": "Control and realism"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "best-short-form-video-ad-length": {
+      "slug": "best-short-form-video-ad-length",
+      "originalFolder": "best-short-form-video-ad-length",
+      "finalFolder": "/blogs/best-short-form-video-ad-length",
+      "cover": {
+        "src": "/blogs/best-short-form-video-ad-length/cover.webp",
+        "alt": "How Long Should a ShortForm Video Ad Be - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/best-short-form-video-ad-length/analysis-context.webp",
+          "alt": "analysis context for How Long Should a ShortForm Video Ad Be",
+          "role": "Analysis context",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/best-short-form-video-ad-length/decision-model.webp",
+          "alt": "decision model for How Long Should a ShortForm Video Ad Be",
+          "role": "Decision support",
+          "afterHeading": "Match length to intent"
+        }
+      ],
+      "imageCount": 3,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "cinematic-ai-product-ads": {
+      "slug": "cinematic-ai-product-ads",
+      "originalFolder": "cinematic-ai-product-ads",
+      "finalFolder": "/blogs/cinematic-ai-product-ads",
+      "cover": {
+        "src": "/blogs/cinematic-ai-product-ads/cover.webp",
+        "alt": "Cinematic AI Product Ads Without the AI Look - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/cinematic-ai-product-ads/context-use.webp",
+          "alt": "context use for Cinematic AI Product Ads Without the AI Look",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/cinematic-ai-product-ads/hero-detail.webp",
+          "alt": "hero detail for Cinematic AI Product Ads Without the AI Look",
+          "role": "Detail editorial",
+          "afterHeading": "Start from art direction"
+        },
+        {
+          "src": "/blogs/cinematic-ai-product-ads/playbook-gallery.webp",
+          "alt": "playbook gallery for Cinematic AI Product Ads Without the AI Look",
+          "role": "Playbook gallery",
+          "afterHeading": "Protect product geometry"
+        },
+        {
+          "src": "/blogs/cinematic-ai-product-ads/proof.webp",
+          "alt": "proof for Cinematic AI Product Ads Without the AI Look",
+          "role": "Proof visual",
+          "afterHeading": "Use believable motion"
+        },
+        {
+          "src": "/blogs/cinematic-ai-product-ads/story-moment.webp",
+          "alt": "story moment for Cinematic AI Product Ads Without the AI Look",
+          "role": "Story feature",
+          "afterHeading": "Finish with human-quality compositing"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "creative-agency-vs-in-house-d2c": {
+      "slug": "creative-agency-vs-in-house-d2c",
+      "originalFolder": "creative-agency-vs-in-house-d2c",
+      "finalFolder": "/blogs/creative-agency-vs-in-house-d2c",
+      "cover": {
+        "src": "/blogs/creative-agency-vs-in-house-d2c/cover.webp",
+        "alt": "Creative Agency vs InHouse Team for D2C Brands - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/creative-agency-vs-in-house-d2c/decision-visual.webp",
+          "alt": "decision visual for Creative Agency vs InHouse Team for D2C Brands",
+          "role": "Decision feature",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/creative-agency-vs-in-house-d2c/side-a.webp",
+          "alt": "side a for Creative Agency vs InHouse Team for D2C Brands",
+          "role": "Comparison side A",
+          "afterHeading": "Control and context"
+        },
+        {
+          "src": "/blogs/creative-agency-vs-in-house-d2c/side-b.webp",
+          "alt": "side b for Creative Agency vs InHouse Team for D2C Brands",
+          "role": "Comparison side B",
+          "afterHeading": "Specialist capacity"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "creative-angles-for-d2c-ads": {
+      "slug": "creative-angles-for-d2c-ads",
+      "originalFolder": "creative-angles-for-d2c-ads",
+      "finalFolder": "/blogs/creative-angles-for-d2c-ads",
+      "cover": {
+        "src": "/blogs/creative-angles-for-d2c-ads/cover.webp",
+        "alt": "How to Find Better Creative Angles for D2C Ads - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/creative-angles-for-d2c-ads/execution-example.webp",
+          "alt": "execution example for How to Find Better Creative Angles for D2C Ads",
+          "role": "Execution example",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/creative-angles-for-d2c-ads/strategy-context.webp",
+          "alt": "strategy context for How to Find Better Creative Angles for D2C Ads",
+          "role": "Strategy context",
+          "afterHeading": "Start with customer language"
+        },
+        {
+          "src": "/blogs/creative-angles-for-d2c-ads/system-visual.webp",
+          "alt": "system visual for How to Find Better Creative Angles for D2C Ads",
+          "role": "System feature",
+          "afterHeading": "Turn objections into angles"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "creative-library-organization": {
+      "slug": "creative-library-organization",
+      "originalFolder": "creative-library-organization",
+      "finalFolder": "/blogs/creative-library-organization",
+      "cover": {
+        "src": "/blogs/creative-library-organization/cover.webp",
+        "alt": "How to Organize a Creative Library So Your Team Can Actually Use It - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/creative-library-organization/process-in-motion.webp",
+          "alt": "process in motion for How to Organize a Creative Library So Your Team Can Actually Use It",
+          "role": "Process editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/creative-library-organization/starting-point.webp",
+          "alt": "starting point for How to Organize a Creative Library So Your Team Can Actually Use It",
+          "role": "Starting point",
+          "afterHeading": "Use consistent naming"
+        }
+      ],
+      "imageCount": 3,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "creative-metrics-beyond-roas": {
+      "slug": "creative-metrics-beyond-roas",
+      "originalFolder": "creative-metrics-beyond-roas",
+      "finalFolder": "/blogs/creative-metrics-beyond-roas",
+      "cover": {
+        "src": "/blogs/creative-metrics-beyond-roas/cover.webp",
+        "alt": "Creative Metrics Beyond ROAS What to Watch - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/creative-metrics-beyond-roas/analysis-context.webp",
+          "alt": "analysis context for Creative Metrics Beyond ROAS What to Watch",
+          "role": "Analysis context",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/creative-metrics-beyond-roas/decision-model.webp",
+          "alt": "decision model for Creative Metrics Beyond ROAS What to Watch",
+          "role": "Decision support",
+          "afterHeading": "Hook and hold signals"
+        }
+      ],
+      "imageCount": 3,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "creative-production-budget-d2c": {
+      "slug": "creative-production-budget-d2c",
+      "originalFolder": "creative-production-budget-d2c",
+      "finalFolder": "/blogs/creative-production-budget-d2c",
+      "cover": {
+        "src": "/blogs/creative-production-budget-d2c/cover.webp",
+        "alt": "How to Plan a Creative Production Budget - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/creative-production-budget-d2c/analysis-context.webp",
+          "alt": "analysis context for How to Plan a Creative Production Budget",
+          "role": "Analysis context",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/creative-production-budget-d2c/decision-model.webp",
+          "alt": "decision model for How to Plan a Creative Production Budget",
+          "role": "Decision support",
+          "afterHeading": "Separate hero and testing work"
+        }
+      ],
+      "imageCount": 3,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "creative-testing-budget-guide": {
+      "slug": "creative-testing-budget-guide",
+      "originalFolder": "creative-testing-budget-guide",
+      "finalFolder": "/blogs/creative-testing-budget-guide",
+      "cover": {
+        "src": "/blogs/creative-testing-budget-guide/cover.webp",
+        "alt": "How Much Budget Should You Allocate to Creative Testing - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/creative-testing-budget-guide/analysis-context.webp",
+          "alt": "analysis context for How Much Budget Should You Allocate to Creative Testing",
+          "role": "Analysis context",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/creative-testing-budget-guide/decision-model.webp",
+          "alt": "decision model for How Much Budget Should You Allocate to Creative Testing",
+          "role": "Decision support",
+          "afterHeading": "Start from decisions you need to make"
+        }
+      ],
+      "imageCount": 3,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "d2c-creative-content-engine": {
+      "slug": "d2c-creative-content-engine",
+      "originalFolder": "d2c-creative-content-engine",
+      "finalFolder": "/blogs/d2c-creative-content-engine",
+      "cover": {
+        "src": "/blogs/d2c-creative-content-engine/cover.webp",
+        "alt": "Building a Creative Content Engine for a Growing D2C Brand - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/d2c-creative-content-engine/execution-example.webp",
+          "alt": "execution example for Building a Creative Content Engine for a Growing D2C Brand",
+          "role": "Execution example",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/d2c-creative-content-engine/strategy-context.webp",
+          "alt": "strategy context for Building a Creative Content Engine for a Growing D2C Brand",
+          "role": "Strategy context",
+          "afterHeading": "Brief from insight"
+        },
+        {
+          "src": "/blogs/d2c-creative-content-engine/system-visual.webp",
+          "alt": "system visual for Building a Creative Content Engine for a Growing D2C Brand",
+          "role": "System feature",
+          "afterHeading": "Produce modular assets"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "d2c-creative-strategy-guide": {
+      "slug": "d2c-creative-strategy-guide",
+      "originalFolder": "d2c-creative-strategy-guide",
+      "finalFolder": "/blogs/d2c-creative-strategy-guide",
+      "cover": {
+        "src": "/blogs/d2c-creative-strategy-guide/cover.webp",
+        "alt": "How to Build a D2C Creative Strategy - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/d2c-creative-strategy-guide/execution-example.webp",
+          "alt": "execution example for How to Build a D2C Creative Strategy",
+          "role": "Execution example",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/d2c-creative-strategy-guide/strategy-context.webp",
+          "alt": "strategy context for How to Build a D2C Creative Strategy",
+          "role": "Strategy context",
+          "afterHeading": "Start from customer problems"
+        },
+        {
+          "src": "/blogs/d2c-creative-strategy-guide/system-visual.webp",
+          "alt": "system visual for How to Build a D2C Creative Strategy",
+          "role": "System feature",
+          "afterHeading": "Choose a creative mix"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "d2c-skincare-ad-creative-playbook": {
+      "slug": "d2c-skincare-ad-creative-playbook",
+      "originalFolder": "d2c-skincare-ad-creative-playbook",
+      "finalFolder": "/blogs/d2c-skincare-ad-creative-playbook",
+      "cover": {
+        "src": "/blogs/d2c-skincare-ad-creative-playbook/cover.webp",
+        "alt": "D2C Skincare Ad Creative A Practical Playbook - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/d2c-skincare-ad-creative-playbook/context-use.webp",
+          "alt": "context use for D2C Skincare Ad Creative A Practical Playbook",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/d2c-skincare-ad-creative-playbook/hero-detail.webp",
+          "alt": "hero detail for D2C Skincare Ad Creative A Practical Playbook",
+          "role": "Detail editorial",
+          "afterHeading": "Routine-led storytelling"
+        },
+        {
+          "src": "/blogs/d2c-skincare-ad-creative-playbook/playbook-gallery.webp",
+          "alt": "playbook gallery for D2C Skincare Ad Creative A Practical Playbook",
+          "role": "Playbook gallery",
+          "afterHeading": "Texture and sensory cues"
+        },
+        {
+          "src": "/blogs/d2c-skincare-ad-creative-playbook/proof.webp",
+          "alt": "proof for D2C Skincare Ad Creative A Practical Playbook",
+          "role": "Proof visual",
+          "afterHeading": "Proof without overclaiming"
+        },
+        {
+          "src": "/blogs/d2c-skincare-ad-creative-playbook/story-moment.webp",
+          "alt": "story moment for D2C Skincare Ad Creative A Practical Playbook",
+          "role": "Story feature",
+          "afterHeading": "Creative variety"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "fashion-ad-creative-playbook": {
+      "slug": "fashion-ad-creative-playbook",
+      "originalFolder": "fashion-ad-creative-playbook",
+      "finalFolder": "/blogs/fashion-ad-creative-playbook",
+      "cover": {
+        "src": "/blogs/fashion-ad-creative-playbook/cover.webp",
+        "alt": "Fashion Ad Creative How to Sell Fit Feel and Identity - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/fashion-ad-creative-playbook/context-use.webp",
+          "alt": "context use for Fashion Ad Creative How to Sell Fit Feel and Identity",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/fashion-ad-creative-playbook/hero-detail.webp",
+          "alt": "hero detail for Fashion Ad Creative How to Sell Fit Feel and Identity",
+          "role": "Detail editorial",
+          "afterHeading": "Show movement"
+        },
+        {
+          "src": "/blogs/fashion-ad-creative-playbook/playbook-gallery.webp",
+          "alt": "playbook gallery for Fashion Ad Creative How to Sell Fit Feel and Identity",
+          "role": "Playbook gallery",
+          "afterHeading": "Show fit"
+        },
+        {
+          "src": "/blogs/fashion-ad-creative-playbook/proof.webp",
+          "alt": "proof for Fashion Ad Creative How to Sell Fit Feel and Identity",
+          "role": "Proof visual",
+          "afterHeading": "Use styling as context"
+        },
+        {
+          "src": "/blogs/fashion-ad-creative-playbook/story-moment.webp",
+          "alt": "story moment for Fashion Ad Creative How to Sell Fit Feel and Identity",
+          "role": "Story feature",
+          "afterHeading": "Mix UGC and editorial"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "fitness-wellness-ad-creative-playbook": {
+      "slug": "fitness-wellness-ad-creative-playbook",
+      "originalFolder": "fitness-wellness-ad-creative-playbook",
+      "finalFolder": "/blogs/fitness-wellness-ad-creative-playbook",
+      "cover": {
+        "src": "/blogs/fitness-wellness-ad-creative-playbook/cover.webp",
+        "alt": "Fitness  Wellness Ad Creative From Motivation to Proof - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/fitness-wellness-ad-creative-playbook/context-use.webp",
+          "alt": "context use for Fitness  Wellness Ad Creative From Motivation to Proof",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/fitness-wellness-ad-creative-playbook/hero-detail.webp",
+          "alt": "hero detail for Fitness  Wellness Ad Creative From Motivation to Proof",
+          "role": "Detail editorial",
+          "afterHeading": "Anchor in routines"
+        },
+        {
+          "src": "/blogs/fitness-wellness-ad-creative-playbook/playbook-gallery.webp",
+          "alt": "playbook gallery for Fitness  Wellness Ad Creative From Motivation to Proof",
+          "role": "Playbook gallery",
+          "afterHeading": "Demonstrate use"
+        },
+        {
+          "src": "/blogs/fitness-wellness-ad-creative-playbook/proof.webp",
+          "alt": "proof for Fitness  Wellness Ad Creative From Motivation to Proof",
+          "role": "Proof visual",
+          "afterHeading": "Use believable proof"
+        },
+        {
+          "src": "/blogs/fitness-wellness-ad-creative-playbook/story-moment.webp",
+          "alt": "story moment for Fitness  Wellness Ad Creative From Motivation to Proof",
+          "role": "Story feature",
+          "afterHeading": "Avoid exaggerated promises"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "food-beverage-ad-creative-playbook": {
+      "slug": "food-beverage-ad-creative-playbook",
+      "originalFolder": "food-beverage-ad-creative-playbook",
+      "finalFolder": "/blogs/food-beverage-ad-creative-playbook",
+      "cover": {
+        "src": "/blogs/food-beverage-ad-creative-playbook/cover.webp",
+        "alt": "Food  Beverage Ad Creative Make the Product Feel Immediate - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/food-beverage-ad-creative-playbook/context-use.webp",
+          "alt": "context use for Food  Beverage Ad Creative Make the Product Feel Immediate",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/food-beverage-ad-creative-playbook/hero-detail.webp",
+          "alt": "hero detail for Food  Beverage Ad Creative Make the Product Feel Immediate",
+          "role": "Detail editorial",
+          "afterHeading": "Show the consumption moment"
+        },
+        {
+          "src": "/blogs/food-beverage-ad-creative-playbook/playbook-gallery.webp",
+          "alt": "playbook gallery for Food  Beverage Ad Creative Make the Product Feel Immediate",
+          "role": "Playbook gallery",
+          "afterHeading": "Protect packaging"
+        },
+        {
+          "src": "/blogs/food-beverage-ad-creative-playbook/proof.webp",
+          "alt": "proof for Food  Beverage Ad Creative Make the Product Feel Immediate",
+          "role": "Proof visual",
+          "afterHeading": "Use texture and sound"
+        },
+        {
+          "src": "/blogs/food-beverage-ad-creative-playbook/story-moment.webp",
+          "alt": "story moment for Food  Beverage Ad Creative Make the Product Feel Immediate",
+          "role": "Story feature",
+          "afterHeading": "Keep claims specific"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "founder-led-ads-guide": {
+      "slug": "founder-led-ads-guide",
+      "originalFolder": "founder-led-ads-guide",
+      "finalFolder": "/blogs/founder-led-ads-guide",
+      "cover": {
+        "src": "/blogs/founder-led-ads-guide/cover.webp",
+        "alt": "FounderLed Ads When They Work and How to Make Them Better - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/founder-led-ads-guide/core-concept.webp",
+          "alt": "core concept for FounderLed Ads When They Work and How to Make Them Better",
+          "role": "Core concept editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/founder-led-ads-guide/practical-example.webp",
+          "alt": "practical example for FounderLed Ads When They Work and How to Make Them Better",
+          "role": "Practical example",
+          "afterHeading": "Use founder-specific authority"
+        },
+        {
+          "src": "/blogs/founder-led-ads-guide/takeaway.webp",
+          "alt": "takeaway for FounderLed Ads When They Work and How to Make Them Better",
+          "role": "Takeaway visual",
+          "afterHeading": "Keep the script conversational"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "home-decor-ad-creative-playbook": {
+      "slug": "home-decor-ad-creative-playbook",
+      "originalFolder": "home-decor-ad-creative-playbook",
+      "finalFolder": "/blogs/home-decor-ad-creative-playbook",
+      "cover": {
+        "src": "/blogs/home-decor-ad-creative-playbook/cover.webp",
+        "alt": "Home  Decor Ad Creative Selling the Room Not Just the Product - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/home-decor-ad-creative-playbook/context-use.webp",
+          "alt": "context use for Home  Decor Ad Creative Selling the Room Not Just the Product",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/home-decor-ad-creative-playbook/hero-detail.webp",
+          "alt": "hero detail for Home  Decor Ad Creative Selling the Room Not Just the Product",
+          "role": "Detail editorial",
+          "afterHeading": "Show scale"
+        },
+        {
+          "src": "/blogs/home-decor-ad-creative-playbook/playbook-gallery.webp",
+          "alt": "playbook gallery for Home  Decor Ad Creative Selling the Room Not Just the Product",
+          "role": "Playbook gallery",
+          "afterHeading": "Show the room context"
+        },
+        {
+          "src": "/blogs/home-decor-ad-creative-playbook/proof.webp",
+          "alt": "proof for Home  Decor Ad Creative Selling the Room Not Just the Product",
+          "role": "Proof visual",
+          "afterHeading": "Use before-and-after carefully"
+        },
+        {
+          "src": "/blogs/home-decor-ad-creative-playbook/story-moment.webp",
+          "alt": "story moment for Home  Decor Ad Creative Selling the Room Not Just the Product",
+          "role": "Story feature",
+          "afterHeading": "Highlight materials"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "how-many-ugc-creatives-per-month": {
+      "slug": "how-many-ugc-creatives-per-month",
+      "originalFolder": "how-many-ugc-creatives-per-month",
+      "finalFolder": "/blogs/how-many-ugc-creatives-per-month",
+      "cover": {
+        "src": "/blogs/how-many-ugc-creatives-per-month/cover.webp",
+        "alt": "How Many UGC Creatives Should a D2C Brand Produce Each Month - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/how-many-ugc-creatives-per-month/analysis-context.webp",
+          "alt": "analysis context for How Many UGC Creatives Should a D2C Brand Produce Each Month",
+          "role": "Analysis context",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/how-many-ugc-creatives-per-month/decision-model.webp",
+          "alt": "decision model for How Many UGC Creatives Should a D2C Brand Produce Each Month",
+          "role": "Decision support",
+          "afterHeading": "Start from testing capacity"
+        }
+      ],
+      "imageCount": 3,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "how-to-choose-ugc-creative-agency": {
+      "slug": "how-to-choose-ugc-creative-agency",
+      "originalFolder": "how-to-choose-ugc-creative-agency",
+      "finalFolder": "/blogs/how-to-choose-ugc-creative-agency",
+      "cover": {
+        "src": "/blogs/how-to-choose-ugc-creative-agency/cover.webp",
+        "alt": "How to Choose a UGC or Creative Agency - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/how-to-choose-ugc-creative-agency/analysis-context.webp",
+          "alt": "analysis context for How to Choose a UGC or Creative Agency",
+          "role": "Analysis context",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/how-to-choose-ugc-creative-agency/decision-model.webp",
+          "alt": "decision model for How to Choose a UGC or Creative Agency",
+          "role": "Decision support",
+          "afterHeading": "Look beyond portfolio polish"
+        }
+      ],
+      "imageCount": 3,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "how-to-write-ugc-ad-script": {
+      "slug": "how-to-write-ugc-ad-script",
+      "originalFolder": "how-to-write-ugc-ad-script",
+      "finalFolder": "/blogs/how-to-write-ugc-ad-script",
+      "cover": {
+        "src": "/blogs/how-to-write-ugc-ad-script/cover.webp",
+        "alt": "How to Write a UGC Ad Script That Does Not Sound Scripted - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/how-to-write-ugc-ad-script/delivery-notes.webp",
+          "alt": "delivery notes for How to Write a UGC Ad Script That Does Not Sound Scripted",
+          "role": "Support visual",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/how-to-write-ugc-ad-script/natural-vs-scripted.webp",
+          "alt": "natural vs scripted for How to Write a UGC Ad Script That Does Not Sound Scripted",
+          "role": "Comparison editorial",
+          "afterHeading": "Start with a real observation"
+        },
+        {
+          "src": "/blogs/how-to-write-ugc-ad-script/script-anatomy.webp",
+          "alt": "script anatomy for How to Write a UGC Ad Script That Does Not Sound Scripted",
+          "role": "Annotated editorial",
+          "afterHeading": "Move from pain to product naturally"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "jewellery-ad-creative-playbook": {
+      "slug": "jewellery-ad-creative-playbook",
+      "originalFolder": "jewellery-ad-creative-playbook",
+      "finalFolder": "/blogs/jewellery-ad-creative-playbook",
+      "cover": {
+        "src": "/blogs/jewellery-ad-creative-playbook/cover.webp",
+        "alt": "Jewellery Ad Creative Making Detail and Desire Visible - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/jewellery-ad-creative-playbook/context-use.webp",
+          "alt": "context use for Jewellery Ad Creative Making Detail and Desire Visible",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/jewellery-ad-creative-playbook/hero-detail.webp",
+          "alt": "hero detail for Jewellery Ad Creative Making Detail and Desire Visible",
+          "role": "Detail editorial",
+          "afterHeading": "Detail first"
+        },
+        {
+          "src": "/blogs/jewellery-ad-creative-playbook/playbook-gallery.webp",
+          "alt": "playbook gallery for Jewellery Ad Creative Making Detail and Desire Visible",
+          "role": "Playbook gallery",
+          "afterHeading": "Show scale on body"
+        },
+        {
+          "src": "/blogs/jewellery-ad-creative-playbook/proof.webp",
+          "alt": "proof for Jewellery Ad Creative Making Detail and Desire Visible",
+          "role": "Proof visual",
+          "afterHeading": "Use gifting moments"
+        },
+        {
+          "src": "/blogs/jewellery-ad-creative-playbook/story-moment.webp",
+          "alt": "story moment for Jewellery Ad Creative Making Detail and Desire Visible",
+          "role": "Story feature",
+          "afterHeading": "Balance luxury and clarity"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "meta-ad-creative-checklist": {
+      "slug": "meta-ad-creative-checklist",
+      "originalFolder": "meta-ad-creative-checklist",
+      "finalFolder": "/blogs/meta-ad-creative-checklist",
+      "cover": {
+        "src": "/blogs/meta-ad-creative-checklist/cover.webp",
+        "alt": "Meta Ad Creative Checklist for D2C Brands - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/meta-ad-creative-checklist/core-concept.webp",
+          "alt": "core concept for Meta Ad Creative Checklist for D2C Brands",
+          "role": "Core concept editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/meta-ad-creative-checklist/practical-example.webp",
+          "alt": "practical example for Meta Ad Creative Checklist for D2C Brands",
+          "role": "Practical example",
+          "afterHeading": "Hook clarity"
+        },
+        {
+          "src": "/blogs/meta-ad-creative-checklist/takeaway.webp",
+          "alt": "takeaway for Meta Ad Creative Checklist for D2C Brands",
+          "role": "Takeaway visual",
+          "afterHeading": "Product clarity"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "meta-ads-creative-testing-framework": {
+      "slug": "meta-ads-creative-testing-framework",
+      "originalFolder": "meta-ads-creative-testing-framework",
+      "finalFolder": "/blogs/meta-ads-creative-testing-framework",
+      "cover": {
+        "src": "/blogs/meta-ads-creative-testing-framework/cover.webp",
+        "alt": "A Creative Testing Framework for Meta Ads - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/meta-ads-creative-testing-framework/execution-example.webp",
+          "alt": "execution example for A Creative Testing Framework for Meta Ads",
+          "role": "Execution example",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/meta-ads-creative-testing-framework/strategy-context.webp",
+          "alt": "strategy context for A Creative Testing Framework for Meta Ads",
+          "role": "Strategy context",
+          "afterHeading": "Test concepts before micro-variants"
+        },
+        {
+          "src": "/blogs/meta-ads-creative-testing-framework/system-visual.webp",
+          "alt": "system visual for A Creative Testing Framework for Meta Ads",
+          "role": "System feature",
+          "afterHeading": "Isolate variables"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "meta-creative-fatigue-guide": {
+      "slug": "meta-creative-fatigue-guide",
+      "originalFolder": "meta-creative-fatigue-guide",
+      "finalFolder": "/blogs/meta-creative-fatigue-guide",
+      "cover": {
+        "src": "/blogs/meta-creative-fatigue-guide/cover.webp",
+        "alt": "Creative Fatigue on Meta What It Looks Like and What to Change - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/meta-creative-fatigue-guide/analysis-context.webp",
+          "alt": "analysis context for Creative Fatigue on Meta What It Looks Like and What to Change",
+          "role": "Analysis context",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/meta-creative-fatigue-guide/decision-model.webp",
+          "alt": "decision model for Creative Fatigue on Meta What It Looks Like and What to Change",
+          "role": "Decision support",
+          "afterHeading": "Recognize fatigue signals"
+        }
+      ],
+      "imageCount": 3,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "monthly-creative-calendar-d2c": {
+      "slug": "monthly-creative-calendar-d2c",
+      "originalFolder": "monthly-creative-calendar-d2c",
+      "finalFolder": "/blogs/monthly-creative-calendar-d2c",
+      "cover": {
+        "src": "/blogs/monthly-creative-calendar-d2c/cover.webp",
+        "alt": "A Monthly Creative Calendar for D2C Brands - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/monthly-creative-calendar-d2c/execution-example.webp",
+          "alt": "execution example for A Monthly Creative Calendar for D2C Brands",
+          "role": "Execution example",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/monthly-creative-calendar-d2c/strategy-context.webp",
+          "alt": "strategy context for A Monthly Creative Calendar for D2C Brands",
+          "role": "Strategy context",
+          "afterHeading": "Plan around business moments"
+        },
+        {
+          "src": "/blogs/monthly-creative-calendar-d2c/system-visual.webp",
+          "alt": "system visual for A Monthly Creative Calendar for D2C Brands",
+          "role": "System feature",
+          "afterHeading": "Reserve testing capacity"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "packshot-to-campaign-visual": {
+      "slug": "packshot-to-campaign-visual",
+      "originalFolder": "packshot-to-campaign-visual",
+      "finalFolder": "/blogs/packshot-to-campaign-visual",
+      "cover": {
+        "src": "/blogs/packshot-to-campaign-visual/cover.webp",
+        "alt": "From Packshot to Campaign Visual Building a Product Image System - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/packshot-to-campaign-visual/before-after.webp",
+          "alt": "before after for From Packshot to Campaign Visual Building a Product Image System",
+          "role": "Transformation feature",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/packshot-to-campaign-visual/process-in-motion.webp",
+          "alt": "process in motion for From Packshot to Campaign Visual Building a Product Image System",
+          "role": "Process editorial",
+          "afterHeading": "Lock the packshot"
+        },
+        {
+          "src": "/blogs/packshot-to-campaign-visual/result.webp",
+          "alt": "result for From Packshot to Campaign Visual Building a Product Image System",
+          "role": "Finished result",
+          "afterHeading": "Create an art direction board"
+        },
+        {
+          "src": "/blogs/packshot-to-campaign-visual/starting-point.webp",
+          "alt": "starting point for From Packshot to Campaign Visual Building a Product Image System",
+          "role": "Starting point",
+          "afterHeading": "Build scene families"
+        }
+      ],
+      "imageCount": 5,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "performance-creative-brief": {
+      "slug": "performance-creative-brief",
+      "originalFolder": "performance-creative-brief",
+      "finalFolder": "/blogs/performance-creative-brief",
+      "cover": {
+        "src": "/blogs/performance-creative-brief/cover.webp",
+        "alt": "How to Write a Better Performance Creative Brief - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/performance-creative-brief/core-concept.webp",
+          "alt": "core concept for How to Write a Better Performance Creative Brief",
+          "role": "Core concept editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/performance-creative-brief/practical-example.webp",
+          "alt": "practical example for How to Write a Better Performance Creative Brief",
+          "role": "Practical example",
+          "afterHeading": "Define the buyer tension"
+        }
+      ],
+      "imageCount": 3,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "pet-brand-ad-creative-playbook": {
+      "slug": "pet-brand-ad-creative-playbook",
+      "originalFolder": "pet-brand-ad-creative-playbook",
+      "finalFolder": "/blogs/pet-brand-ad-creative-playbook",
+      "cover": {
+        "src": "/blogs/pet-brand-ad-creative-playbook/cover.webp",
+        "alt": "Pet Brand Ad Creative Products Through the Owners Eyes - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/pet-brand-ad-creative-playbook/context-use.webp",
+          "alt": "context use for Pet Brand Ad Creative Products Through the Owners Eyes",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/pet-brand-ad-creative-playbook/hero-detail.webp",
+          "alt": "hero detail for Pet Brand Ad Creative Products Through the Owners Eyes",
+          "role": "Detail editorial",
+          "afterHeading": "Start from owner problems"
+        },
+        {
+          "src": "/blogs/pet-brand-ad-creative-playbook/playbook-gallery.webp",
+          "alt": "playbook gallery for Pet Brand Ad Creative Products Through the Owners Eyes",
+          "role": "Playbook gallery",
+          "afterHeading": "Show the pet naturally"
+        },
+        {
+          "src": "/blogs/pet-brand-ad-creative-playbook/proof.webp",
+          "alt": "proof for Pet Brand Ad Creative Products Through the Owners Eyes",
+          "role": "Proof visual",
+          "afterHeading": "Demonstrate the product"
+        },
+        {
+          "src": "/blogs/pet-brand-ad-creative-playbook/story-moment.webp",
+          "alt": "story moment for Pet Brand Ad Creative Products Through the Owners Eyes",
+          "role": "Story feature",
+          "afterHeading": "Use trust cues"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "product-ad-storyboard-framework": {
+      "slug": "product-ad-storyboard-framework",
+      "originalFolder": "product-ad-storyboard-framework",
+      "finalFolder": "/blogs/product-ad-storyboard-framework",
+      "cover": {
+        "src": "/blogs/product-ad-storyboard-framework/cover.webp",
+        "alt": "A Simple Storyboard Framework for Product Ads - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/product-ad-storyboard-framework/before-after.webp",
+          "alt": "before after for A Simple Storyboard Framework for Product Ads",
+          "role": "Transformation feature",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/product-ad-storyboard-framework/process-in-motion.webp",
+          "alt": "process in motion for A Simple Storyboard Framework for Product Ads",
+          "role": "Process editorial",
+          "afterHeading": "Frame the hook"
+        },
+        {
+          "src": "/blogs/product-ad-storyboard-framework/result.webp",
+          "alt": "result for A Simple Storyboard Framework for Product Ads",
+          "role": "Finished result",
+          "afterHeading": "Show the product job"
+        },
+        {
+          "src": "/blogs/product-ad-storyboard-framework/starting-point.webp",
+          "alt": "starting point for A Simple Storyboard Framework for Product Ads",
+          "role": "Starting point",
+          "afterHeading": "Add proof or transformation"
+        }
+      ],
+      "imageCount": 5,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "product-demo-ad-guide": {
+      "slug": "product-demo-ad-guide",
+      "originalFolder": "product-demo-ad-guide",
+      "finalFolder": "/blogs/product-demo-ad-guide",
+      "cover": {
+        "src": "/blogs/product-demo-ad-guide/cover.webp",
+        "alt": "Product Demo Ads How to Make the Product the Story - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/product-demo-ad-guide/example-01.webp",
+          "alt": "example 01 for Product Demo Ads How to Make the Product the Story",
+          "role": "Example visual",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/product-demo-ad-guide/example-02.webp",
+          "alt": "example 02 for Product Demo Ads How to Make the Product the Story",
+          "role": "Example visual",
+          "afterHeading": "Choose one job to demonstrate"
+        },
+        {
+          "src": "/blogs/product-demo-ad-guide/example-03.webp",
+          "alt": "example 03 for Product Demo Ads How to Make the Product the Story",
+          "role": "Example visual",
+          "afterHeading": "Use close-up evidence"
+        },
+        {
+          "src": "/blogs/product-demo-ad-guide/example-04.webp",
+          "alt": "example 04 for Product Demo Ads How to Make the Product the Story",
+          "role": "Example visual",
+          "afterHeading": "Remove unnecessary narration"
+        },
+        {
+          "src": "/blogs/product-demo-ad-guide/examples-gallery.webp",
+          "alt": "examples gallery for Product Demo Ads How to Make the Product the Story",
+          "role": "Gallery / synthesis",
+          "afterHeading": "Build variants from one demo"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "product-image-consistency-at-scale": {
+      "slug": "product-image-consistency-at-scale",
+      "originalFolder": "product-image-consistency-at-scale",
+      "finalFolder": "/blogs/product-image-consistency-at-scale",
+      "cover": {
+        "src": "/blogs/product-image-consistency-at-scale/cover.webp",
+        "alt": "How to Keep Product Images Consistent Across a Large Catalogue - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/product-image-consistency-at-scale/execution-example.webp",
+          "alt": "execution example for How to Keep Product Images Consistent Across a Large Catalogue",
+          "role": "Execution example",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/product-image-consistency-at-scale/strategy-context.webp",
+          "alt": "strategy context for How to Keep Product Images Consistent Across a Large Catalogue",
+          "role": "Strategy context",
+          "afterHeading": "Create visual rules"
+        },
+        {
+          "src": "/blogs/product-image-consistency-at-scale/system-visual.webp",
+          "alt": "system visual for How to Keep Product Images Consistent Across a Large Catalogue",
+          "role": "System feature",
+          "afterHeading": "Standardize crops"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "product-launch-creative-plan": {
+      "slug": "product-launch-creative-plan",
+      "originalFolder": "product-launch-creative-plan",
+      "finalFolder": "/blogs/product-launch-creative-plan",
+      "cover": {
+        "src": "/blogs/product-launch-creative-plan/cover.webp",
+        "alt": "A Creative Plan for Product Launches - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/product-launch-creative-plan/execution-example.webp",
+          "alt": "execution example for A Creative Plan for Product Launches",
+          "role": "Execution example",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/product-launch-creative-plan/strategy-context.webp",
+          "alt": "strategy context for A Creative Plan for Product Launches",
+          "role": "Strategy context",
+          "afterHeading": "Tease the problem or world"
+        },
+        {
+          "src": "/blogs/product-launch-creative-plan/system-visual.webp",
+          "alt": "system visual for A Creative Plan for Product Launches",
+          "role": "System feature",
+          "afterHeading": "Reveal the product"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "product-photo-to-ai-video-ad": {
+      "slug": "product-photo-to-ai-video-ad",
+      "originalFolder": "product-photo-to-ai-video-ad",
+      "finalFolder": "/blogs/product-photo-to-ai-video-ad",
+      "cover": {
+        "src": "/blogs/product-photo-to-ai-video-ad/cover.webp",
+        "alt": "From Product Photo to AI Video Ad A Practical Workflow - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/product-photo-to-ai-video-ad/before-after.webp",
+          "alt": "before after for From Product Photo to AI Video Ad A Practical Workflow",
+          "role": "Transformation feature",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/product-photo-to-ai-video-ad/process-in-motion.webp",
+          "alt": "process in motion for From Product Photo to AI Video Ad A Practical Workflow",
+          "role": "Process editorial",
+          "afterHeading": "Prepare clean source assets"
+        },
+        {
+          "src": "/blogs/product-photo-to-ai-video-ad/result.webp",
+          "alt": "result for From Product Photo to AI Video Ad A Practical Workflow",
+          "role": "Finished result",
+          "afterHeading": "Lock product details"
+        },
+        {
+          "src": "/blogs/product-photo-to-ai-video-ad/starting-point.webp",
+          "alt": "starting point for From Product Photo to AI Video Ad A Practical Workflow",
+          "role": "Starting point",
+          "afterHeading": "Generate scene by scene"
+        }
+      ],
+      "imageCount": 5,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "product-video-ad-script": {
+      "slug": "product-video-ad-script",
+      "originalFolder": "product-video-ad-script",
+      "finalFolder": "/blogs/product-video-ad-script",
+      "cover": {
+        "src": "/blogs/product-video-ad-script/cover.webp",
+        "alt": "How to Write a Product Video Ad Script - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/product-video-ad-script/core-concept.webp",
+          "alt": "core concept for How to Write a Product Video Ad Script",
+          "role": "Core concept editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/product-video-ad-script/practical-example.webp",
+          "alt": "practical example for How to Write a Product Video Ad Script",
+          "role": "Practical example",
+          "afterHeading": "One promise per video"
+        },
+        {
+          "src": "/blogs/product-video-ad-script/takeaway.webp",
+          "alt": "takeaway for How to Write a Product Video Ad Script",
+          "role": "Takeaway visual",
+          "afterHeading": "Show before you explain"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "shopify-product-photography-checklist": {
+      "slug": "shopify-product-photography-checklist",
+      "originalFolder": "shopify-product-photography-checklist",
+      "finalFolder": "/blogs/shopify-product-photography-checklist",
+      "cover": {
+        "src": "/blogs/shopify-product-photography-checklist/cover.webp",
+        "alt": "Product Photography Checklist for Shopify Brands - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/shopify-product-photography-checklist/core-concept.webp",
+          "alt": "core concept for Product Photography Checklist for Shopify Brands",
+          "role": "Core concept editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/shopify-product-photography-checklist/practical-example.webp",
+          "alt": "practical example for Product Photography Checklist for Shopify Brands",
+          "role": "Practical example",
+          "afterHeading": "Hero image clarity"
+        },
+        {
+          "src": "/blogs/shopify-product-photography-checklist/takeaway.webp",
+          "alt": "takeaway for Product Photography Checklist for Shopify Brands",
+          "role": "Takeaway visual",
+          "afterHeading": "Detail coverage"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "static-vs-video-ads-meta": {
+      "slug": "static-vs-video-ads-meta",
+      "originalFolder": "static-vs-video-ads-meta",
+      "finalFolder": "/blogs/static-vs-video-ads-meta",
+      "cover": {
+        "src": "/blogs/static-vs-video-ads-meta/cover.webp",
+        "alt": "Static Ads vs Video Ads on Meta - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/static-vs-video-ads-meta/decision-visual.webp",
+          "alt": "decision visual for Static Ads vs Video Ads on Meta",
+          "role": "Decision feature",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/static-vs-video-ads-meta/side-a.webp",
+          "alt": "side a for Static Ads vs Video Ads on Meta",
+          "role": "Comparison side A",
+          "afterHeading": "Message complexity"
+        },
+        {
+          "src": "/blogs/static-vs-video-ads-meta/side-b.webp",
+          "alt": "side b for Static Ads vs Video Ads on Meta",
+          "role": "Comparison side B",
+          "afterHeading": "Proof requirements"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "supplement-ad-creative-playbook": {
+      "slug": "supplement-ad-creative-playbook",
+      "originalFolder": "supplement-ad-creative-playbook",
+      "finalFolder": "/blogs/supplement-ad-creative-playbook",
+      "cover": {
+        "src": "/blogs/supplement-ad-creative-playbook/cover.webp",
+        "alt": "Supplement Ad Creative Building Trust Without Overclaiming - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/supplement-ad-creative-playbook/context-use.webp",
+          "alt": "context use for Supplement Ad Creative Building Trust Without Overclaiming",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/supplement-ad-creative-playbook/hero-detail.webp",
+          "alt": "hero detail for Supplement Ad Creative Building Trust Without Overclaiming",
+          "role": "Detail editorial",
+          "afterHeading": "Lead with use context"
+        },
+        {
+          "src": "/blogs/supplement-ad-creative-playbook/story-moment.webp",
+          "alt": "story moment for Supplement Ad Creative Building Trust Without Overclaiming",
+          "role": "Story feature",
+          "afterHeading": "Build trust"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "thumb-stop-hooks-meta-ads": {
+      "slug": "thumb-stop-hooks-meta-ads",
+      "originalFolder": "thumb-stop-hooks-meta-ads",
+      "finalFolder": "/blogs/thumb-stop-hooks-meta-ads",
+      "cover": {
+        "src": "/blogs/thumb-stop-hooks-meta-ads/cover.webp",
+        "alt": "ThumbStop Hooks How to Earn the Next Three Seconds - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/thumb-stop-hooks-meta-ads/example-01.webp",
+          "alt": "example 01 for ThumbStop Hooks How to Earn the Next Three Seconds",
+          "role": "Example visual",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/thumb-stop-hooks-meta-ads/example-02.webp",
+          "alt": "example 02 for ThumbStop Hooks How to Earn the Next Three Seconds",
+          "role": "Example visual",
+          "afterHeading": "Use visual specificity"
+        },
+        {
+          "src": "/blogs/thumb-stop-hooks-meta-ads/example-03.webp",
+          "alt": "example 03 for ThumbStop Hooks How to Earn the Next Three Seconds",
+          "role": "Example visual",
+          "afterHeading": "Open on the buyer problem"
+        },
+        {
+          "src": "/blogs/thumb-stop-hooks-meta-ads/example-04.webp",
+          "alt": "example 04 for ThumbStop Hooks How to Earn the Next Three Seconds",
+          "role": "Example visual",
+          "afterHeading": "Make the product obvious"
+        },
+        {
+          "src": "/blogs/thumb-stop-hooks-meta-ads/examples-gallery.webp",
+          "alt": "examples gallery for ThumbStop Hooks How to Earn the Next Three Seconds",
+          "role": "Gallery / synthesis",
+          "afterHeading": "Avoid empty shock value"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "ugc-ads-for-fashion-brands": {
+      "slug": "ugc-ads-for-fashion-brands",
+      "originalFolder": "ugc-ads-for-fashion-brands",
+      "finalFolder": "/blogs/ugc-ads-for-fashion-brands",
+      "cover": {
+        "src": "/blogs/ugc-ads-for-fashion-brands/cover.webp",
+        "alt": "UGC Ads for Fashion Brands Formats That Show the Product - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ugc-ads-for-fashion-brands/context-use.webp",
+          "alt": "context use for UGC Ads for Fashion Brands Formats That Show the Product",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-fashion-brands/hero-detail.webp",
+          "alt": "hero detail for UGC Ads for Fashion Brands Formats That Show the Product",
+          "role": "Detail editorial",
+          "afterHeading": "Fit and movement"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-fashion-brands/playbook-gallery.webp",
+          "alt": "playbook gallery for UGC Ads for Fashion Brands Formats That Show the Product",
+          "role": "Playbook gallery",
+          "afterHeading": "Try-on storytelling"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-fashion-brands/proof.webp",
+          "alt": "proof for UGC Ads for Fashion Brands Formats That Show the Product",
+          "role": "Proof visual",
+          "afterHeading": "Styling angles"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-fashion-brands/story-moment.webp",
+          "alt": "story moment for UGC Ads for Fashion Brands Formats That Show the Product",
+          "role": "Story feature",
+          "afterHeading": "Detail shots that sell"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ugc-ads-for-meta": {
+      "slug": "ugc-ads-for-meta",
+      "originalFolder": "ugc-ads-for-meta",
+      "finalFolder": "/blogs/ugc-ads-for-meta",
+      "cover": {
+        "src": "/blogs/ugc-ads-for-meta/cover.webp",
+        "alt": "How to Build UGC Ads for Meta - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ugc-ads-for-meta/core-concept.webp",
+          "alt": "core concept for How to Build UGC Ads for Meta",
+          "role": "Core concept editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-meta/practical-example.webp",
+          "alt": "practical example for How to Build UGC Ads for Meta",
+          "role": "Practical example",
+          "afterHeading": "Design for sound-off and sound-on"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-meta/takeaway.webp",
+          "alt": "takeaway for How to Build UGC Ads for Meta",
+          "role": "Takeaway visual",
+          "afterHeading": "Build hook variants"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ugc-ads-for-skincare-brands": {
+      "slug": "ugc-ads-for-skincare-brands",
+      "originalFolder": "ugc-ads-for-skincare-brands",
+      "finalFolder": "/blogs/ugc-ads-for-skincare-brands",
+      "cover": {
+        "src": "/blogs/ugc-ads-for-skincare-brands/cover.webp",
+        "alt": "UGC Ads for Skincare Brands A Creative Playbook - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ugc-ads-for-skincare-brands/context-use.webp",
+          "alt": "context use for UGC Ads for Skincare Brands A Creative Playbook",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-skincare-brands/hero-detail.webp",
+          "alt": "hero detail for UGC Ads for Skincare Brands A Creative Playbook",
+          "role": "Detail editorial",
+          "afterHeading": "Show the routine"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-skincare-brands/playbook-gallery.webp",
+          "alt": "playbook gallery for UGC Ads for Skincare Brands A Creative Playbook",
+          "role": "Playbook gallery",
+          "afterHeading": "Make texture visible"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-skincare-brands/proof.webp",
+          "alt": "proof for UGC Ads for Skincare Brands A Creative Playbook",
+          "role": "Proof visual",
+          "afterHeading": "Handle claims carefully"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-skincare-brands/story-moment.webp",
+          "alt": "story moment for UGC Ads for Skincare Brands A Creative Playbook",
+          "role": "Story feature",
+          "afterHeading": "Use proof cues"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ugc-ads-for-supplement-brands": {
+      "slug": "ugc-ads-for-supplement-brands",
+      "originalFolder": "ugc-ads-for-supplement-brands",
+      "finalFolder": "/blogs/ugc-ads-for-supplement-brands",
+      "cover": {
+        "src": "/blogs/ugc-ads-for-supplement-brands/cover.webp",
+        "alt": "UGC Ads for Supplements Trust Demonstration and Compliance - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ugc-ads-for-supplement-brands/context-use.webp",
+          "alt": "context use for UGC Ads for Supplements Trust Demonstration and Compliance",
+          "role": "Context / lifestyle",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-supplement-brands/hero-detail.webp",
+          "alt": "hero detail for UGC Ads for Supplements Trust Demonstration and Compliance",
+          "role": "Detail editorial",
+          "afterHeading": "Routine-based storytelling"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-supplement-brands/story-moment.webp",
+          "alt": "story moment for UGC Ads for Supplements Trust Demonstration and Compliance",
+          "role": "Story feature",
+          "afterHeading": "Trust signals"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ugc-ads-for-tiktok": {
+      "slug": "ugc-ads-for-tiktok",
+      "originalFolder": "ugc-ads-for-tiktok",
+      "finalFolder": "/blogs/ugc-ads-for-tiktok",
+      "cover": {
+        "src": "/blogs/ugc-ads-for-tiktok/cover.webp",
+        "alt": "How to Build UGC Ads for TikTok - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ugc-ads-for-tiktok/core-concept.webp",
+          "alt": "core concept for How to Build UGC Ads for TikTok",
+          "role": "Core concept editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-tiktok/practical-example.webp",
+          "alt": "practical example for How to Build UGC Ads for TikTok",
+          "role": "Practical example",
+          "afterHeading": "Native pacing"
+        },
+        {
+          "src": "/blogs/ugc-ads-for-tiktok/takeaway.webp",
+          "alt": "takeaway for How to Build UGC Ads for TikTok",
+          "role": "Takeaway visual",
+          "afterHeading": "Creator-style delivery"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ugc-ads-that-dont-feel-like-ads": {
+      "slug": "ugc-ads-that-dont-feel-like-ads",
+      "originalFolder": "ugc-ads-that-dont-feel-like-ads",
+      "finalFolder": "/blogs/ugc-ads-that-dont-feel-like-ads",
+      "cover": {
+        "src": "/blogs/ugc-ads-that-dont-feel-like-ads/cover.webp",
+        "alt": "UGC Ads That Do Not Feel Like Ads - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ugc-ads-that-dont-feel-like-ads/believable-use.webp",
+          "alt": "believable use for UGC Ads That Do Not Feel Like Ads",
+          "role": "Lifestyle editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ugc-ads-that-dont-feel-like-ads/brand-recognition.webp",
+          "alt": "brand recognition for UGC Ads That Do Not Feel Like Ads",
+          "role": "Editorial product",
+          "afterHeading": "Native-looking framing"
+        },
+        {
+          "src": "/blogs/ugc-ads-that-dont-feel-like-ads/native-feed-gallery.webp",
+          "alt": "native feed gallery for UGC Ads That Do Not Feel Like Ads",
+          "role": "Gallery",
+          "afterHeading": "Believable product use"
+        },
+        {
+          "src": "/blogs/ugc-ads-that-dont-feel-like-ads/native-framing.webp",
+          "alt": "native framing for UGC Ads That Do Not Feel Like Ads",
+          "role": "Lifestyle editorial",
+          "afterHeading": "Specificity over hype"
+        },
+        {
+          "src": "/blogs/ugc-ads-that-dont-feel-like-ads/specificity-over-hype.webp",
+          "alt": "specificity over hype for UGC Ads That Do Not Feel Like Ads",
+          "role": "Annotated editorial",
+          "afterHeading": "Keeping the brand recognizable"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ugc-first-3-seconds-hooks": {
+      "slug": "ugc-first-3-seconds-hooks",
+      "originalFolder": "ugc-first-3-seconds-hooks",
+      "finalFolder": "/blogs/ugc-first-3-seconds-hooks",
+      "cover": {
+        "src": "/blogs/ugc-first-3-seconds-hooks/cover.webp",
+        "alt": "The First 3 Seconds How to Build Better UGC Hooks - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ugc-first-3-seconds-hooks/hook-failures.webp",
+          "alt": "hook failures for The First 3 Seconds How to Build Better UGC Hooks",
+          "role": "Closing feature",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ugc-first-3-seconds-hooks/product-first-frame.webp",
+          "alt": "product first frame for The First 3 Seconds How to Build Better UGC Hooks",
+          "role": "Example",
+          "afterHeading": "Visual interruption"
+        },
+        {
+          "src": "/blogs/ugc-first-3-seconds-hooks/specific-opening.webp",
+          "alt": "specific opening for The First 3 Seconds How to Build Better UGC Hooks",
+          "role": "Example",
+          "afterHeading": "Specific opening lines"
+        },
+        {
+          "src": "/blogs/ugc-first-3-seconds-hooks/three-second-sequence.webp",
+          "alt": "three second sequence for The First 3 Seconds How to Build Better UGC Hooks",
+          "role": "Sequence",
+          "afterHeading": "Immediate product context"
+        },
+        {
+          "src": "/blogs/ugc-first-3-seconds-hooks/visual-interrupt.webp",
+          "alt": "visual interrupt for The First 3 Seconds How to Build Better UGC Hooks",
+          "role": "Example",
+          "afterHeading": "Testing multiple openings"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ugc-hooks-for-d2c-brands": {
+      "slug": "ugc-hooks-for-d2c-brands",
+      "originalFolder": "ugc-hooks-for-d2c-brands",
+      "finalFolder": "/blogs/ugc-hooks-for-d2c-brands",
+      "cover": {
+        "src": "/blogs/ugc-hooks-for-d2c-brands/cover.webp",
+        "alt": "15 UGC Hooks D2C Brands Can Test - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/ugc-hooks-for-d2c-brands/curiosity-hook.webp",
+          "alt": "curiosity hook for 15 UGC Hooks D2C Brands Can Test",
+          "role": "Example",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/ugc-hooks-for-d2c-brands/hook-gallery.webp",
+          "alt": "hook gallery for 15 UGC Hooks D2C Brands Can Test",
+          "role": "Closing gallery",
+          "afterHeading": "Problem-first hooks"
+        },
+        {
+          "src": "/blogs/ugc-hooks-for-d2c-brands/pattern-interrupt.webp",
+          "alt": "pattern interrupt for 15 UGC Hooks D2C Brands Can Test",
+          "role": "Example",
+          "afterHeading": "Curiosity hooks"
+        },
+        {
+          "src": "/blogs/ugc-hooks-for-d2c-brands/problem-hook.webp",
+          "alt": "problem hook for 15 UGC Hooks D2C Brands Can Test",
+          "role": "Example",
+          "afterHeading": "Proof-led hooks"
+        },
+        {
+          "src": "/blogs/ugc-hooks-for-d2c-brands/proof-hook.webp",
+          "alt": "proof hook for 15 UGC Hooks D2C Brands Can Test",
+          "role": "Example",
+          "afterHeading": "Pattern interrupts"
+        }
+      ],
+      "imageCount": 6,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "ugc-that-actually-converts": {
+      "slug": "ugc-that-actually-converts",
+      "originalFolder": "MISSING",
+      "finalFolder": "/blogs/ugc-that-actually-converts",
+      "cover": null,
+      "supportingImages": [],
+      "imageCount": 0,
+      "status": "missing",
+      "layoutMode": "mixed"
+    },
+    "vertical-product-video-ads-9-16": {
+      "slug": "vertical-product-video-ads-9-16",
+      "originalFolder": "vertical-product-video-ads-9-16",
+      "finalFolder": "/blogs/vertical-product-video-ads-9-16",
+      "cover": {
+        "src": "/blogs/vertical-product-video-ads-9-16/cover.webp",
+        "alt": "How to Design 916 Product Video Ads - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/vertical-product-video-ads-9-16/core-concept.webp",
+          "alt": "core concept for How to Design 916 Product Video Ads",
+          "role": "Core concept editorial",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/vertical-product-video-ads-9-16/practical-example.webp",
+          "alt": "practical example for How to Design 916 Product Video Ads",
+          "role": "Practical example",
+          "afterHeading": "Compose for the phone"
+        },
+        {
+          "src": "/blogs/vertical-product-video-ads-9-16/takeaway.webp",
+          "alt": "takeaway for How to Design 916 Product Video Ads",
+          "role": "Takeaway visual",
+          "afterHeading": "Keep products legible"
+        }
+      ],
+      "imageCount": 4,
+      "status": "mapped",
+      "layoutMode": "mixed"
+    },
+    "why-good-looking-ads-fail": {
+      "slug": "why-good-looking-ads-fail",
+      "originalFolder": "why-good-looking-ads-fail",
+      "finalFolder": "/blogs/why-good-looking-ads-fail",
+      "cover": {
+        "src": "/blogs/why-good-looking-ads-fail/cover.webp",
+        "alt": "Why GoodLooking Ads Still Fail - Hero Feature"
+      },
+      "supportingImages": [
+        {
+          "src": "/blogs/why-good-looking-ads-fail/analysis-context.webp",
+          "alt": "analysis context for Why GoodLooking Ads Still Fail",
+          "role": "Analysis context",
+          "afterHeading": "The short version"
+        },
+        {
+          "src": "/blogs/why-good-looking-ads-fail/decision-model.webp",
+          "alt": "decision model for Why GoodLooking Ads Still Fail",
+          "role": "Decision support",
+          "afterHeading": "Beautiful is not automatically clear"
+        }
+      ],
+      "imageCount": 3,
+      "status": "mapped",
+      "layoutMode": "visual"
+    },
+    "why-most-ai-ads-still-look-like-ai": {
+      "slug": "why-most-ai-ads-still-look-like-ai",
+      "originalFolder": "MISSING",
+      "finalFolder": "/blogs/why-most-ai-ads-still-look-like-ai",
+      "cover": null,
+      "supportingImages": [],
+      "imageCount": 0,
+      "status": "missing",
+      "layoutMode": "mixed"
+    }
+  }
+}
